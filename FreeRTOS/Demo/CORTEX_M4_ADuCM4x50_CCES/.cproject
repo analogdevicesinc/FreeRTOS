@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="arm.toolchain.gcc.target.exe.debug.1383540336">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="arm.toolchain.gcc.target.exe.debug.1383540336" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.analog.crosscore.core.CCESARMErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="clean" description="" errorParsers="com.analog.crosscore.core.CCESARMErrorParser" id="arm.toolchain.gcc.target.exe.debug.1383540336" name="Debug" parent="arm.toolchain.gcc.target.exe.debug">
+					<folderInfo id="arm.toolchain.gcc.target.exe.debug.1383540336." name="/" resourcePath="">
+						<toolChain id="arm.gcc.toolchain.exe.debug.706415402" name="CrossCore GCC ARM Embedded Toolchain" superClass="arm.gcc.toolchain" targetTool="arm.toolchain.gcc.c.linker">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="arm.toolchain.platform.base.1821537419" name="Development Platform" osList="all" superClass="arm.toolchain.platform.base"/>
+							<builder buildPath="${workspace_loc:/RTOSDemo_CCES}/Debug" id="arm.toolchain.builder.base.1120468315" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="arm.toolchain.builder.base"/>
+							<tool id="arm.toolchain.gcc.assembler.944293641" name="CrossCore GCC ARM Embedded Assembler" superClass="arm.toolchain.gcc.assembler">
+								<option id="arm.assembler.option.debuginfo.633578870" name="Generate debug information (-g)" superClass="arm.assembler.option.debuginfo" useByScannerDiscovery="false"/>
+								<option id="arm.toolchain.gcc.assembler.option.mcpu.663704209" name="-mcpu" superClass="arm.toolchain.gcc.assembler.option.mcpu" value="cortex-m4" valueType="string"/>
+								<option id="arm.base.assembler.option.proc.1893989150" name="-mproc" superClass="arm.base.assembler.option.proc" value=" ADuCM4050" valueType="string"/>
+								<option id="arm.assembler.option.sirevision.1621556343" name="-msi-revision" superClass="arm.assembler.option.sirevision" value=" any" valueType="string"/>
+								<option id="arm.assembler.option.preprocessdefs.1870369461" name="Preprocessor definitions (-D):" superClass="arm.assembler.option.preprocessdefs" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="CORE0"/>
+									<listOptionValue builtIn="false" value="_DEBUG"/>
+									<listOptionValue builtIn="false" value="_RTE_"/>
+									<listOptionValue builtIn="false" value="__ADUCM4050__"/>
+									<listOptionValue builtIn="false" value="__SILICON_REVISION__=0xffff"/>
+								</option>
+								<option id="arm.assembler.option.additionaldirectories.1236988034" name="Additional include directories (-I):" superClass="arm.assembler.option.additionaldirectories" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/system}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/ARM/CMSIS/4.5.0/CMSIS/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/AnalogDevices/ADuCM4x50_DFP/1.0.0/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE/Device/ADuCM4050&quot;"/>
+								</option>
+								<inputType id="arm.toolchain.assembler.base.input.2013892392" superClass="arm.toolchain.assembler.base.input"/>
+							</tool>
+							<tool id="arm.toolchain.gcc.c.compiler.831862459" name="CrossCore GCC ARM Embedded C Compiler" superClass="arm.toolchain.gcc.c.compiler">
+								<option defaultValue="false" id="arm.base.compiler.option.optimization.enable.1415576347" name="Enable optimization" superClass="arm.base.compiler.option.optimization.enable" value="false" valueType="boolean"/>
+								<option defaultValue="arm.base.compiler.option.optimization.og" id="arm.base.compiler.option.optimization.2078007287" name="Optimization level" superClass="arm.base.compiler.option.optimization" value="arm.base.compiler.option.optimization.og" valueType="enumerated"/>
+								<option defaultValue="true" id="arm.base.compiler.option.debug.1978891474" name="Generate debug information (-g)" superClass="arm.base.compiler.option.debug" valueType="boolean"/>
+								<option id="arm.toolchain.gcc.c.compiler.option.mcpu.177262138" name="-mcpu" superClass="arm.toolchain.gcc.c.compiler.option.mcpu" value="cortex-m4" valueType="string"/>
+								<option id="arm.base.compiler.option.proc.1484825891" name="-mproc" superClass="arm.base.compiler.option.proc" value=" ADuCM4050" valueType="string"/>
+								<option id="arm.base.compiler.option.sirevision.296323448" name="-msi-revision" superClass="arm.base.compiler.option.sirevision" value=" any" valueType="string"/>
+								<option id="arm.base.compiler.option.preprocessdefs.1960126016" name="Preprocessor definitions (-D):" superClass="arm.base.compiler.option.preprocessdefs" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="CORE0"/>
+									<listOptionValue builtIn="false" value="_DEBUG"/>
+									<listOptionValue builtIn="false" value="ADI_DISABLE_INSTRUCTION_SRAM"/>
+									<listOptionValue builtIn="false" value="ENABLE_CACHE"/>
+									<listOptionValue builtIn="false" value="_RTE_"/>
+									<listOptionValue builtIn="false" value="__ADUCM4050__"/>
+									<listOptionValue builtIn="false" value="__SILICON_REVISION__=0xffff"/>
+								</option>
+								<option id="arm.toolchain.cpp.compiler.option.coreid.1274205169" name="Specify the core Id (-DCORE[A|B|0-2])" superClass="arm.toolchain.cpp.compiler.option.coreid" value="0" valueType="string"/>
+								<option id="arm.base.compiler.option.include.paths.1949952260" name="Additional include directories (-I):" superClass="arm.base.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}\..\..\Source\portable\GCC\ARM_CM4F&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}\..\..\Source\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}\..\..\Demo\Common\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}\Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/system}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/ARM/CMSIS/4.5.0/CMSIS/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/AnalogDevices/ADuCM4x50_DFP/1.0.0/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE/Device/ADuCM4050&quot;"/>
+								</option>
+								<option id="arm.base.compiler.option.preprocessundef.1817501129" name="Preprocessor undefines (-U):" superClass="arm.base.compiler.option.preprocessundef"/>
+								<option id="arm.base.compiler.option.additionaloptions.745777335" name="Additional options:" superClass="arm.base.compiler.option.additionaloptions" valueType="stringList">
+									<listOptionValue builtIn="false" value="-mfpu=fpv4-sp-d16 -mfloat-abi=softfp"/>
+								</option>
+								<inputType id="arm.toolchain.gcc.c.input.630149642" superClass="arm.toolchain.gcc.c.input"/>
+							</tool>
+							<tool id="arm.toolchain.gcc.c.linker.2034366331" name="CrossCore GCC ARM Embedded C Linker" superClass="arm.toolchain.gcc.c.linker">
+								<option id="arm.toolchain.gcc.c.linker.option.mcpu.585459399" name="-mcpu" superClass="arm.toolchain.gcc.c.linker.option.mcpu" value="cortex-m4" valueType="string"/>
+								<option id="arm.linker.option.proc.141078597" name="-mproc" superClass="arm.linker.option.proc" value=" ADuCM4050" valueType="string"/>
+								<option id="arm.linker.option.sirevision.1843477755" name="-msi-revision" superClass="arm.linker.option.sirevision" value=" any" valueType="string"/>
+								<option id="arm.linker.option.ldprocessing.ldfile.160351605" name="Custom linker script (-T)" superClass="arm.linker.option.ldprocessing.ldfile" value="${workspace_loc:/${ProjName}}/RTE/Device/ADuCM4050/ADuCM4050.ld" valueType="string"/>
+								<inputType id="arm.linker.input.82357309" superClass="arm.linker.input">
+									<additionalInput kind="additionaldependency" paths="$(USER_OBJS)"/>
+								</inputType>
+							</tool>
+							<tool id="arm.toolchain.gcc.cpp.compiler.1211554256" name="CrossCore GCC ARM Embedded C++ Compiler" superClass="arm.toolchain.gcc.cpp.compiler">
+								<option defaultValue="false" id="arm.base.compiler.option.optimization.enable.960718220" name="Enable optimization" superClass="arm.base.compiler.option.optimization.enable" valueType="boolean"/>
+								<option defaultValue="arm.base.compiler.option.optimization.og" id="arm.base.compiler.option.optimization.1076309938" name="Optimization level" superClass="arm.base.compiler.option.optimization" valueType="enumerated"/>
+								<option defaultValue="true" id="arm.base.compiler.option.debug.1661346880" name="Generate debug information (-g)" superClass="arm.base.compiler.option.debug" valueType="boolean"/>
+								<option id="arm.toolchain.gcc.cpp.compiler.option.mcpu.779591182" name="-mcpu" superClass="arm.toolchain.gcc.cpp.compiler.option.mcpu" value="cortex-m4" valueType="string"/>
+								<option id="arm.base.compiler.option.proc.1656967967" name="-mproc" superClass="arm.base.compiler.option.proc" value=" ADuCM4050" valueType="string"/>
+								<option id="arm.base.compiler.option.sirevision.1270246241" name="-msi-revision" superClass="arm.base.compiler.option.sirevision" value=" any" valueType="string"/>
+								<option id="arm.base.compiler.option.preprocessdefs.154674266" name="Preprocessor definitions (-D):" superClass="arm.base.compiler.option.preprocessdefs" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="CORE0"/>
+									<listOptionValue builtIn="false" value="_RTE_"/>
+									<listOptionValue builtIn="false" value="__ADUCM4050__"/>
+									<listOptionValue builtIn="false" value="__SILICON_REVISION__=0xffff"/>
+								</option>
+								<option id="arm.toolchain.cpp.compiler.option.coreid.52014241" name="Specify the core Id (-DCORE[A|B|0-2])" superClass="arm.toolchain.cpp.compiler.option.coreid" value="0" valueType="string"/>
+								<option id="arm.base.compiler.option.include.paths.585459230" name="Additional include directories (-I):" superClass="arm.base.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/ARM/CMSIS/4.5.0/CMSIS/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/AnalogDevices/ADuCM4x50_DFP/1.0.0/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE/Device/ADuCM4050&quot;"/>
+								</option>
+							</tool>
+							<tool id="arm.toolchain.gcc.cpp.linker.1196539885" name="CrossCore GCC ARM Embedded C++ Linker" superClass="arm.toolchain.gcc.cpp.linker">
+								<option id="arm.toolchain.gcc.cpp.linker.option.mcpu.1837860327" name="-mcpu" superClass="arm.toolchain.gcc.cpp.linker.option.mcpu" value="cortex-m4" valueType="string"/>
+								<option id="arm.linker.option.proc.1107140711" name="-mproc" superClass="arm.linker.option.proc" value=" ADuCM4050" valueType="string"/>
+								<option id="arm.linker.option.sirevision.1348351768" name="-msi-revision" superClass="arm.linker.option.sirevision" value=" any" valueType="string"/>
+								<option id="arm.linker.option.ldprocessing.ldfile.1746438800" name="Custom linker script (-T)" superClass="arm.linker.option.ldprocessing.ldfile" value="${workspace_loc:/${ProjName}}/RTE/Device/ADuCM4050/ADuCM4050.ld" valueType="string"/>
+							</tool>
+							<tool id="arm.toolchain.gcc.archiver.1280180696" name="CrossCore GCC ARM Embedded Archiver" superClass="arm.toolchain.gcc.archiver"/>
+							<tool id="arm.loader.863256173" name="ARM Loader Base" superClass="arm.loader">
+								<option id="arm.loader.option.proc.762689981" name="-proc" superClass="arm.loader.option.proc" value=" ADuCM4050" valueType="string"/>
+								<option id="arm.loader.option.sirevision.945327711" name="-si-revision" superClass="arm.loader.option.sirevision" value=" any" valueType="string"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<folderInfo id="arm.toolchain.gcc.target.exe.debug.1383540336.system" name="system" resourcePath="system">
+						<toolChain id="arm.gcc.toolchain.207665710" name="CrossCore GCC ARM Embedded Toolchain" superClass="arm.gcc.toolchain" unusedChildren="">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="arm.toolchain.platform.base" name="Development Platform" osList="all" superClass="arm.toolchain.platform.base"/>
+							<tool id="arm.toolchain.gcc.assembler.55225404" name="CrossCore GCC ARM Embedded Assembler" superClass="arm.toolchain.gcc.assembler.944293641">
+								<inputType id="arm.toolchain.assembler.base.input.1925957679" superClass="arm.toolchain.assembler.base.input"/>
+							</tool>
+							<tool id="arm.toolchain.gcc.c.compiler.1921393438" name="CrossCore GCC ARM Embedded C Compiler" superClass="arm.toolchain.gcc.c.compiler.831862459">
+								<inputType id="arm.toolchain.gcc.c.input.830933407" superClass="arm.toolchain.gcc.c.input"/>
+							</tool>
+							<tool id="arm.toolchain.gcc.c.linker.2024805905" name="CrossCore GCC ARM Embedded C Linker" superClass="arm.toolchain.gcc.c.linker.2034366331"/>
+							<tool id="arm.toolchain.gcc.cpp.compiler.1812429575" name="CrossCore GCC ARM Embedded C++ Compiler" superClass="arm.toolchain.gcc.cpp.compiler.1211554256"/>
+							<tool id="arm.toolchain.gcc.cpp.linker.1641266394" name="CrossCore GCC ARM Embedded C++ Linker" superClass="arm.toolchain.gcc.cpp.linker.1196539885"/>
+							<tool id="arm.toolchain.gcc.archiver.1701260975" name="CrossCore GCC ARM Embedded Archiver" superClass="arm.toolchain.gcc.archiver.1280180696"/>
+							<tool id="arm.loader.1342064465" name="ARM Loader Base" superClass="arm.loader.863256173"/>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="system|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="system"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="arm.toolchain.gcc.target.exe.release.261700656">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="arm.toolchain.gcc.target.exe.release.261700656" moduleId="org.eclipse.cdt.core.settings" name="Release">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.analog.crosscore.core.CCESARMErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="clean" description="" errorParsers="com.analog.crosscore.core.CCESARMErrorParser" id="arm.toolchain.gcc.target.exe.release.261700656" name="Release" parent="arm.toolchain.gcc.target.exe.release">
+					<folderInfo id="arm.toolchain.gcc.target.exe.release.261700656." name="/" resourcePath="">
+						<toolChain id="arm.gcc.toolchain.exe.release.1510449488" name="CrossCore GCC ARM Embedded Toolchain" superClass="arm.gcc.toolchain" targetTool="arm.toolchain.gcc.c.linker">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="arm.toolchain.platform.base.1362606819" name="Development Platform" osList="all" superClass="arm.toolchain.platform.base"/>
+							<builder buildPath="${workspace_loc:/RTOSDemo_CCES}/Release" id="arm.toolchain.builder.base.816515449" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="arm.toolchain.builder.base"/>
+							<tool id="arm.toolchain.gcc.assembler.1741326902" name="CrossCore GCC ARM Embedded Assembler" superClass="arm.toolchain.gcc.assembler">
+								<option id="arm.assembler.option.debuginfo.1016942717" name="Generate debug information (-g)" superClass="arm.assembler.option.debuginfo" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="arm.toolchain.gcc.assembler.option.mcpu.1118290168" name="-mcpu" superClass="arm.toolchain.gcc.assembler.option.mcpu" value="cortex-m4" valueType="string"/>
+								<option id="arm.base.assembler.option.proc.240381438" name="-mproc" superClass="arm.base.assembler.option.proc" value=" ADuCM4050" valueType="string"/>
+								<option id="arm.assembler.option.sirevision.199412774" name="-msi-revision" superClass="arm.assembler.option.sirevision" value=" any" valueType="string"/>
+								<option id="arm.assembler.option.preprocessdefs.1023450288" name="Preprocessor definitions (-D):" superClass="arm.assembler.option.preprocessdefs" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="CORE0"/>
+									<listOptionValue builtIn="false" value="NDEBUG"/>
+									<listOptionValue builtIn="false" value="_RTE_"/>
+									<listOptionValue builtIn="false" value="__ADUCM4050__"/>
+									<listOptionValue builtIn="false" value="__SILICON_REVISION__=0xffff"/>
+								</option>
+								<option id="arm.assembler.option.additionaldirectories.1267050709" name="Additional include directories (-I):" superClass="arm.assembler.option.additionaldirectories" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/system}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/ARM/CMSIS/4.5.0/CMSIS/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/AnalogDevices/ADuCM4x50_DFP/1.0.0/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE/Device/ADuCM4050&quot;"/>
+								</option>
+								<inputType id="arm.toolchain.assembler.base.input.1660207758" superClass="arm.toolchain.assembler.base.input"/>
+							</tool>
+							<tool id="arm.toolchain.gcc.c.compiler.1482119171" name="CrossCore GCC ARM Embedded C Compiler" superClass="arm.toolchain.gcc.c.compiler">
+								<option defaultValue="true" id="arm.base.compiler.option.optimization.enable.1863331707" name="Enable optimization" superClass="arm.base.compiler.option.optimization.enable" value="true" valueType="boolean"/>
+								<option defaultValue="arm.base.compiler.option.optimization.o2" id="arm.base.compiler.option.optimization.1566504845" name="Optimization level" superClass="arm.base.compiler.option.optimization" valueType="enumerated"/>
+								<option defaultValue="false" id="arm.base.compiler.option.debug.1869968526" name="Generate debug information (-g)" superClass="arm.base.compiler.option.debug" value="false" valueType="boolean"/>
+								<option id="arm.toolchain.gcc.c.compiler.option.mcpu.37527640" name="-mcpu" superClass="arm.toolchain.gcc.c.compiler.option.mcpu" value="cortex-m4" valueType="string"/>
+								<option id="arm.base.compiler.option.proc.1246955569" name="-mproc" superClass="arm.base.compiler.option.proc" value=" ADuCM4050" valueType="string"/>
+								<option id="arm.base.compiler.option.sirevision.25005749" name="-msi-revision" superClass="arm.base.compiler.option.sirevision" value=" any" valueType="string"/>
+								<option id="arm.base.compiler.option.preprocessdefs.1632594418" name="Preprocessor definitions (-D):" superClass="arm.base.compiler.option.preprocessdefs" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="CORE0"/>
+									<listOptionValue builtIn="false" value="NDEBUG"/>
+									<listOptionValue builtIn="false" value="ADI_DISABLE_INSTRUCTION_SRAM"/>
+									<listOptionValue builtIn="false" value="ENABLE_CACHE"/>
+									<listOptionValue builtIn="false" value="_RTE_"/>
+									<listOptionValue builtIn="false" value="__ADUCM4050__"/>
+									<listOptionValue builtIn="false" value="__SILICON_REVISION__=0xffff"/>
+								</option>
+								<option id="arm.toolchain.cpp.compiler.option.coreid.226468418" name="Specify the core Id (-DCORE[A|B|0-2])" superClass="arm.toolchain.cpp.compiler.option.coreid" value="0" valueType="string"/>
+								<option id="arm.base.compiler.option.include.paths.1968000524" name="Additional include directories (-I):" superClass="arm.base.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}\..\..\Source\portable\GCC\ARM_CM4F&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}\..\..\Source\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}\..\..\Demo\Common\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}\Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/system}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/ARM/CMSIS/4.5.0/CMSIS/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/AnalogDevices/ADuCM4x50_DFP/1.0.0/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE/Device/ADuCM4050&quot;"/>
+								</option>
+								<option id="arm.base.compiler.option.additionaloptions.1021321748" name="Additional options:" superClass="arm.base.compiler.option.additionaloptions" valueType="stringList">
+									<listOptionValue builtIn="false" value="-mfpu=fpv4-sp-d16 -mfloat-abi=softfp"/>
+								</option>
+								<inputType id="arm.toolchain.gcc.c.input.1258679518" superClass="arm.toolchain.gcc.c.input"/>
+							</tool>
+							<tool id="arm.toolchain.gcc.c.linker.1902256831" name="CrossCore GCC ARM Embedded C Linker" superClass="arm.toolchain.gcc.c.linker">
+								<option id="arm.toolchain.gcc.c.linker.option.mcpu.401566431" name="-mcpu" superClass="arm.toolchain.gcc.c.linker.option.mcpu" value="cortex-m4" valueType="string"/>
+								<option id="arm.linker.option.proc.1721554057" name="-mproc" superClass="arm.linker.option.proc" value=" ADuCM4050" valueType="string"/>
+								<option id="arm.linker.option.sirevision.978423329" name="-msi-revision" superClass="arm.linker.option.sirevision" value=" any" valueType="string"/>
+								<option id="arm.linker.option.ldprocessing.ldfile.1851436907" name="Custom linker script (-T)" superClass="arm.linker.option.ldprocessing.ldfile" value="${workspace_loc:/${ProjName}}/RTE/Device/ADuCM4050/ADuCM4050.ld" valueType="string"/>
+								<inputType id="arm.linker.input.474406553" superClass="arm.linker.input">
+									<additionalInput kind="additionaldependency" paths="$(USER_OBJS)"/>
+								</inputType>
+							</tool>
+							<tool id="arm.toolchain.gcc.cpp.compiler.1445328895" name="CrossCore GCC ARM Embedded C++ Compiler" superClass="arm.toolchain.gcc.cpp.compiler">
+								<option defaultValue="true" id="arm.base.compiler.option.optimization.enable.218209917" name="Enable optimization" superClass="arm.base.compiler.option.optimization.enable" valueType="boolean"/>
+								<option defaultValue="arm.base.compiler.option.optimization.o2" id="arm.base.compiler.option.optimization.1905197458" name="Optimization level" superClass="arm.base.compiler.option.optimization" valueType="enumerated"/>
+								<option defaultValue="false" id="arm.base.compiler.option.debug.1031305651" name="Generate debug information (-g)" superClass="arm.base.compiler.option.debug" valueType="boolean"/>
+								<option id="arm.toolchain.gcc.cpp.compiler.option.mcpu.211472945" name="-mcpu" superClass="arm.toolchain.gcc.cpp.compiler.option.mcpu" value="cortex-m4" valueType="string"/>
+								<option id="arm.base.compiler.option.proc.485475782" name="-mproc" superClass="arm.base.compiler.option.proc" value=" ADuCM4050" valueType="string"/>
+								<option id="arm.base.compiler.option.sirevision.349727702" name="-msi-revision" superClass="arm.base.compiler.option.sirevision" value=" any" valueType="string"/>
+								<option id="arm.base.compiler.option.preprocessdefs.207465590" name="Preprocessor definitions (-D):" superClass="arm.base.compiler.option.preprocessdefs" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="CORE0"/>
+									<listOptionValue builtIn="false" value="_RTE_"/>
+									<listOptionValue builtIn="false" value="__ADUCM4050__"/>
+									<listOptionValue builtIn="false" value="__SILICON_REVISION__=0xffff"/>
+								</option>
+								<option id="arm.toolchain.cpp.compiler.option.coreid.195379012" name="Specify the core Id (-DCORE[A|B|0-2])" superClass="arm.toolchain.cpp.compiler.option.coreid" value="0" valueType="string"/>
+								<option id="arm.base.compiler.option.include.paths.1764733108" name="Additional include directories (-I):" superClass="arm.base.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/ARM/CMSIS/4.5.0/CMSIS/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/AnalogDevices/ADuCM4x50_DFP/1.0.0/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE/Device/ADuCM4050&quot;"/>
+								</option>
+							</tool>
+							<tool id="arm.toolchain.gcc.cpp.linker.405217375" name="CrossCore GCC ARM Embedded C++ Linker" superClass="arm.toolchain.gcc.cpp.linker">
+								<option id="arm.toolchain.gcc.cpp.linker.option.mcpu.808609784" name="-mcpu" superClass="arm.toolchain.gcc.cpp.linker.option.mcpu" value="cortex-m4" valueType="string"/>
+								<option id="arm.linker.option.proc.1907478746" name="-mproc" superClass="arm.linker.option.proc" value=" ADuCM4050" valueType="string"/>
+								<option id="arm.linker.option.sirevision.1961940660" name="-msi-revision" superClass="arm.linker.option.sirevision" value=" any" valueType="string"/>
+								<option id="arm.linker.option.ldprocessing.ldfile.1966322253" name="Custom linker script (-T)" superClass="arm.linker.option.ldprocessing.ldfile" value="${workspace_loc:/${ProjName}}/RTE/Device/ADuCM4050/ADuCM4050.ld" valueType="string"/>
+							</tool>
+							<tool id="arm.toolchain.gcc.archiver.918972816" name="CrossCore GCC ARM Embedded Archiver" superClass="arm.toolchain.gcc.archiver"/>
+							<tool id="arm.loader.53123911" name="ARM Loader Base" superClass="arm.loader">
+								<option id="arm.loader.option.proc.554399400" name="-proc" superClass="arm.loader.option.proc" value=" ADuCM4050" valueType="string"/>
+								<option id="arm.loader.option.sirevision.2043887801" name="-si-revision" superClass="arm.loader.option.sirevision" value=" any" valueType="string"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<folderInfo id="arm.toolchain.gcc.target.exe.release.261700656.system" name="system" resourcePath="system">
+						<toolChain id="arm.gcc.toolchain.1331698221" name="CrossCore GCC ARM Embedded Toolchain" superClass="arm.gcc.toolchain" unusedChildren="">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="arm.toolchain.platform.base" name="Development Platform" osList="all" superClass="arm.toolchain.platform.base"/>
+							<tool id="arm.toolchain.gcc.assembler.505936194" name="CrossCore GCC ARM Embedded Assembler" superClass="arm.toolchain.gcc.assembler.1741326902">
+								<inputType id="arm.toolchain.assembler.base.input.691041201" superClass="arm.toolchain.assembler.base.input"/>
+							</tool>
+							<tool id="arm.toolchain.gcc.c.compiler.494875775" name="CrossCore GCC ARM Embedded C Compiler" superClass="arm.toolchain.gcc.c.compiler.1482119171">
+								<inputType id="arm.toolchain.gcc.c.input.991545457" superClass="arm.toolchain.gcc.c.input"/>
+							</tool>
+							<tool id="arm.toolchain.gcc.c.linker.14191015" name="CrossCore GCC ARM Embedded C Linker" superClass="arm.toolchain.gcc.c.linker.1902256831"/>
+							<tool id="arm.toolchain.gcc.cpp.compiler.117031008" name="CrossCore GCC ARM Embedded C++ Compiler" superClass="arm.toolchain.gcc.cpp.compiler.1445328895"/>
+							<tool id="arm.toolchain.gcc.cpp.linker.233287965" name="CrossCore GCC ARM Embedded C++ Linker" superClass="arm.toolchain.gcc.cpp.linker.405217375"/>
+							<tool id="arm.toolchain.gcc.archiver.113843562" name="CrossCore GCC ARM Embedded Archiver" superClass="arm.toolchain.gcc.archiver.918972816"/>
+							<tool id="arm.loader.779094244" name="ARM Loader Base" superClass="arm.loader.53123911"/>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="system|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="system"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="RTOSDemo_CCES.arm.toolchain.gcc.target.exe.326524585" name="GCC ARM Embedded Executable Project" projectType="arm.toolchain.gcc.target.exe"/>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="org.eclipse.cdt.core.language.mapping">
+		<project-mappings>
+			<content-type-mapping configuration="" content-type="org.eclipse.cdt.core.asmSource" language="com.analog.crosscore.ui.asm.adi.extension"/>
+			<content-type-mapping configuration="" content-type="org.eclipse.cdt.core.cHeader" language="org.eclipse.cdt.core.c.adi.extension"/>
+			<content-type-mapping configuration="" content-type="org.eclipse.cdt.core.cSource" language="org.eclipse.cdt.core.c.adi.extension"/>
+			<content-type-mapping configuration="" content-type="org.eclipse.cdt.core.cxxHeader" language="org.eclipse.cdt.core.c++.adi.extension"/>
+			<content-type-mapping configuration="" content-type="org.eclipse.cdt.core.cxxSource" language="org.eclipse.cdt.core.c++.adi.extension"/>
+		</project-mappings>
+	</storageModule>
+	<storageModule moduleId="com.arm.cmsis.project">
+		<rteConfig name="system.rteconfig"/>
+		<toolChainAdapter id="com.analog.crosscore.cmsis.pack.build.gcc.toolChainAdapter" name="CrossCore GCC ARM Embedded Toolchain Adapter"/>
+		<device Dclock="52000000" Dcore="Cortex-M4" DcoreVersion="r0p1" Dendian="Little-endian" Dfamily="ADuCM4x50 Series" Dfpu="SP_FPU" Dmpu="MPU" Dname="ADuCM4050" Dvendor="Analog Devices:1" Pname=""/>
+		<files>
+			<file name="RTE/Device/ADuCM4050/system_ADuCM4050.c" version="1.0.0"/>
+			<file name="RTE/Device/ADuCM4050/adi_wdt_config.h" version="1.0.0"/>
+			<file name="RTE/Device/ADuCM4050/adi_cycle_counting_config.h" version="1.0.0"/>
+			<file name="RTE/Device/ADuCM4050/startup_ADuCM4050.c" version="1.0.0"/>
+			<file name="RTE/Device/ADuCM4050/ADuCM4050.ld" version="1.0.0"/>
+			<file name="RTE/Device/ADuCM4050/adi_global_config.h" version="1.0.0"/>
+			<file name="RTE/Device/ADuCM4050/adi_pwr_config.h" version="1.0.0"/>
+		</files>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="arm.toolchain.gcc.target.exe.release.261700656;arm.toolchain.gcc.target.exe.release.261700656.;arm.toolchain.gcc.c.compiler.1482119171;arm.toolchain.gcc.c.input.1258679518">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="arm.toolchain.gcc.target.exe.debug.1383540336;arm.toolchain.gcc.target.exe.debug.1383540336.;arm.toolchain.gcc.c.compiler.831862459;arm.toolchain.gcc.c.input.630149642">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+	</storageModule>
+	<storageModule moduleId="refreshScope"/>
+</cproject>

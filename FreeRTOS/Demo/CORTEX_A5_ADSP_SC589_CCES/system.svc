@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+	<installedComponents>
+		<component id="com.analog.crosscore.addins.ssldd.gpio.cortexa5" name="GPIO Driver for Cortex-A" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the General-Purpose input/output Port Driver (GPIO)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+	</installedComponents>
+</root>
