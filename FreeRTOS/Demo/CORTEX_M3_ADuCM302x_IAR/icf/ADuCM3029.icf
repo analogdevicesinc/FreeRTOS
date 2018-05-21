@@ -1,0 +1,227 @@
+/*###ICF### Section handled by ICF editor, don't touch! ****/
+/*-Editor annotation file-*/
+/* IcfEditorFile="$TOOLKIT_DIR$\config\ide\IcfEditor\cortex_v1_0.xml" */
+
+/*-Sizes-*/
+define symbol __ICFEDIT_size_cstack__ = 0x280;
+define symbol __ICFEDIT_size_heap__   = 0x180;
+
+/**** End of ICF editor section. ###ICF###*/
+
+define memory mem with size        = 4G;
+
+// symbols
+define symbol USE_PARITY = 1;
+
+define symbol FLASH             = 0x00000000;  // flash address
+define symbol FLASH_SIZE        = 256K;        // 256k flash size
+define symbol FLASH_PAGE_SIZE   = 2K;          // 2k flash page size
+define symbol PAGE0_ROM_START                     = 0x1A0;
+
+// the first page of flash is used for the interrupt vectors and we are
+// reserving the first page after that for the event logging mechanism. This
+// symbol is used in the C code so it must be exported
+define symbol event_flash_start_ld = FLASH + FLASH_PAGE_SIZE;
+export symbol event_flash_start_ld;
+define symbol event_flash_size = FLASH_PAGE_SIZE;
+export symbol event_flash_size;
+
+define symbol SIZE_OF_INTVEC                      = 384;
+define symbol START_OF_READ_PROTECT_KEY_HASH       = FLASH+SIZE_OF_INTVEC;
+define symbol SIZE_OF_READ_PROTECT_KEY_HASH       = 16;
+define symbol START_OF_CRC_READ_PROTECT_KEY_HASH   = FLASH+SIZE_OF_INTVEC+SIZE_OF_READ_PROTECT_KEY_HASH;
+define symbol SIZE_OF_CRC_READ_PROTECT_KEY_HASH   = 4;
+define symbol START_OF_NUM_CRC_PAGES              = FLASH+SIZE_OF_INTVEC+SIZE_OF_READ_PROTECT_KEY_HASH+SIZE_OF_CRC_READ_PROTECT_KEY_HASH;
+define symbol NUM_OF_CRC_PAGES                    = 4;
+
+
+
+// user-selectable SRAM mode
+// SRAM Banks 1 & 2 are dynamically configurable for hibernation retention at runtime
+// referred to here as "xRAM_bank#_retained_region", where x = i (instruction) or d (data) and # = 1 or 2
+define symbol USER_SRAM_MODE = 3;
+
+// RAM bank sizes sizes are invariant... locations vary by RAM Mode#
+define symbol RAM_BANK0_SIZE   =  8K;
+define symbol RAM_BANK1_SIZE   =  8K;
+define symbol RAM_BANK2_SIZE   = 16K;  // instruction in mode 0 or 1. Data in mode 2 or 3
+define symbol RAM_BANK3_SIZE   = 16K;
+define symbol RAM_BANK4_SIZE   = 12K;  // instruction in mode 0 or 1. Data in mode 2 or 3
+define symbol RAM_BANK5_SIZE   =  4K;  // instruction in mode 0 or 1. Data in mode 2 or 3
+define symbol RAM_BANK6_SIZE   = 28K;  // data in mode 3, merge of Bank3 and Bank4
+
+//MODE0 0kB CACHE 32kB ISRAM 32kB DSRAM
+if(USER_SRAM_MODE == 0)
+{
+    define symbol RAM_BANK0 = 0x20000000;   // Always Retained
+    define symbol RAM_BANK1 = 0x20002000;   // Retained during Hibernate if SRAMRET.BANK1EN=1
+    define symbol RAM_BANK2 = 0x10000000;   // Retained during Hibernate if SRAMRET.BANK2EN=1
+    define symbol RAM_BANK3 = 0x20040000;   // Not retained
+    define symbol RAM_BANK4 = 0x10004000;   // Not retained
+
+    define region iRAM_bank2_retained_region  = mem:[from RAM_BANK2 size RAM_BANK2_SIZE];
+    define region iRAM_never_retained_region  = mem:[from RAM_BANK4 size (RAM_BANK4_SIZE + RAM_BANK5_SIZE)];
+
+    // The CSTACK must be placed in DRAM that is always present regardless of mode
+    define region always_present_dRAM           = mem:[from RAM_BANK1 size RAM_BANK1_SIZE];
+
+    define region dram_all_region_retained      = mem:[from RAM_BANK0 size RAM_BANK0_SIZE] | mem:[from RAM_BANK1 size RAM_BANK1_SIZE];
+    define region dram_all_region_not_retained  = mem:[from RAM_BANK3 size RAM_BANK3_SIZE];
+}
+
+//MODE1 4kB CACHE 28kB ISRAM 32kB DSRAM
+else if(USER_SRAM_MODE == 1)
+{
+    define symbol RAM_BANK0 = 0x20000000;   // Always Retained
+    define symbol RAM_BANK1 = 0x20002000;   // Retained during Hibernate if SRAMRET.BANK1EN=1
+    define symbol RAM_BANK2 = 0x10000000;   // Retained during Hibernate if SRAMRET.BANK2EN=1
+    define symbol RAM_BANK3 = 0x20040000;   // Not retained
+    define symbol RAM_BANK4 = 0x10004000;   // Not retained
+
+    define region iRAM_bank2_retained_region  = mem:[from RAM_BANK2 size RAM_BANK2_SIZE];
+    define region iRAM_never_retained_region  = mem:[from RAM_BANK4 size RAM_BANK4_SIZE];
+
+    // The CSTACK must be placed in DRAM that is always present regardless of mode
+    define region always_present_dRAM           = mem:[from RAM_BANK1 size RAM_BANK1_SIZE];
+
+    define region dram_all_region_retained      = mem:[from RAM_BANK0 size RAM_BANK0_SIZE] | mem:[from RAM_BANK1 size RAM_BANK1_SIZE];
+    define region dram_all_region_not_retained  = mem:[from RAM_BANK3 size RAM_BANK3_SIZE];
+}
+
+//MODE2 0kB CACHE 0kB ISRAM 64kB DSRAM
+else if(USER_SRAM_MODE == 2)
+{
+    define symbol RAM_BANK0 = 0x20000000;   // Always Retained
+    define symbol RAM_BANK1 = 0x20002000;   // Retained during Hibernate if SRAMRET.BANK1EN=1
+    define symbol RAM_BANK2 = 0x20004000;   // Retained during Hibernate if SRAMRET.BANK2EN=1
+    define symbol RAM_BANK3 = 0x20040000;   // Not retained
+    define symbol RAM_BANK4 = 0x20044000;   // Not retained
+    define symbol RAM_BANK5 = 0x20047000;   // Not retained
+
+    // The CSTACK must be placed in DRAM that is always present regardless of mode
+    define region always_present_dRAM           = mem:[from RAM_BANK1 size RAM_BANK1_SIZE];
+
+    define region dram_all_region_retained      = mem:[from RAM_BANK0 size RAM_BANK0_SIZE] | mem:[from RAM_BANK1 size RAM_BANK1_SIZE] | mem:[from RAM_BANK2 size RAM_BANK2_SIZE];
+    define region dram_all_region_not_retained  = mem:[from RAM_BANK3 size RAM_BANK3_SIZE] | mem:[from RAM_BANK4 size RAM_BANK4_SIZE] | mem:[from RAM_BANK5 size RAM_BANK5_SIZE];
+}
+
+//MODE3 4kB CACHE 0kB ISRAM 60kB DSRAM
+else if(USER_SRAM_MODE == 3)
+{
+    define symbol RAM_BANK0 = 0x20000000;   // Always Retained
+    define symbol RAM_BANK1 = 0x20002000;   // Retained during Hibernate if SRAMRET.BANK1EN=1
+    define symbol RAM_BANK2 = 0x20004000;   // Retained during Hibernate if SRAMRET.BANK2EN=1
+    define symbol RAM_BANK3 = 0x20040000;   // Not retained
+    define symbol RAM_BANK4 = 0x20044000;   // Not retained
+
+    // The CSTACK must be placed in DRAM that is always present regardless of mode
+    define region always_present_dRAM           = mem:[from RAM_BANK1 size RAM_BANK1_SIZE];
+
+    define region dram_all_region_retained      = mem:[from RAM_BANK0 size RAM_BANK0_SIZE] | mem:[from RAM_BANK1 size RAM_BANK1_SIZE] | mem:[from RAM_BANK2 size RAM_BANK2_SIZE];
+    define region dram_all_region_not_retained  = mem:[from RAM_BANK3 size RAM_BANK6_SIZE];
+}
+
+// ROM regions
+define region ROM_PAGE0_INTVEC              = mem:[from FLASH size SIZE_OF_INTVEC];
+define region START_OF_PAGE0_REGION         = mem:[from (PAGE0_ROM_START) size (FLASH_PAGE_SIZE - PAGE0_ROM_START)];
+define region EVENT_ROM_REGION              = mem:[from (event_flash_start_ld) size (event_flash_size)];
+define region ROM_REGION                    = mem:[from (event_flash_start_ld + event_flash_size) size (FLASH_SIZE - ( FLASH_PAGE_SIZE + event_flash_size ))];
+
+place at address mem: START_OF_READ_PROTECT_KEY_HASH        { readonly section ReadProtectedKeyHash };
+place at address mem: START_OF_CRC_READ_PROTECT_KEY_HASH    { readonly section CRC_ReadProtectedKeyHash };
+place at address mem: START_OF_NUM_CRC_PAGES                { readonly section NumCRCPages };
+
+// C-Runtime blocks
+define block CSTACK with alignment = 8, size = __ICFEDIT_size_cstack__ { };
+define block HEAP   with alignment = 8, size = __ICFEDIT_size_heap__   { };
+
+
+// Flash Page0 contains the checksum block (not optional), as verified by the boot kernel at startup.
+// It is also required to add "--keep __checksum" to the linker "Extra Options" dialogue to preserve the
+// linker-generated "__checksum" symbol.
+define block CHECKSUM      with alignment = 4, size = 4 { ro section .checksum };
+
+// force manditory placement of the CHECKSUM block within Page0
+place at address 0x000007FC { block CHECKSUM };
+
+
+// KEEP these blocks, avoiding linker elimination...
+keep {
+    block CHECKSUM,
+};
+
+
+// initializations...
+do not initialize                                { section .noinit };
+
+// expand encoded initialized data variables from flash image into RAM during C-Runtime Startup
+initialize by copy                               { rw  };
+
+//initialize by copy with packing = none         { section __DLIB_PERTHREAD }; // Required in a multi-threaded application
+
+// ROM: place IVT at start of flash, page zero (ahead of the "meta-data")
+place at start of ROM_PAGE0_INTVEC               { ro section .intvec };
+place in  START_OF_PAGE0_REGION                  { ro section Page0_region };
+
+// ROM: place remaining read-only code/data in flash, starting at flash page1
+place in          ROM_REGION                     { ro };
+
+// place the CSTACK in a known good DRAM location regardless of mode
+place at end of   always_present_dRAM    { block CSTACK };
+
+// just pour all RAM data into the combined DRAM region...
+place in    dram_all_region_retained    	{ block HEAP };
+place in    dram_all_region_retained    	{ section .data };
+place in    dram_all_region_retained    	{ rw };
+place in    dram_all_region_not_retained	{ section .bss  };
+
+// By default all data will be placed into retained memory
+// To direct data to reside in non-retained memory the data must be compiled
+// into in the following sections
+//
+// not_retained_zeroinit     For data that must be initialized to zero
+// not_retained_init         For data initialized to non zero values
+// not_retained_noinit       For data that is not initialized
+//
+// The three sections are used to avoid a compiler warning. There really is no
+// need to create three sections other than to suppress the warning.
+//
+// There are several different ways to direct the compiler to place data into
+// not-retained sections. Examples of doing this with the use of a pragma follows.
+// In each case simply preceed the data definition by a pragma. Each pragma is
+// specific to the definition only and its effect does not carry onto subsequent
+// data definition.
+//
+// (Using a pragma should be portable to other compilers
+//   i.e. unkown pragmas are to be ignored by a compiler)
+//
+// data that is zero initialized
+//    #pragma location="not_retained_zeroinit"
+//    uint32_t                 StatsHeadersSent        = 0u;
+//
+// data that is initialized to non-zero value
+//    #pragma location="not_retained_init"
+//    ADI_PUCK_SENSOR_MSG_ID   StatsLastIDSent         = (ADI_PUCK_SENSOR_MSG_ID)0xdeadbeefu;
+//
+// data that is not initialized
+//    #pragma location="not_retained_noinit"
+//    uint32_t                 Stats;
+//
+//
+// NOTE: Another way to accomplish this is to use the following pragma
+//       which will set all variable defaults, in this case, to be placed
+//       in section "not_retained_noinit"
+//
+//    #pragma default_variable_attributes = @ "not_retained_noinit"
+//
+//
+//       This default will remain in effect for all subsequent definitions as
+//       well. The default section naming can be reset by using the following
+//       pragma
+//
+//    #pragma default_variable_attributes =
+
+place in dram_all_region_not_retained { section not_retained_zeroinit};
+place in dram_all_region_not_retained { section not_retained_init};
+place in dram_all_region_not_retained { section not_retained_noinit};
+

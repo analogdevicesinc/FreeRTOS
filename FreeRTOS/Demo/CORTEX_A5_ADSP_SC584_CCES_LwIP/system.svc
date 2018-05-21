@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+	<installedComponents>
+		<component id="com.analog.crosscore.ssldd.pinmux.component" name="Pin Multiplexing" version="1.0.0" visible="true">
+			<component-description><![CDATA[Since some processors have more peripherals than physical pins on the chip, the user needs to configure which peripherals they want enabled and onto which set of pins.  Peripheral configuration requires an in-depth understanding of the hardware.  This component makes it easier to program the peripherals without worrying about the internal details.  The user simply selects the peripherals to enable and this component will generate the C code necessary to configure the peripherals.]]></component-description>
+			<product name="SSL DD Product" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.twi.cortexa5" name="TWI Driver for Cortex-A" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the Two Wire Interface Driver (TWI)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.lwip.cortexa5" name="Analog Devices' lwIP TCP/IP Stack for Cortex-A5" version="2.6.0" visible="true">
+			<component-description><![CDATA[This component provides ADI's implementation of lwIP TCP/IP stack and configuration utilities.]]></component-description>
+			<product name="ADI lwIP v2.6.0" version="2.6.0"/>
+		</component>
+	</installedComponents>
+	<configurations>
+		<configuration id="com.analog.crosscore.ssldd.pinmux.component">
+			<pinmux-configuration processor="ADSP-SC584" version="1.0">
+				<peripheral description="Ethernet MAC" name="EMAC0">
+					<signal bit="14" mux="0" name="CRS" pin="7" port="A"/>
+					<signal bit="4" mux="0" name="MDC" pin="2" port="A"/>
+					<signal bit="6" mux="0" name="MDIO" pin="3" port="A"/>
+					<signal bit="6" mux="0" name="PTPAUXIN0" pin="3" port="B"/>
+					<signal bit="4" mux="0" name="PTPCLKIN0" pin="2" port="B"/>
+					<signal bit="2" mux="0" name="PTPPPS0" pin="1" port="B"/>
+					<signal bit="0" mux="0" name="PTPPPS1" pin="0" port="B"/>
+					<signal bit="30" mux="0" name="PTPPPS2" pin="15" port="A"/>
+					<signal bit="28" mux="0" name="PTPPPS3" pin="14" port="A"/>
+					<signal bit="12" mux="0" name="RXCLK_REFCLK" pin="6" port="A"/>
+					<signal bit="8" mux="0" name="RXD0" pin="4" port="A"/>
+					<signal bit="10" mux="0" name="RXD1" pin="5" port="A"/>
+					<signal bit="16" mux="0" name="RXD2" pin="8" port="A"/>
+					<signal bit="18" mux="0" name="RXD3" pin="9" port="A"/>
+					<signal bit="22" mux="0" name="TXCLK" pin="11" port="A"/>
+					<signal bit="0" mux="0" name="TXD0" pin="0" port="A"/>
+					<signal bit="2" mux="0" name="TXD1" pin="1" port="A"/>
+					<signal bit="24" mux="0" name="TXD2" pin="12" port="A"/>
+					<signal bit="26" mux="0" name="TXD3" pin="13" port="A"/>
+					<signal bit="20" mux="0" name="TXEN" pin="10" port="A"/>
+				</peripheral>
+				<peripheral description="Ethernet MAC" name="EMAC1">
+					<signal bit="26" mux="0" name="CRS" pin="13" port="F"/>
+					<signal bit="28" mux="0" name="MDC" pin="14" port="F"/>
+					<signal bit="30" mux="0" name="MDIO" pin="15" port="F"/>
+					<signal bit="0" mux="0" name="REFCLK" pin="0" port="G"/>
+					<signal bit="8" mux="0" name="RXD0" pin="4" port="G"/>
+					<signal bit="10" mux="0" name="RXD1" pin="5" port="G"/>
+					<signal bit="4" mux="0" name="TXD0" pin="2" port="G"/>
+					<signal bit="6" mux="0" name="TXD1" pin="3" port="G"/>
+					<signal bit="2" mux="0" name="TXEN" pin="1" port="G"/>
+				</peripheral>
+				<gpio name="Port A">
+					<signal bit="0" name="PA00" pin="0" port="A"/>
+					<signal bit="2" name="PA01" pin="1" port="A"/>
+					<signal bit="4" name="PA02" pin="2" port="A"/>
+					<signal bit="6" name="PA03" pin="3" port="A"/>
+					<signal bit="8" name="PA04" pin="4" port="A"/>
+					<signal bit="10" name="PA05" pin="5" port="A"/>
+					<signal bit="12" name="PA06" pin="6" port="A"/>
+					<signal bit="14" name="PA07" pin="7" port="A"/>
+					<signal bit="16" name="PA08" pin="8" port="A"/>
+					<signal bit="18" name="PA09" pin="9" port="A"/>
+					<signal bit="20" name="PA10" pin="10" port="A"/>
+					<signal bit="22" name="PA11" pin="11" port="A"/>
+					<signal bit="24" name="PA12" pin="12" port="A"/>
+					<signal bit="26" name="PA13" pin="13" port="A"/>
+					<signal bit="28" name="PA14" pin="14" port="A"/>
+					<signal bit="30" name="PA15" pin="15" port="A"/>
+				</gpio>
+				<gpio name="Port B">
+					<signal bit="0" name="PB00" pin="0" port="B"/>
+					<signal bit="2" name="PB01" pin="1" port="B"/>
+					<signal bit="4" name="PB02" pin="2" port="B"/>
+					<signal bit="6" name="PB03" pin="3" port="B"/>
+				</gpio>
+				<gpio name="Port F">
+					<signal bit="26" name="PF13" pin="13" port="F"/>
+					<signal bit="28" name="PF14" pin="14" port="F"/>
+					<signal bit="30" name="PF15" pin="15" port="F"/>
+				</gpio>
+				<gpio name="Port G">
+					<signal bit="0" name="PG00" pin="0" port="G"/>
+					<signal bit="2" name="PG01" pin="1" port="G"/>
+					<signal bit="4" name="PG02" pin="2" port="G"/>
+					<signal bit="6" name="PG03" pin="3" port="G"/>
+					<signal bit="8" name="PG04" pin="4" port="G"/>
+					<signal bit="10" name="PG05" pin="5" port="G"/>
+				</gpio>
+			</pinmux-configuration>
+		</configuration>
+		<configuration id="com.analog.lwip.cortexa5">
+			<lwip-configuration>
+				<schema>1.0</schema>
+				<network-interfaces>
+					<network-interface>
+						<use-dhcp>1</use-dhcp>
+						<rx-buffers>60</rx-buffers>
+						<rx-buffer-size>1600</rx-buffer-size>
+						<tx-buffers>40</tx-buffers>
+						<tx-buffer-size>1548</tx-buffer-size>
+						<mac-address>0x000000000000</mac-address>
+						<ip-address>0</ip-address>
+						<subnet-mask>0</subnet-mask>
+						<gateway>0</gateway>
+					</network-interface>
+				</network-interfaces>
+			</lwip-configuration>
+		</configuration>
+	</configurations>
+</root>

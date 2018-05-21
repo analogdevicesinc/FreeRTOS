@@ -1,0 +1,175 @@
+/*###ICF### Section handled by ICF editor, don't touch! ****/
+/*-Editor annotation file-*/
+/* IcfEditorFile="$TOOLKIT_DIR$\config\ide\IcfEditor\cortex_v1_0.xml" */
+
+/*-Sizes-*/
+define symbol __ICFEDIT_size_cstack__ = 2K;
+define symbol __ICFEDIT_size_heap__   = 80K;
+
+/**** End of ICF editor section. ###ICF###*/
+
+define memory mem with size        = 4G;
+
+// symbols
+define symbol USE_PARITY = 1;
+
+define symbol FLASH                               = 0x00000000;  // flash address
+define symbol FLASH_SIZE                          = 512K;        // 512k flash size
+define symbol FLASH_PAGE_SIZE                     = 2K;          // 2k flash page size
+define symbol PAGE0_ROM_START                     = 0x1A0;
+
+define symbol START_OF_SEC_HDR                    = 0x00000180;  // security header
+
+
+// user-selectable SRAM mode
+define symbol USER_SRAM_MODE = 3;
+
+// RAM bank sizes sizes are invariant... locations vary by RAM Mode#
+define symbol RAM_BANK0_SIZE   = 16K;
+define symbol RAM_BANK1_SIZE   = 12K;
+define symbol RAM_BANK2_SIZE   =  4K;
+define symbol RAM_BANK3_SIZE   = 16K;
+define symbol RAM_BANK4_SIZE   = 16K;
+define symbol RAM_BANK5_SIZE   = 32K;
+define symbol RAM_BANK6_SIZE   = 16K;
+define symbol RAM_BANK7_SIZE   = 16K;
+
+//MODE0 0kB CACHE 32kB ISRAM 96kB DSRAM
+if(USER_SRAM_MODE == 0)
+{
+	// ISRAM
+	define symbol RAM_BANK1 = 0x10000000;
+	define symbol RAM_BANK7 = 0x10003000;
+	define symbol RAM_BANK2 = 0x10007000;
+
+	// DSRAM
+	define symbol RAM_BANK0 = 0x20000000;
+
+	define symbol RAM_BANK3 = 0x20040000;
+	define symbol RAM_BANK4 = 0x20044000;
+	define symbol RAM_BANK5 = 0x20048000;
+	define symbol RAM_BANK6 = 0x20050000;
+
+	define region iRAM  = mem:[from RAM_BANK1 size (RAM_BANK1_SIZE + RAM_BANK7_SIZE + RAM_BANK2_SIZE)];
+	define region dRAM1 = mem:[from RAM_BANK0 size (RAM_BANK0_SIZE) ];
+	define region dRAM2 = mem:[from RAM_BANK3 size (RAM_BANK3_SIZE + RAM_BANK4_SIZE + RAM_BANK5_SIZE + RAM_BANK6_SIZE) ];
+}
+
+//MODE1 4kB CACHE 28kB ISRAM 96kB DSRAM
+else if(USER_SRAM_MODE == 1)
+{
+	// ISRAM
+	define symbol RAM_BANK1 = 0x10000000;
+	define symbol RAM_BANK7 = 0x10003000;
+
+	// DSRAM
+	define symbol RAM_BANK0 = 0x20000000;
+
+	define symbol RAM_BANK3 = 0x20040000;
+	define symbol RAM_BANK4 = 0x20044000;
+	define symbol RAM_BANK5 = 0x20048000;
+	define symbol RAM_BANK6 = 0x20050000;
+
+	define region iRAM  = mem:[from RAM_BANK1 size (RAM_BANK1_SIZE + RAM_BANK7_SIZE)];
+	define region dRAM1 = mem:[from RAM_BANK0 size (RAM_BANK0_SIZE) ];
+	define region dRAM2 = mem:[from RAM_BANK3 size (RAM_BANK3_SIZE + RAM_BANK4_SIZE + RAM_BANK5_SIZE + RAM_BANK6_SIZE) ];
+}
+
+//MODE2 0kB CACHE 0kB ISRAM 128kB DSRAM
+else if(USER_SRAM_MODE == 2)
+{
+	// ISRAM
+
+	// DSRAM
+	define symbol RAM_BANK0 = 0x20000000;
+	define symbol RAM_BANK1 = 0x20004000;
+	define symbol RAM_BANK2 = 0x20007000;
+
+	define symbol RAM_BANK3 = 0x20040000;
+	define symbol RAM_BANK4 = 0x20044000;
+	define symbol RAM_BANK5 = 0x20048000;
+	define symbol RAM_BANK6 = 0x20050000;
+	define symbol RAM_BANK7 = 0x20054000;
+
+	define region iRAM  = mem:[from 0 size 0];
+	define region dRAM1 = mem:[from RAM_BANK0 size (RAM_BANK0_SIZE + RAM_BANK1_SIZE + RAM_BANK2_SIZE) ];
+	define region dRAM2 = mem:[from RAM_BANK3 size (RAM_BANK3_SIZE + RAM_BANK4_SIZE + RAM_BANK5_SIZE + RAM_BANK6_SIZE + RAM_BANK7_SIZE) ];
+}
+
+//MODE3 4kB CACHE 0kB ISRAM 124kB DSRAM
+else if(USER_SRAM_MODE == 3)
+{
+	// ISRAM
+
+	// DSRAM
+	define symbol RAM_BANK0 = 0x20000000;
+	define symbol RAM_BANK1 = 0x20004000;
+
+	define symbol RAM_BANK3 = 0x20040000;
+	define symbol RAM_BANK4 = 0x20044000;
+	define symbol RAM_BANK5 = 0x20048000;
+	define symbol RAM_BANK6 = 0x20050000;
+	define symbol RAM_BANK7 = 0x20054000;
+
+	define region iRAM  = mem:[from 0 size 0];
+	define region dRAM1 = mem:[from RAM_BANK0 size (RAM_BANK0_SIZE + RAM_BANK1_SIZE) ];
+	define region dRAM2 = mem:[from RAM_BANK3 size (RAM_BANK3_SIZE + RAM_BANK4_SIZE + RAM_BANK5_SIZE + RAM_BANK6_SIZE + RAM_BANK7_SIZE) ];
+	define region dRAM3 = mem:[from RAM_BANK3 size (RAM_BANK3_SIZE + RAM_BANK4_SIZE + RAM_BANK5_SIZE + RAM_BANK6_SIZE) ];
+}
+
+// ROM regions
+define region ROM_PAGE0_INTVEC              = mem:[from FLASH size (START_OF_SEC_HDR - FLASH)];
+define region START_OF_PAGE0_REGION         = mem:[from (PAGE0_ROM_START) size (FLASH_PAGE_SIZE - PAGE0_ROM_START)];
+define region ROM_REGION                    = mem:[from (FLASH + FLASH_PAGE_SIZE) size (FLASH_SIZE - FLASH_PAGE_SIZE)];
+
+place at address mem: START_OF_SEC_HDR        { readonly section .security_options };
+
+// C-Runtime blocks
+define block CSTACK with alignment = 8, size = __ICFEDIT_size_cstack__ { };
+define block HEAP   with alignment = 8, size = __ICFEDIT_size_heap__   { };
+
+
+// Flash Page0 contains an optional checksum block, as verified by the boot kernel at startup.
+// If generating a checksum ("Checksum" linker dialogue box) during the build, it is also
+// required to add "--keep __checksum" to the linker "Extra Options" dialogue to preserve the
+// linker-generated "__checksum" symbol.
+define block CHECKSUM      with alignment = 4, size = 4 { ro section .checksum };
+
+// force manditory placement of the CHECKSUM block within Page0
+place at address 0x000007FC { block CHECKSUM };
+
+
+// KEEP these blocks, avoiding linker elimination...
+keep {
+    block CHECKSUM,
+};
+
+
+// initializations...
+do not initialize                                { section .noinit };
+
+// expand encoded initialized data variables from flash image into RAM during C-Runtime Startup
+initialize by copy                               { rw };
+
+//initialize by copy with packing = none         { section __DLIB_PERTHREAD }; // Required in a multi-threaded application
+
+// ROM: place IVT at start of flash, page zero (ahead of the "meta-data")
+place at start of ROM_PAGE0_INTVEC               { ro section .intvec };
+place in  START_OF_PAGE0_REGION                  { ro section Page0_region };
+
+// ROM: place remaining read-only code/data in flash, starting at flash page1
+place in          ROM_REGION                     { ro };
+
+// place data in lower, always-retained DSRAM region
+place in          dRAM1    { rw };
+
+// place heap in upper DSRAM region
+place in          dRAM2    { block HEAP };
+
+// place CSTACK in uppermost DSRAM region
+place at end of   dRAM3    { block CSTACK };
+
+// ISRAM section for placing code in SRAM
+place in          iRAM     { section ISRAM_REGION };
+
+initialize by copy { section ISRAM_REGION };
