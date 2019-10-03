@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>RTOSDemo_CCES</name>
+	<name>RTOSDemo_CORTEX_M4_4x50_CCES</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -125,28 +125,22 @@
 		<link>
 			<name>RTE/Device/ADuCM4050/adi_gpio.c</name>
 			<type>1</type>
-			<locationURI>$%7Bcmsis_pack_root%7D/AnalogDevices/ADuCM4x50_DFP/1.0.0/Source/drivers/gpio/adi_gpio.c</locationURI>
+			<locationURI>$%7Bcmsis_pack_root%7D/AnalogDevices/ADuCM4x50_DFP/3.2.0/Source/drivers/gpio/adi_gpio.c</locationURI>
 		</link>
 		<link>
 			<name>RTE/Device/ADuCM4050/adi_pwr.c</name>
 			<type>1</type>
-			<locationURI>$%7Bcmsis_pack_root%7D/AnalogDevices/ADuCM4x50_DFP/1.0.0/Source/drivers/pwr/adi_pwr.c</locationURI>
+			<locationURI>$%7Bcmsis_pack_root%7D/AnalogDevices/ADuCM4x50_DFP/3.2.0/Source/drivers/pwr/adi_pwr.c</locationURI>
 		</link>
 		<link>
 			<name>RTE/Device/ADuCM4050/adi_wdt.c</name>
 			<type>1</type>
-			<locationURI>$%7Bcmsis_pack_root%7D/AnalogDevices/ADuCM4x50_DFP/1.0.0/Source/drivers/wdt/adi_wdt.c</locationURI>
+			<locationURI>$%7Bcmsis_pack_root%7D/AnalogDevices/ADuCM4x50_DFP/3.2.0/Source/drivers/wdt/adi_wdt.c</locationURI>
 		</link>
 		<link>
 			<name>RTE/Device/ADuCM4050/common.c</name>
 			<type>1</type>
-			<locationURI>$%7Bcmsis_pack_root%7D/AnalogDevices/ADuCM4x50_DFP/1.0.0/Source/common.c</locationURI>
+			<locationURI>$%7Bcmsis_pack_root%7D/AnalogDevices/ADuCM4x50_DFP/3.2.0/Source/common.c</locationURI>
 		</link>
 	</linkedResources>
-	<variableList>
-		<variable>
-			<name>CCES</name>
-			<value>file:/C:/Analog%20Devices/CrossCore%20Embedded%20Studio%202.6.0</value>
-		</variable>
-	</variableList>
 </projectDescription>

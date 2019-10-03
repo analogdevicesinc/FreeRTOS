@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>DnsClient_FreeRTOS_A5</name>
+	<name>RTOSDemo_CORTEX_A5_SC584_CCES_LwlP</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -34,7 +34,7 @@
 		<link>
 			<name>readme.html</name>
 			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/readme.html</locationURI>
+			<locationURI>PROJECT_LOC/readme.html</locationURI>
 		</link>
 		<link>
 			<name>system/FreeRTOS</name>
@@ -172,6 +172,16 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Source/portable/CCES/ARM_CA5/dispatcher.c</locationURI>
 		</link>
 		<link>
+			<name>system/FreeRTOS/portable/io_startup.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Source/portable/CCES/ARM_CA5/io_startup.c</locationURI>
+		</link>
+		<link>
+			<name>system/FreeRTOS/portable/io_startup.h</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Source/portable/CCES/ARM_CA5/io_startup.h</locationURI>
+		</link>
+		<link>
 			<name>system/FreeRTOS/portable/port.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Source/portable/GCC/ARM_CA9/port.c</locationURI>
@@ -202,6 +212,11 @@
 			<locationURI>CCES/ARM/arm-none-eabi/arm-none-eabi/lib/src/cortex-a5/drivers/Source/twi/adi_twi.c</locationURI>
 		</link>
 		<link>
+			<name>system/drivers/uart/adi_uart.c</name>
+			<type>1</type>
+			<locationURI>CCES/ARM/arm-none-eabi/arm-none-eabi/lib/src/cortex-a5/drivers/Source/uart/adi_uart.c</locationURI>
+		</link>
+		<link>
 			<name>system/osal/ARM-Cortex-A/adi_osal_arch.h</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Source/portable/CCES/ARM_CA5/osal/adi_osal_arch.h</locationURI>
@@ -225,7 +240,7 @@
 	<variableList>
 		<variable>
 			<name>CCES</name>
-			<value>file:/C:/Analog%20Devices/CrossCore%20Embedded%20Studio%202.7.0</value>
+			<value>file:/C:/analog/cces2.8.3</value>
 		</variable>
 		<variable>
 			<name>COM_ANALOG_LWIP_PRODUCT_2_6_0_LOC</name>

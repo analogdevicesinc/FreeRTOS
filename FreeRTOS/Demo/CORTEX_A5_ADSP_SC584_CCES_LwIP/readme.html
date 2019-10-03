@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Readme_stdio_char_echo</title>
+    
+  
+  <style type="text/css">
+            body {font: 12px Arial, Helvetica, Verdana;}
+            table {font: 12px Arial, Helvetica, Verdana;}
+            h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+            h2 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+            h3 { font: bold 14px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+        </style></head><body>
+<h1>
+
+        Analog Devices, Inc. CrossCore&#174 Embedded Studio Application Example
+</h1>
+<h2>ADSP-SC5xx FreeRTOS LwIP Demo</h2>
+
+<h3> Project Name: DnsClient_FreeRTOS_A5</h3>
+
+<h3>CONTENTS</h3>
+
+<ol>
+
+  <li><a href="#DE">Overview</a></li>
+  <li><a href="#SA">Software Requirement</a></li>
+  <li><a href="#OV">Hardware Setup</a></li>
+  <li><a href="#TTY">TTY Setup</a></li>
+  <li><a href="#REF">References</a></li>
+</ol>
+
+<h3><a name="DE">Overview<br>
+</a></h3>
+This file describes the steps to build and run the LwIP Example for ARM on ADSP-SC5xx EZ-Kit with CrossCore Embedded Studio.
+
+<h3><a name="SA">Software Requirement</a></h3>
+<ul>
+  <li><a href="https://www.analog.com/en/design-center/processors-and-dsp/evaluation-and-development-software/adswt-cces.html">Analog Devices CrossCore Embedded Studio version 2.8.3 or later</a></li>
+  <li><a href="http://www.analog.com/en/design-center/processors-and-dsp/evaluation-and-development-software/adswp-lwip.html">Lightweight TCP/IP Stack for CrossCore Embedded Studio Rev 2.6.0</a></li>
+</ul>
+<h3><a name="OV">Hardware Setup</a></h3>
+<div style="text-align: left;">
+<p>
+  <ul>
+    <li>Connect the power supply with 5 volts.</li>
+	<li>Connect the Gigabit Ethernet port of EZ-Kit to the same LAN as PC using standard network cable.</li>
+	<li>
+		Connect the ICE1000 or ICE2000 emulator to the following port of EZ-Kit and the host PC using USB cable.
+	  <ul>
+		<li>ADSP-SC573 or ADSP-SC584: DEBUG P1</li>
+		<li>ADSP-SC589 EZ-Kit: DEBUG P3</li>
+	  </ul>
+	</li>
+  </ul>
+  
+</p>
+<p>
+  Note that the semihosting I/O mechanism, which writes to the CCES console
+  during debug sessions, uses SWI interrupts.  This is incompatible with default
+  GCC-compiled I/O code which also uses SWI interrupts.  For this reason, stdio
+  function calls initiated on the ARM core are routed out over UART instead and
+  shall be read with a TTY terminal external to CCES.  Setup steps are detailed
+  in the <a href="#TTY">TTY Setup</a> section.  Also make sure semihosting is
+  disabled in your debug session configuration.
+</p>
+
+<h4><a name="TTY">TTY Setup</a></h4>
+<p>
+  Connect a Micro USB cable to your PC from the following EZ-Kit UART to USB
+  connector:
+  <ul>
+    <li>ADSP-SC573 or ADSP-SC584: P7</li>
+    <li>ADSP-SC589 EZ-Kit: P8</li>
+  </ul>
+</p>
+<p>
+  Download, install, and launch your prefered TTY terminal (e.g.
+  PuTTY/TeraTerm) and configure a <em>serial</em> connection with the settings
+  listed in Table 1.
+</p>
+<p>
+  The COM port number will change as you plug USB cables in and out of your PC.
+  It can be found in the Windows Device Manager facility, under the Ports (COM &
+  LPT) collapsible section.
+</p>
+<table border="1" cellpadding="2" cellspacing="2">
+  <caption> Table 1: COM Settings </caption>
+  <tbody>
+    <tr>
+      <td class="heading1">Configuration</td>
+      <td class="heading2">Value</td>
+    </tr>
+    <tr>
+      <td>Baud Rate</td>
+      <td>115200</td>
+    </tr>
+    <tr>
+      <td>Data bits</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>Stop bits</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Parity</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>Flow Control</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a name="REF">References</a></h3>
+<ul>
+  <li>Official FreeRTOS Demo: http://www.freertos.org/a00102.html</li>
+  <li>ADI FreeRTOS Documentation</li>
+  <li>ADSP-SC573 Hardware Reference Manual</li>
+  <li>ADSP-SC584 Hardware Reference Manual</li>
+  <li>ADSP-SC589 Hardware Reference Manual</li>
+  <li>ADSP-SC573 EZ-Kit Schematic</li>
+  <li>ADSP-SC584 EZ-Kit Schematic</li>
+  <li>ADSP-SC589 EZ-Kit Schematic</li>
+</ul>
+

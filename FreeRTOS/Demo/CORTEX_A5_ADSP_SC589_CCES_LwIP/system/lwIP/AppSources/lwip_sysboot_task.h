@@ -35,7 +35,7 @@ extern "C"  {
  * processor independent macros
  */
 #define APP_OS_CFG_LWIP_TASK_STK_SIZE  (2048) /*! LWIP task stack size */ 
-#define APP_OS_CFG_LWIP_TASK_PRIO      (6)    /*! LWIP task priority   */
+#define APP_OS_CFG_LWIP_TASK_PRIO      (5)    /*! LWIP task priority   */
 
 /* Enable debug outputs */
 #ifdef ADI_DEBUG

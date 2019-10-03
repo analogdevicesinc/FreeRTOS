@@ -39,6 +39,10 @@
 			<component-description><![CDATA[This component provides supporting RTOS libraries and headers to enable examples to run out-of-the-box.]]></component-description>
 			<product name="ADI lwIP v2.6.0" version="2.6.0"/>
 		</component>
+		<component id="com.analog.crosscore.addins.ssldd.uart.cortexa5" name="UART Driver for Cortex-A" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the UART Interface driver]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
 	</installedComponents>
 	<configurations>
 		<configuration id="com.analog.crosscore.ssldd.pinmux.component">
@@ -71,6 +75,12 @@
 					<signal bit="12" mux="0" name="TXD2" pin="6" port="B"/>
 					<signal bit="10" mux="0" name="TXD3" pin="5" port="B"/>
 				</peripheral>
+				<peripheral description="UART" name="UART0">
+					<signal bit="12" mux="2" name="CTS" pin="6" port="D"/>
+					<signal bit="10" mux="2" name="RTS" pin="5" port="D"/>
+					<signal bit="18" mux="0" name="RX" pin="9" port="F"/>
+					<signal bit="16" mux="0" name="TX" pin="8" port="F"/>
+				</peripheral>
 				<gpio name="Port A">
 					<signal bit="18" name="PA09" pin="9" port="A"/>
 					<signal bit="20" name="PA10" pin="10" port="A"/>
@@ -96,6 +106,8 @@
 					<signal bit="12" name="PC06" pin="6" port="C"/>
 				</gpio>
 				<gpio name="Port D">
+					<signal bit="10" name="PD05" pin="5" port="D"/>
+					<signal bit="12" name="PD06" pin="6" port="D"/>
 					<signal bit="16" name="PD08" pin="8" port="D"/>
 					<signal bit="28" name="PD14" pin="14" port="D"/>
 					<signal bit="30" name="PD15" pin="15" port="D"/>
@@ -108,6 +120,8 @@
 					<signal bit="10" name="PF05" pin="5" port="F"/>
 					<signal bit="12" name="PF06" pin="6" port="F"/>
 					<signal bit="14" name="PF07" pin="7" port="F"/>
+					<signal bit="16" name="PF08" pin="8" port="F"/>
+					<signal bit="18" name="PF09" pin="9" port="F"/>
 				</gpio>
 			</pinmux-configuration>
 		</configuration>

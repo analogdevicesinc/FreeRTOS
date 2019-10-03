@@ -56,7 +56,7 @@ int adi_lwip_Init(void)
 
     if (NULL == g_semLWIPBootComplete)
     {
-        PRINTF("failed to create lwip boot semaphore \n");
+        PRINTF("failed to create lwip boot semaphore \r\n");
         return (-1);
     }
 
@@ -73,7 +73,7 @@ int adi_lwip_Init(void)
 
     if (NULL == hBootTask)
     {
-        PRINTF("Failed to create lwip system boot task \n");
+        PRINTF("Failed to create lwip system boot task \r\n");
         return (-1);
     }
 
@@ -103,11 +103,11 @@ static void lwip_sysboot_task(void *arg)
     char    ipAddress[32];
 
     /* configures the switches */
-    printf("Configuring switches for the ethernet operation \n");
+    printf("Configuring switches for the ethernet operation \r\n");
 
     if (0 != ConfigSoftSwitches())
     {
-        PRINTF ("lwip_sysboot_task: Failed to configure soft-switches\n");
+        PRINTF ("lwip_sysboot_task: Failed to configure soft-switches\r\n");
         vTaskDelete(NULL);
     }
 
@@ -117,14 +117,14 @@ static void lwip_sysboot_task(void *arg)
     /* Initializes the TCP/IP Stack and returns */
     if(lwip_system_init() == -1)
     {
-        PRINTF ("lwip_sysboot_task: Failed to initialize system\n");
+        PRINTF ("lwip_sysboot_task: Failed to initialize system\r\n");
         vTaskDelete(NULL);
     }
     
     /* start stack */
     if (!adi_lwip_Startstack())
     {
-        PRINTF("lwip_sysboot_task: Failed to start stack\n");
+        PRINTF("lwip_sysboot_task: Failed to start stack\r\n");
         vTaskDelete(NULL);
     }
 
@@ -133,7 +133,7 @@ static void lwip_sysboot_task(void *arg)
 
     if(gethostaddr(0,ipAddress))
     {
-        printf("IP ADDRESS: %s\n",ipAddress);
+        printf("IP ADDRESS: %s\r\n",ipAddress);
     }
 
     /* 
@@ -142,7 +142,7 @@ static void lwip_sysboot_task(void *arg)
      */
     if (pdFALSE == xSemaphoreGive(g_semLWIPBootComplete))
     {
-        PRINTF("lwip_sysboot_task: Failed to post boot semaphore\n");
+        PRINTF("lwip_sysboot_task: Failed to post boot semaphore\r\n");
         vTaskDelete(NULL);
     }
 
@@ -191,7 +191,7 @@ static int lwip_system_init(void)
 
     if (etherResult != ADI_ETHER_RESULT_SUCCESS)
     {
-        PRINTF("lwip_system_init: failed to open ethernet driver\n");
+        PRINTF("lwip_system_init: failed to open ethernet driver\r\n");
         return (-1);
     }
  
@@ -205,7 +205,7 @@ static int lwip_system_init(void)
 
     if (etherResult != ADI_ETHER_RESULT_SUCCESS)
     {
-        PRINTF("lwip_system_init: failed to set MAC address\n");
+        PRINTF("lwip_system_init: failed to set MAC address\r\n");
         return (-1);
     }
 
@@ -214,13 +214,13 @@ static int lwip_system_init(void)
 
     if (ether_stack_block == NULL)
     {
-        PRINTF("lwip_system_init: failed to allocate memory to the stack \n");
+        PRINTF("lwip_system_init: failed to allocate memory to the stack \r\n");
         return (-1);
     }
 
     if (adi_lwip_Initstack(ETHER_STACK_SIZE, ether_stack_block ) == -1)
     {
-        PRINTF("lwip_system_init: failed to initalize lwip stack \n");
+        PRINTF("lwip_system_init: failed to initalize lwip stack \r\n");
         return (-1);
     }
 
@@ -229,21 +229,21 @@ static int lwip_system_init(void)
 
     if (etherResult != ADI_ETHER_RESULT_SUCCESS)
     {
-        PRINTF("lwip_system_init: failed to enable EMAC\n");
+        PRINTF("lwip_system_init: failed to enable EMAC\r\n");
         return (-1);
     }
         
     /* wait for the link to be up */
     if (!adi_ether_GetLinkStatus (hEthernet))
     {
-        printf("Waiting for the link to be established\n");
+        printf("Waiting for the link to be established\r\n");
 
         /* This semaphore is posted when lwip finishes its booting process */
         semLinkUp = xSemaphoreCreateBinary();
         
         if (NULL == semLinkUp)
         {
-            PRINTF("Failed to create semaphore,LWIP boot task may wait infinitely for linkup\n");
+            PRINTF("Failed to create semaphore,LWIP boot task may wait infinitely for linkup\r\n");
             return (-1);
         }
 
@@ -257,7 +257,7 @@ static int lwip_system_init(void)
         /* delete the semaphore */
         vSemaphoreDelete(semLinkUp);
     }
-    printf("Link established\n");
+    printf("Link established\r\n");
 
     return (1);
 }
@@ -338,8 +338,8 @@ static bool get_mac_address(const ADI_ETHER_HANDLE hEthernet, char *ptr)
     if (memcmp(user_net_config_info[0].mac_addr,"\x00\x00\x00\x00\x00\x00",6) == 0)
     {
     	char hwaddr[6] = {0x00, 0x12, 0x34, 0x56, 0x78, 0x9A };
-    	printf("User need to set the MAC address in system.svc as MAC address is not stored on board \n");
-    	printf("Incorrect MAC address in system.svc Using temporary MAC: 0x00123456789A \n");
+    	printf("User need to set the MAC address in system.svc as MAC address is not stored on board \r\n");
+    	printf("Incorrect MAC address in system.svc Using temporary MAC: 0x00123456789A\r\n");
 
     	memcpy (ptr, (unsigned char *)&hwaddr,sizeof(hwaddr));
     }
@@ -353,7 +353,7 @@ static bool get_mac_address(const ADI_ETHER_HANDLE hEthernet, char *ptr)
     if (!(memcmp(ptr,"\x00\x00\x00\x00\x00\x00",6)))
     {
         char hwaddr[6] = {0x00, 0x12, 0x34, 0x56, 0x78, 0x9A };
-        printf("Incorrect MAC address in FLASH Using temporary MAC: 0x00123456789A \n");
+        printf("Incorrect MAC address in FLASH Using temporary MAC: 0x00123456789A \r\n");
         memcpy (ptr, (unsigned char *)&hwaddr,sizeof(hwaddr));
     }
     return(ret);

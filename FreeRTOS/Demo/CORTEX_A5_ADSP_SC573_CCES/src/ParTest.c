@@ -52,24 +52,24 @@ void vParTestInitialise( void )
 
         if(ADI_GPIO_SUCCESS != adi_gpio_Init(gpioMemory, sizeof(gpioMemory), &numCallbacks))
         {
-            printf("adi_gpio_Init failed\n");
+            printf("adi_gpio_Init failed\r\n");
             exit(1);
         }
 
         /* set GPIO output LED 15, 16 and 17 */
         if(ADI_GPIO_SUCCESS != adi_gpio_SetDirection(ADI_GPIO_PORT_F, (ADI_GPIO_PIN_11), ADI_GPIO_DIRECTION_OUTPUT))
         {
-        	printf("adi_gpio_SetDirection1 failed\n");
+        	printf("adi_gpio_SetDirection1 failed\r\n");
             exit(1);
         }
         if(ADI_GPIO_SUCCESS != adi_gpio_SetDirection(ADI_GPIO_PORT_D, (ADI_GPIO_PIN_6), ADI_GPIO_DIRECTION_OUTPUT))
 		{
-			printf("adi_gpio_SetDirection2 failed\n");
+			printf("adi_gpio_SetDirection2 failed\r\n");
 			exit(1);
 		}
         if(ADI_GPIO_SUCCESS != adi_gpio_SetDirection(ADI_GPIO_PORT_E, (ADI_GPIO_PIN_15), ADI_GPIO_DIRECTION_OUTPUT))
 		{
-			printf("adi_gpio_SetDirection3 failed\n");
+			printf("adi_gpio_SetDirection3 failed\r\n");
 			exit(1);
 		}
 }

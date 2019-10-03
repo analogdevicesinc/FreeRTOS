@@ -3,6 +3,9 @@
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
 		<cconfiguration id="blackfin.toolchain.configuration.debug.287051633">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="blackfin.toolchain.configuration.debug.287051633" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+				<macros>
+					<stringMacro name="twi-driver-version" type="VALUE_TEXT" value="1.0"/>
+				</macros>
 				<externalSettings/>
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
@@ -23,9 +26,11 @@
 								<option id="assembler.option.preprocessdefs.258482047" name="Preprocessor definitions (-D):" superClass="assembler.option.preprocessdefs" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="CORE0"/>
 									<listOptionValue builtIn="false" value="_DEBUG"/>
+									<listOptionValue builtIn="false" value="__ADI_FREERTOS"/>
 								</option>
 								<option id="assembler.option.additionaldirectories.637102225" name="Additional include directories (-I):" superClass="assembler.option.additionaldirectories" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/system}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}\..\..\Source\portable\CCES\osal&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}\..\..\Source\portable\CCES\Blackfin_BF70x&quot;"/>
 								</option>
 								<option id="assembler.option.threads.1617012453" name="-D_ADI_THREADS" superClass="assembler.option.threads" useByScannerDiscovery="false" value="true" valueType="boolean"/>
@@ -39,6 +44,8 @@
 								<option id="compiler.option.preprocessdefs.259142511" name="Preprocessor definitions (-D):" superClass="compiler.option.preprocessdefs" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="CORE0"/>
 									<listOptionValue builtIn="false" value="_DEBUG"/>
+									<listOptionValue builtIn="false" value="__ADI_FREERTOS"/>
+									<listOptionValue builtIn="false" value="NO_UTILITY_ROM_TWI"/>
 								</option>
 								<option id="compiler.option.coreid.376224295" name="Specify the core Id (-DCORE[A|B|0-2])" superClass="compiler.option.coreid" useByScannerDiscovery="false" value="0" valueType="string"/>
 								<option id="compiler.option.additionaldirectories.385774764" name="Additional include directories (-I):" superClass="compiler.option.additionaldirectories" useByScannerDiscovery="false" valueType="includePath">
@@ -56,12 +63,14 @@
 							<tool id="blackfin.toolchain.linker.14795367" name="CrossCore Blackfin Linker" superClass="blackfin.toolchain.linker">
 								<option id="linker.option.individmap.1792955021" name="Individually map functions and data items (-ip)" superClass="linker.option.individmap" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<option id="linker.option.eliminateunused.184252275" name="Eliminate unused objects (-e)" superClass="linker.option.eliminateunused" useByScannerDiscovery="false"/>
-								<option id="linker.option.usedbglib.1509683642" name="Use Debug System libraries (-add-debug-libpaths)" superClass="linker.option.usedbglib" useByScannerDiscovery="false"/>
+								<option id="linker.option.usedbglib.1509683642" name="Use Debug System libraries (-add-debug-libpaths)" superClass="linker.option.usedbglib" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<option id="linker.option.proc.1059084631" name="-proc" superClass="linker.option.proc" useByScannerDiscovery="false" value=" ADSP-BF707" valueType="string"/>
 								<option id="linker.option.sirevision.1773750189" name="-si-revision" superClass="linker.option.sirevision" useByScannerDiscovery="false" value=" any" valueType="string"/>
 								<option id="linker.option.preprocessdefs.1854618519" name="Preprocessor definitions (-MD)" superClass="linker.option.preprocessdefs" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="CORE0"/>
 									<listOptionValue builtIn="false" value="DEBUG"/>
+									<listOptionValue builtIn="false" value="__ADI_FREERTOS"/>
+									<listOptionValue builtIn="false" value="NO_UTILITY_ROM_TWI"/>
 								</option>
 								<option id="linker.option.ldfprocessing.ldffile.1726307289" name="Custom LDF (-T)" superClass="linker.option.ldfprocessing.ldffile" useByScannerDiscovery="false" value="&quot;${ProjDirPath}/system/startup_ldf/app.ldf&quot;" valueType="string"/>
 								<option id="linker.option.srchdir.366495039" name="Library search directories (-L):" superClass="linker.option.srchdir" useByScannerDiscovery="false" valueType="libPaths">
@@ -69,6 +78,7 @@
 								</option>
 								<option id="linker.option.misrachecksrcfiles.388563462" name="-misra-no-cross-module" superClass="linker.option.misrachecksrcfiles" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="linker.option.threadsafelibraries.1725514502" name="Link against thread-safe run-time libraries (-threads)" superClass="linker.option.threadsafelibraries" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="linker.option.nolibdrv.88139643" name="Omit device drivers library (-MDNO_LIBDRV)" superClass="linker.option.nolibdrv" value="true" valueType="boolean"/>
 								<inputType id="linker.doj.input.1388492236" name="Object Files" superClass="linker.doj.input"/>
 							</tool>
 							<tool id="blackfin.toolchain.archiver.1997424229" name="CrossCore Blackfin Archiver" superClass="blackfin.toolchain.archiver">
@@ -92,6 +102,9 @@
 		</cconfiguration>
 		<cconfiguration id="blackfin.toolchain.configuration.release.2011116299">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="blackfin.toolchain.configuration.release.2011116299" moduleId="org.eclipse.cdt.core.settings" name="Release">
+				<macros>
+					<stringMacro name="twi-driver-version" type="VALUE_TEXT" value="1.0"/>
+				</macros>
 				<externalSettings/>
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
@@ -111,10 +124,12 @@
 								<option id="assembler.option.sirevision.2013769513" name="-si-revision" superClass="assembler.option.sirevision" value=" any" valueType="string"/>
 								<option id="assembler.option.preprocessdefs.882631375" name="Preprocessor definitions (-D):" superClass="assembler.option.preprocessdefs" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="CORE0"/>
+									<listOptionValue builtIn="false" value="__ADI_FREERTOS"/>
 									<listOptionValue builtIn="false" value="NDEBUG"/>
 								</option>
 								<option id="assembler.option.additionaldirectories.2111533356" name="Additional include directories (-I):" superClass="assembler.option.additionaldirectories" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/system}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}\..\..\Source\portable\CCES\osal&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}\..\..\Source\portable\CCES\Blackfin_BF70x&quot;"/>
 								</option>
 								<option id="assembler.option.threads.718520966" name="-D_ADI_THREADS" superClass="assembler.option.threads" value="true" valueType="boolean"/>
@@ -127,7 +142,9 @@
 								<option id="compiler.option.sirevision.1662016796" name="-si-revision" superClass="compiler.option.sirevision" value=" any" valueType="string"/>
 								<option id="compiler.option.preprocessdefs.2040189842" name="Preprocessor definitions (-D):" superClass="compiler.option.preprocessdefs" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="CORE0"/>
+									<listOptionValue builtIn="false" value="__ADI_FREERTOS"/>
 									<listOptionValue builtIn="false" value="NDEBUG"/>
+									<listOptionValue builtIn="false" value="NO_UTILITY_ROM_TWI"/>
 								</option>
 								<option id="compiler.option.coreid.1025454188" name="Specify the core Id (-DCORE[A|B|0-2])" superClass="compiler.option.coreid" value="0" valueType="string"/>
 								<option id="compiler.option.additionaldirectories.1052082914" name="Additional include directories (-I):" superClass="compiler.option.additionaldirectories" valueType="includePath">
@@ -150,7 +167,9 @@
 								<option id="linker.option.sirevision.395517283" name="-si-revision" superClass="linker.option.sirevision" value=" any" valueType="string"/>
 								<option id="linker.option.preprocessdefs.554875603" name="Preprocessor definitions (-MD)" superClass="linker.option.preprocessdefs" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="CORE0"/>
+									<listOptionValue builtIn="false" value="__ADI_FREERTOS"/>
 									<listOptionValue builtIn="false" value="RELEASE"/>
+									<listOptionValue builtIn="false" value="NO_UTILITY_ROM_TWI"/>
 								</option>
 								<option id="linker.option.ldfprocessing.ldffile.627068345" name="Custom LDF (-T)" superClass="linker.option.ldfprocessing.ldffile" value="&quot;${ProjDirPath}/system/startup_ldf/app.ldf&quot;" valueType="string"/>
 								<option id="linker.option.srchdir.1103826570" name="Library search directories (-L):" superClass="linker.option.srchdir" valueType="libPaths">
@@ -158,6 +177,7 @@
 								</option>
 								<option id="linker.option.misrachecksrcfiles.331006282" name="-misra-no-cross-module" superClass="linker.option.misrachecksrcfiles" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="linker.option.threadsafelibraries.286478365" name="Link against thread-safe run-time libraries (-threads)" superClass="linker.option.threadsafelibraries" value="true" valueType="boolean"/>
+								<option id="linker.option.nolibdrv.719889170" name="Omit device drivers library (-MDNO_LIBDRV)" superClass="linker.option.nolibdrv" value="true" valueType="boolean"/>
 								<inputType id="linker.doj.input.536083664" name="Object Files" superClass="linker.doj.input"/>
 							</tool>
 							<tool id="blackfin.toolchain.archiver.264331858" name="CrossCore Blackfin Archiver" superClass="blackfin.toolchain.archiver">

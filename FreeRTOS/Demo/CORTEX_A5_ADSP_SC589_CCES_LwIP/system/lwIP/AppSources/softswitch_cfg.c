@@ -12,7 +12,7 @@
         if((result) != ADI_TWI_SUCCESS) \
         { \
             printf((message)); \
-            printf("\n"); \
+            printf("\r\n"); \
         } \
     } while (0)  /* do-while-zero needed for Misra Rule 19.4 */
 #else
@@ -158,9 +158,9 @@ static SWITCH_CONFIG SwitchConfig0[] =
   | | | | | | | 0- ~EEPROM_EN        	|       | | | | | | | 0- ~ADAU1962_EN
   | | | | | | | |                      	|       | | | | | | | |
   N N N Y Y N N N                       |       N N N N N N N N     ( Active Y or N )
-  1 1 1 0 0 1 1 1                       |       1 1 1 1 1 0 1 1     ( value being set )
+  1 1 1 0 0 0 1 1                       |       1 1 1 1 1 0 1 1     ( value being set )
 */
-  { 0x12u, 0xE7u },                               { 0x13u, 0xFBu },
+  { 0x12u, 0xE3u },                               { 0x13u, 0xFBu },
 
  /*
   * specify inputs/outputs

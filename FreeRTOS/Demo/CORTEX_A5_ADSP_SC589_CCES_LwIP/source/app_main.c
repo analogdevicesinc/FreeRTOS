@@ -16,7 +16,7 @@
 #endif
 
 #define APPLICATION_TASK_STACK_SIZE (2048)
-#define APPLICATION_TASK_PRIO       (6)
+#define APPLICATION_TASK_PRIO       (5)
 
 static StaticTask_t  ApplicationTaskTCB;
 static StackType_t ApplicationTaskStack[APPLICATION_TASK_STACK_SIZE];
@@ -44,15 +44,6 @@ uint8_t __adi_heap_object[4*1024*1024] __attribute__ ((section (".heap")));
 int main(void)
 {
     int32_t result;
-
-    /* Initialize the system */
-    result = system_init();
-    if (result != 0)
-    {
-        printf("Failed to initialize the system \n");
-        while(1){ ; }
-    }
-
     /* Initialize any managed drivers and/or services.This routine
      * will call init routines for the add-in components.For lwip
      * adi_lwip_Init() gets called from adi_initComponents() which
@@ -65,7 +56,7 @@ int main(void)
 
     if (result != 0)
     {
-        printf("Failed to initialize system components \n");
+        printf("Failed to initialize system components \r\n");
         while(1){ ; }
     }
 
@@ -86,7 +77,7 @@ int main(void)
 
     if (NULL == hDnsClientTask)
     {
-		printf("Error creating application task /n");
+		printf("Error creating application task\r\n");
 		while(1){ ; }
 	}
 
@@ -161,7 +152,8 @@ static int system_init(void)
     ePwrResult = adi_pwr_GetOutClkFreq(0, &oclk);
     if (ePwrResult != ADI_PWR_SUCCESS) return -1;
 
-    printf("Clock Configuration\nCCLK = %u, SCLK = %u, SCLK0 = %u, SCLK1 = %u, DCLK = %u, OCLK = %u, EMAC0_CLK = %u\n",
+    printf("Clock Configuration\r\n");
+    printf("CCLK = %u, SCLK = %u, SCLK0 = %u, SCLK1 = %u, DCLK = %u, OCLK = %u, EMAC0_CLK = %u\r\n",
   			(unsigned int)cclk,
   			(unsigned int)sclk,
   			(unsigned int)sclk0,
@@ -233,6 +225,25 @@ volatile unsigned long ul = 0;
     }
     __asm volatile( "cpsie i" );
 }
+
+/*-----------------------------------------------------------*/
+
+#if ( configUSE_DAEMON_TASK_STARTUP_HOOK == 1 )
+void vApplicationDaemonTaskStartupHook( void )
+{
+	/* This function will be called once only, when the daemon task(timer task) starts
+	 * to execute. This is useful if the application includes initialization
+	 * code that would benefit from executing after the scheduler has been started.
+	 * The task priority of daemon task(timer task) is ( configMAX_PRIORITIES - 1 ),
+	 * so it needs to pay attention to the execution sequence if using this function.
+	 */
+	/* Initialize the system */
+	if (system_init() != 0)
+	{
+		printf("Failed to initialize the system\r\n");
+	}
+}
+#endif
 
 /*-----------------------------------------------------------*/
 

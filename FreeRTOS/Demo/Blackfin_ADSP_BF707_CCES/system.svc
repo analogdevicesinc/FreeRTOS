@@ -12,14 +12,22 @@ A Linker Description File (LDF) defines the target memory map and the placement 
 It provides information needed to link your code. It can be used to configure memory related options, such as the placement of the system heap, system stack, and external memory.]]></component-description>
 			<product name="Startup Code/LDF" version="1.0.0"/>
 		</component>
+		<component id="com.analog.crosscore.addins.ssldd.twi.base" name="TWI Driver Base for Blackfin" version="1.0.0" visible="false">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the Two Wire Interface Driver (TWI)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.twi.bf707" name="TWI Driver for Blackfin" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the Two Wire Interface Driver (TWI)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
 	</installedComponents>
 	<configurations>
 		<configuration id="com.analog.sourcegen.component.startup_ldf">
 			<startup_ldf-configuration>
 				<crt_and_ldf>
 					<propertygroup name="template_schemas" value="true">
-						<property name="ldf_schema" value="22.00"/>
-						<property name="startup_code_schema" value="27.00"/>
+						<property name="ldf_schema" value="28.30"/>
+						<property name="startup_code_schema" value="28.01"/>
 					</propertygroup>
 					<propertygroup name="mandatory">
 						<property name="si_revision" value="any"/>
@@ -80,6 +88,7 @@ It provides information needed to link your code. It can be used to configure me
 						<propertygroup name="libraries" value="true">
 							<property name="use_fileio_libs" value="false"/>
 							<property name="heap_dbg_libs" value="false"/>
+							<property name="no_libdrv" value="true"/>
 							<property name="use_utility_rom" value="true"/>
 							<property name="use_eh_enabled_libs" value="false"/>
 							<property name="use_fixed_point_io_libs" value="false"/>

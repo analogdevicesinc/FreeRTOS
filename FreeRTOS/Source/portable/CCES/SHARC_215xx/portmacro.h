@@ -36,8 +36,13 @@
 #include <stdint.h>            /* for uint32_t */
 #include <sysreg.h>            /* for sysreg_IRPTL */
 #include <builtins.h>          /* for leftz() and sysreg_bit_set() */
+#ifndef __ADSP2156x__
 #include <sys/def215xx_core.h> /* for BITM_REGF_IMASK_SFT3I */
+#endif
 #include <sys/anomaly_macros_rtl.h>
+#ifdef __ADSP2156x__
+#include <anomaly_macros_ADSP-2156x.h>
+#endif
 #include <interrupt.h>         /* for ADI_CID_SFT3I */
 
 #if WA_20000081

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>RTOSDemo_CCES_SHARC_Core1</name>
+	<name>RTOSDemo_SHARC_SC589_CCES_Core1</name>
 	<comment></comment>
 	<projects>
 		<project>RTOSDemo_CCES_SHARC_Core0</project>
@@ -216,7 +216,7 @@
 	<variableList>
 		<variable>
 			<name>CCES</name>
-			<value>file:/C:/Analog%20Devices/CrossCore%20Embedded%20Studio%202.7.0</value>
+			<value>file:/C:/analog/cces2.8.3</value>
 		</variable>
 		<variable>
 			<name>copy_PARENT</name>

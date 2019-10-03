@@ -1,5 +1,5 @@
 /*
- * FreeRTOS+TCP V2.0.1
+ * FreeRTOS+TCP V2.0.0
  * Copyright (C) 2017 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -10,7 +10,8 @@
  * subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ * copies or substantial portions of the Software. If you wish to use our Amazon
+ * FreeRTOS name, please do so in a fair use way that does not cause confusion.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
@@ -110,11 +111,11 @@ FreeRTOS_setsockopt(). */
 #define FREERTOS_SO_RCVBUF				( 5 )		/* Set the size of the receive buffer (TCP only) */
 
 #if ipconfigUSE_CALLBACKS == 1
-	#define FREERTOS_SO_TCP_CONN_HANDLER	( 6 )		/* Install a callback for (dis) connection events. Supply pointer to 'F_TCP_UDP_Handler_t' (see below) */
-	#define FREERTOS_SO_TCP_RECV_HANDLER	( 7 )		/* Install a callback for receiving TCP data. Supply pointer to 'F_TCP_UDP_Handler_t' (see below) */
-	#define FREERTOS_SO_TCP_SENT_HANDLER	( 8 )		/* Install a callback for sending TCP data. Supply pointer to 'F_TCP_UDP_Handler_t' (see below) */
-	#define FREERTOS_SO_UDP_RECV_HANDLER	( 9 )		/* Install a callback for receiving UDP data. Supply pointer to 'F_TCP_UDP_Handler_t' (see below) */
-	#define FREERTOS_SO_UDP_SENT_HANDLER	( 10 )		/* Install a callback for sending UDP data. Supply pointer to 'F_TCP_UDP_Handler_t' (see below) */
+#define FREERTOS_SO_TCP_CONN_HANDLER	( 6 )		/* Install a callback for (dis) connection events. Supply pointer to 'F_TCP_UDP_Handler_t' (see below) */
+#define FREERTOS_SO_TCP_RECV_HANDLER	( 7 )		/* Install a callback for receiving TCP data. Supply pointer to 'F_TCP_UDP_Handler_t' (see below) */
+#define FREERTOS_SO_TCP_SENT_HANDLER	( 8 )		/* Install a callback for sending TCP data. Supply pointer to 'F_TCP_UDP_Handler_t' (see below) */
+#define FREERTOS_SO_UDP_RECV_HANDLER	( 9 )		/* Install a callback for receiving UDP data. Supply pointer to 'F_TCP_UDP_Handler_t' (see below) */
+#define FREERTOS_SO_UDP_SENT_HANDLER	( 10 )		/* Install a callback for sending UDP data. Supply pointer to 'F_TCP_UDP_Handler_t' (see below) */
 #endif /* ipconfigUSE_CALLBACKS */
 
 #define FREERTOS_SO_REUSE_LISTEN_SOCKET	( 11 )		/* When a listening socket gets connected, do not create a new one but re-use it */
@@ -122,7 +123,7 @@ FreeRTOS_setsockopt(). */
 #define FREERTOS_SO_WIN_PROPERTIES		( 13 )		/* Set all buffer and window properties in one call, parameter is pointer to WinProperties_t */
 #define FREERTOS_SO_SET_FULL_SIZE		( 14 )		/* Refuse to send packets smaller than MSS  */
 
-#define FREERTOS_SO_STOP_RX				( 15 )		/* Temporarily hold up reception, used by streaming client */
+#define FREERTOS_SO_STOP_RX				( 15 )		/* Tempoarily hold up reception, used by streaming client */
 
 #if( ipconfigUDP_MAX_RX_PACKETS > 0 )
 	#define FREERTOS_SO_UDP_MAX_RX_PACKETS	( 16 )		/* This option helps to limit the maximum number of packets a UDP socket will buffer */

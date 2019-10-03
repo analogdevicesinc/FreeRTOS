@@ -87,10 +87,11 @@ uint8_t ucHeap[ configTOTAL_HEAP_SIZE ];
 #define configUSE_PREEMPTION					1
 #define configUSE_IDLE_HOOK						0
 #define configUSE_TICK_HOOK						0
+#define configUSE_DAEMON_TASK_STARTUP_HOOK		1
 #define configMAX_PRIORITIES					( 7 )
-#define configMINIMAL_STACK_SIZE				( ( unsigned short ) 200 )
-#define configTOTAL_HEAP_SIZE					( 50 * 1024 )
-#define configMAX_TASK_NAME_LEN					( 10 )
+#define configMINIMAL_STACK_SIZE      ( ( unsigned short ) 500 )
+#define configTOTAL_HEAP_SIZE					( 100 * 1024 )
+#define configMAX_TASK_NAME_LEN				( 10 )
 #define configUSE_TRACE_FACILITY				0
 #define configUSE_16_BIT_TICKS					0
 #define configIDLE_SHOULD_YIELD					1

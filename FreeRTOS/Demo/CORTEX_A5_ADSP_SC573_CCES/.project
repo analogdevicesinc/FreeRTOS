@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>RTOSDemo_CCES_Core0</name>
+	<name>RTOSDemo_CORTEX_A5_SC573_CCES</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -202,6 +202,16 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Source/portable/CCES/ARM_CA5/dispatcher.c</locationURI>
 		</link>
 		<link>
+			<name>system/FreeRTOS/portable/io_startup.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Source/portable/CCES/ARM_CA5/io_startup.c</locationURI>
+		</link>
+		<link>
+			<name>system/FreeRTOS/portable/io_startup.h</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Source/portable/CCES/ARM_CA5/io_startup.h</locationURI>
+		</link>
+		<link>
 			<name>system/FreeRTOS/portable/port.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Source/portable/GCC/ARM_CA9/port.c</locationURI>
@@ -225,6 +235,11 @@
 			<name>system/FreeRTOS/portable/vectors.S</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Source/portable/CCES/ARM_CA5/vectors.S</locationURI>
+		</link>
+		<link>
+			<name>system/drivers/uart/adi_uart.c</name>
+			<type>1</type>
+			<locationURI>CCES/ARM/arm-none-eabi/arm-none-eabi/lib/src/cortex-a5/drivers/Source/uart/adi_uart.c</locationURI>
 		</link>
 		<link>
 			<name>system/osal/ARM-Cortex-A/adi_osal_arch.h</name>
@@ -255,7 +270,7 @@
 	<variableList>
 		<variable>
 			<name>CCES</name>
-			<value>file:/C:/Analog%20Devices/CrossCore%20Embedded%20Studio%202.7.0</value>
+			<value>file:/C:/analog/cces2.8.3</value>
 		</variable>
 	</variableList>
 </projectDescription>

@@ -33,7 +33,7 @@ static char dns_packet[DNS_PACKET_SIZE];
 
 #if defined(_DEBUG_) || defined(_DEBUG)
 #define DNS_ASSERT(str_,val_) do {                                              \
-        							if(val_) { printf("%s\n",str_); return -1; }\
+        							if(val_) { printf("%s\r\n",str_); return -1; }\
 								 }  while(0)
 #else
 #define DNS_ASSERT(str_,val_)
@@ -47,7 +47,7 @@ void DnsClientTask(void *p_arg)
     /* Wait for lwip to finish booting */
 	if (pdFALSE == xSemaphoreTake(g_semLWIPBootComplete, portMAX_DELAY))
     {
-        printf("DnsClientTask: failed to wait on lwip boot complete semaphore\n");
+        printf("DnsClientTask: failed to wait on lwip boot complete semaphore\r\n");
         return;
     }
 
@@ -57,7 +57,7 @@ void DnsClientTask(void *p_arg)
      */
     if (pdFALSE == xSemaphoreGive(g_semLWIPBootComplete))
     {
-    	printf("DnsClientTask: failed to re-post boot semaphore\n");
+    	printf("DnsClientTask: failed to re-post boot semaphore\r\n");
         return;
     }
 
@@ -263,16 +263,16 @@ int dns_query_hostname(char *host_name)
         addr.s_addr = (u32_t)g_mx_records[0].ip_addr;
 
         p = inet_ntoa(addr);
-        printf("IP Address of %s is : %s\n",host_name,p);
+        printf("IP Address of %s is : %s\r\n",host_name,p);
 
 #if defined(ETHER_AUTO_TEST)
         if(strcmp(p,"0.0.0.0"))
         {
-        	printf("Example passed\n");
+        	printf("Example passed\r\n");
         }
         else
         {
-        	printf("Example failed\n");
+        	printf("Example failed\r\n");
         }
         exit(0);
 #endif /* ETHER_AUTO_TEST */

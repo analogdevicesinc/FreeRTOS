@@ -239,12 +239,12 @@ static void prvPrintInformation( void )
 {
     if (ulErrorFlags)
     {
-        printf("Test failed\n");
+        printf("Test failed\r\n");
         ulErrorFlags = 0;
     }
     else
     {
-        printf("Test passed\n");
+        printf("Test passed\r\n");
     }
 }
 

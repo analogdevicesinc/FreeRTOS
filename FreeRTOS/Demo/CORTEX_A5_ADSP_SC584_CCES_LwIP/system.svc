@@ -13,6 +13,10 @@
 			<component-description><![CDATA[This component provides ADI's implementation of lwIP TCP/IP stack and configuration utilities.]]></component-description>
 			<product name="ADI lwIP v2.6.0" version="2.6.0"/>
 		</component>
+		<component id="com.analog.crosscore.addins.ssldd.uart.cortexa5" name="UART Driver for Cortex-A" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the UART Interface driver]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
 	</installedComponents>
 	<configurations>
 		<configuration id="com.analog.crosscore.ssldd.pinmux.component">
@@ -39,16 +43,11 @@
 					<signal bit="26" mux="0" name="TXD3" pin="13" port="A"/>
 					<signal bit="20" mux="0" name="TXEN" pin="10" port="A"/>
 				</peripheral>
-				<peripheral description="Ethernet MAC" name="EMAC1">
-					<signal bit="26" mux="0" name="CRS" pin="13" port="F"/>
-					<signal bit="28" mux="0" name="MDC" pin="14" port="F"/>
-					<signal bit="30" mux="0" name="MDIO" pin="15" port="F"/>
-					<signal bit="0" mux="0" name="REFCLK" pin="0" port="G"/>
-					<signal bit="8" mux="0" name="RXD0" pin="4" port="G"/>
-					<signal bit="10" mux="0" name="RXD1" pin="5" port="G"/>
-					<signal bit="4" mux="0" name="TXD0" pin="2" port="G"/>
-					<signal bit="6" mux="0" name="TXD1" pin="3" port="G"/>
-					<signal bit="2" mux="0" name="TXEN" pin="1" port="G"/>
+				<peripheral description="UART" name="UART0">
+					<signal bit="0" mux="0" name="CTS" pin="0" port="D"/>
+					<signal bit="30" mux="0" name="RTS" pin="15" port="C"/>
+					<signal bit="28" mux="0" name="RX" pin="14" port="C"/>
+					<signal bit="26" mux="0" name="TX" pin="13" port="C"/>
 				</peripheral>
 				<gpio name="Port A">
 					<signal bit="0" name="PA00" pin="0" port="A"/>
@@ -74,18 +73,13 @@
 					<signal bit="4" name="PB02" pin="2" port="B"/>
 					<signal bit="6" name="PB03" pin="3" port="B"/>
 				</gpio>
-				<gpio name="Port F">
-					<signal bit="26" name="PF13" pin="13" port="F"/>
-					<signal bit="28" name="PF14" pin="14" port="F"/>
-					<signal bit="30" name="PF15" pin="15" port="F"/>
+				<gpio name="Port C">
+					<signal bit="26" name="PC13" pin="13" port="C"/>
+					<signal bit="28" name="PC14" pin="14" port="C"/>
+					<signal bit="30" name="PC15" pin="15" port="C"/>
 				</gpio>
-				<gpio name="Port G">
-					<signal bit="0" name="PG00" pin="0" port="G"/>
-					<signal bit="2" name="PG01" pin="1" port="G"/>
-					<signal bit="4" name="PG02" pin="2" port="G"/>
-					<signal bit="6" name="PG03" pin="3" port="G"/>
-					<signal bit="8" name="PG04" pin="4" port="G"/>
-					<signal bit="10" name="PG05" pin="5" port="G"/>
+				<gpio name="Port D">
+					<signal bit="0" name="PD00" pin="0" port="D"/>
 				</gpio>
 			</pinmux-configuration>
 		</configuration>

@@ -35,9 +35,14 @@
 #include <sys/platform.h>
 #include <platform_include.h>
 #include <sys/anomaly_macros_rtl.h>
+#ifdef __ADSP2156x__
+#include <anomaly_macros_ADSP-2156x.h>
+#endif
 #include <interrupt.h>
 #include <builtins.h>
+#ifndef __ADSP2156x__
 #include <sys/def215xx_core.h>
+#endif
 #include <services/int/adi_sec.h> /* only needed for WA_20000081 */
 
 
@@ -267,6 +272,9 @@ BaseType_t xPortStartScheduler( void )
      */
 
   /* Use SEC interrupts SOFT6 for SHARC0 (core 1) and SOFT7 for SHARC1 (core 2) */
+#if defined(__ADSP2156x__)
+	_adi_OSRescheduleIntID = INTR_SYS_SOFT6_INT;
+#else
   if (ADI_CORE_SHARC1 == adi_core_id())
     {
       _adi_OSRescheduleIntID = INTR_SYS_SOFT7_INT;
@@ -275,6 +283,7 @@ BaseType_t xPortStartScheduler( void )
     {
       _adi_OSRescheduleIntID = INTR_SYS_SOFT6_INT;
     }
+#endif
 
     adi_rtl_register_dispatched_handler (_adi_OSRescheduleIntID, _adi_SoftIntTaskSw, 0u);
     adi_sec_SetCoreID(_adi_OSRescheduleIntID, (ADI_SEC_CORE_ID)adi_core_id()); /* route the interrupt to this core */

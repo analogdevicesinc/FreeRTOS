@@ -182,6 +182,11 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Source/portable/CCES/Blackfin_BF70x/portASM.asm</locationURI>
 		</link>
 		<link>
+			<name>system/drivers/twi/adi_twi.c</name>
+			<type>1</type>
+			<locationURI>CCES/Blackfin/lib/src/drivers/source/twi/adi_twi.c</locationURI>
+		</link>
+		<link>
 			<name>system/osal/Blackfin_BF70x/adi_osal_arch.h</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Source/portable/CCES/Blackfin_BF70x/osal/adi_osal_arch.h</locationURI>
@@ -210,7 +215,7 @@
 	<variableList>
 		<variable>
 			<name>CCES</name>
-			<value>file:/C:/Analog%20Devices/CrossCore%20Embedded%20Studio%202.7.0</value>
+			<value>file:/C:/analog/cces2.8.3</value>
 		</variable>
 	</variableList>
 </projectDescription>

@@ -372,7 +372,7 @@ bool _adi_osal_IsSchedLocked(void)
 static inline
 bool _adi_osal_OsNotStarted(void)
 {
-    return (taskSCHEDULER_NOT_STARTED == xTaskGetSchedulerState());
+    return (taskSCHEDULER_RUNNING != xTaskGetSchedulerState());
 }
 /*! @fn _adi_osal_IsOSALThread(ADI_OSAL_THREAD_INFO const *hThread)
  *  @param[in] hThread - Thread Info
