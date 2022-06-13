@@ -9,12 +9,15 @@ The following releases from Analog devices are currently available in this repos
 
 1.2.0 (based on FreeRTOS v9.0.0)
   Support for ADuCM302x, ADuCM4x5x, ADSP-BF7xx and ADSP-SC5xx (Cortex-A) processors.
-1.3.0 (based on FreeRTOS v10.0.x)
-  Support for for ADuCM302x, ADuCM4x5x, ADSP-BF7xx and ADSP-SC5xx (Cortex-A and SHARC+) processors.
+1.5.1 (based on FreeRTOS v10.0.x)
+  Support for for ADSP-BF7xx and ADSP-SC5xx (Cortex-A and SHARC+) processors.
+2.0.0 (based on FreeRTOS v10.4.x)
+  Support for for ADSP-BF7xx and ADSP-SC5xx (Cortex-A and SHARC+) processors.
 
 
 ## Getting Started
-  Please refer to the README.md document on the release branch.
+Please refer to the README.md document on the release branch.\
+Or see the [ADI FreeRTOS Wiki](https://wiki.analog.com/resources/tools-software/freertos)
 
 ## Support
 Support for the Analog Devices FreeRTOS ports is primarily provided via the [Analog Devices Engineer Zone Forum](https://ez.analog.com/community/dsp/software-and-development-tools/freertos)
