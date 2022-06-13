@@ -7,11 +7,11 @@ This repository is used to provide users of Analog Devices DSP and Microcontroll
 The branches in this repository relate to specific releases of FreeRTOS from FreeRTOS.org (9.0.0., 10.0.0 etc) with tags indicating formal releases of the additional Analog devices content (REL-FRTOS-ADI-1.2.0 etc).
 The following releases from Analog devices are currently available in this repository:
 
-1.2.0 (based on FreeRTOS v9.0.0)
+#### 1.2.0 (based on FreeRTOS v9.0.0)
   Support for ADuCM302x, ADuCM4x5x, ADSP-BF7xx and ADSP-SC5xx (Cortex-A) processors.
-1.5.1 (based on FreeRTOS v10.0.x)
+#### 1.5.1 (based on FreeRTOS v10.0.x)
   Support for for ADSP-BF7xx and ADSP-SC5xx (Cortex-A and SHARC+) processors.
-2.0.0 (based on FreeRTOS v10.4.x)
+#### 2.0.0 (based on FreeRTOS v10.4.x)
   Support for for ADSP-BF7xx and ADSP-SC5xx (Cortex-A and SHARC+) processors.
 
 
