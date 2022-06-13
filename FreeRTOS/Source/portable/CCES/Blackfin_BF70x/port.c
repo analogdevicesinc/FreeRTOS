@@ -72,9 +72,6 @@ debugger. */
 	#define configTIMER_INTERRUPT   (ADI_CID_IVTMR)
 #endif
 
-/* Each task maintains its own interrupt status in the critical nesting
-variable. */
-static UBaseType_t uxCriticalNesting = 0xaaaaaaaa;
 
 /*
  * Setup the timer to generate the tick interrupts.  The implementation in this
@@ -166,8 +163,8 @@ static void prvTaskExitError( void )
 
 	Artificially force an assert() to be triggered if configASSERT() is
 	defined, then stop here so application writers can catch the error. */
-	configASSERT( uxCriticalNesting == ~0UL );
-	portDISABLE_INTERRUPTS(); /* calls ulPortSetInterruptMask() */
+	configASSERT( 0UL );
+	portDISABLE_INTERRUPTS(); 
 	for( ;; );
 }
 /*-----------------------------------------------------------*/
@@ -184,9 +181,6 @@ BaseType_t xPortStartScheduler( void )
 	/* Start the timer that generates the tick ISR.  Interrupts are disabled
 	here already. */
 	vPortSetupTimerInterrupt();
-
-	/* Initialise the critical nesting count ready for the first task. */
-	uxCriticalNesting = 0;
 
 	*pEVT14 = (void*) xPortIVG14Handler;
 
@@ -208,42 +202,21 @@ void vPortEndScheduler( void )
 {
 	/* Not implemented in ports where there is nothing to return to.
 	Artificially force an assert. */
-	configASSERT( uxCriticalNesting == 1000UL );
+	configASSERT( 0UL );
 }
 /*-----------------------------------------------------------*/
 
-static uint32_t s_SavedIntMask;
 
 void vPortEnterCritical( void )
 {
-	uint32_t mask = ulPortSetInterruptMask();
-
-	uxCriticalNesting++;
-
-	if( uxCriticalNesting == 1 )
-	{
-		s_SavedIntMask = mask;
-
-		/* This is not the interrupt safe version of the enter critical function so
-		assert() if it is being called from an interrupt context.  Only API
-		functions that end in "FromISR" can be used in an interrupt.  Only assert if
-		the critical nesting count is 1 to protect against recursive calls if the
-		assert function also uses a critical section. */
-	//	configASSERT( ( portNVIC_INT_CTRL_REG & portVECTACTIVE_MASK ) == 0 );
-	}
+	adi_rtl_disable_interrupts();
 }
 /*-----------------------------------------------------------*/
 
 void vPortExitCritical( void )
 {
-	configASSERT( uxCriticalNesting );
-	uxCriticalNesting--;
-	if( uxCriticalNesting == 0 )
-	{
-		vPortClearInterruptMask(s_SavedIntMask);
-	}
+	adi_rtl_reenable_interrupts();
 }
-
 /*-----------------------------------------------------------*/
 
 uint32_t ulPortSetInterruptMask( void )
@@ -256,11 +229,11 @@ uint32_t ulPortSetInterruptMask( void )
 
 void vPortClearInterruptMask( uint32_t ulNewMaskValue )
 {
-//	configASSERT(0 != ulNewMaskValue);
-	sti(ulNewMaskValue);
+       sti(ulNewMaskValue);
 }
 
 /*-----------------------------------------------------------*/
+
 
 EX_DISPATCHED_HANDLER_NON_NESTED(xPortSysTickHandler, a, b, c)
 {

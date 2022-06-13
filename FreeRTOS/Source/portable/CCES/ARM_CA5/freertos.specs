@@ -12,6 +12,7 @@
     %{mproc=ADSP-SC584: apt-sc584.o%s} \
     %{mproc=ADSP-SC587: apt-sc587.o%s} \
     %{mproc=ADSP-SC589: apt-sc589.o%s} \
+    %{mproc=ADSP-SC594: apt-sc594.o%s} \
     %{mproc=ADSP-SC58*: -lfftacc} \
     %{mproc=ADSP*: -lssl -losal -lrtadi} \
     %{mproc=AD*: -lm} \
@@ -27,10 +28,12 @@
   %{mproc=ADSP-SC584:-T adsp-sc584.ld%s} \
   %{mproc=ADSP-SC587:-T adsp-sc587.ld%s} \
   %{mproc=ADSP-SC589:-T adsp-sc589.ld%s} \
+  %{mproc=ADSP-SC594:-T adsp-sc594.ld%s} \
   %{mproc=ADSP-GL*: -T adsp-sc57x-common.ld%s} \
   %{mproc=ADSP-SC570: -T adsp-sc57x-common-l2.ld%s} \
   %{mproc=ADSP-SC571: -T adsp-sc57x-common-l2.ld%s} \
   %{mproc=ADSP-SC572: -T adsp-sc57x-common.ld%s} \
   %{mproc=ADSP-SC573: -T adsp-sc57x-common.ld%s} \
   %{mproc=ADSP-SC58*: -T adsp-sc58x-common.ld%s} \
+  %{mproc=ADSP-SC59*: -T adsp-sc59x-common.ld%s} \
 }

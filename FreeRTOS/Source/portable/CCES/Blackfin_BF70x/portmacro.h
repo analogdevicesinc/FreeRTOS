@@ -96,7 +96,7 @@ extern void vPortInstallFreeRTOSVectorTable( void );
 interrupts that have a priority below configMAX_API_CALL_INTERRUPT_PRIORITY. */
 #define portENTER_CRITICAL()		vPortEnterCritical();
 #define portEXIT_CRITICAL()			vPortExitCritical();
-#define portDISABLE_INTERRUPTS()	ulPortSetInterruptMask()
+#define portDISABLE_INTERRUPTS()	   ulPortSetInterruptMask()
 #define portENABLE_INTERRUPTS()		vPortClearInterruptMask( 0 )
 #define portSET_INTERRUPT_MASK_FROM_ISR()		ulPortSetInterruptMask()
 #define portCLEAR_INTERRUPT_MASK_FROM_ISR(x)	vPortClearInterruptMask(x)

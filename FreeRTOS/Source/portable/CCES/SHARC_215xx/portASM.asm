@@ -32,9 +32,6 @@
 #include <platform_include.h>
 #include <asm_sprt.h>
 #include <sys/anomaly_macros_rtl.h>
-#ifdef __ADSP2156x__
-#include <anomaly_macros_ADSP-2156x.h>
-#endif
 
 .import "portASM.h";
 
@@ -205,7 +202,6 @@
 
 .SECTION/PM seg_pmco;
 
-.global xPortSFT31Handler;
 .global FUNC_NAME(prvPortStartFirstTask);
 #if WA_20000081
 /* This is an entrypoint for the reschedule interrupt, which is used as a "dispatched handler" by the
@@ -214,6 +210,7 @@
 .global FUNC_NAME(_adi_SoftIntTaskSw);
 #endif /* WA_20000081 */
 
+.extern FUNC_NAME(xPortSFT31Handler);
 .extern FUNC_NAME(vTaskSwitchContext);
 
 FUNC_NAME(prvPortStartFirstTask):
@@ -287,7 +284,7 @@ xPortSFT31Handler:
  */
 FUNC_NAME(_adi_SoftIntTaskSw):
 
-      /* Unlike a "raw" core interrupt, thsi entrypoint is called from the SEC dispatcher, which has
+      /* Unlike a "raw" core interrupt, this entrypoint is called from the SEC dispatcher, which has
        * already saved some register to the foreground (i.e.e system) stack. In order to mimic the
        * behaviour of a core interrupt, and hence to minimise the differences between using a core
        * interrupt and an SEC interrupt for rescheduling, we restore those registers here. This puts
@@ -356,7 +353,29 @@ FUNC_NAME(xPortSFT31Handler):
 	// raised by a nested peripheral interrupt. Any nested interrupts that occur should
 	// be preserving any registers they touch (except for the 40-bit extensions of the system
 	// data regs).
-	BIT SET MODE1 MODE1_INT_EN_BIT;
+	
+#if WA_20000081
+	  BIT SET MODE1 MODE1_INT_EN_BIT;	
+#else
+   	  PCSTK = DM(14, I7);
+      I12 = I7;                      // copy stack pointer to I12
+      B6  = DM(2, I7);               // restore saved regs from stack frame
+      I6  = DM(3, I7);
+      PX2 = DM(6, I7);
+      PX1 = DM(7, I7);
+      R12 = PX;
+      PX2 = DM(8, I7);
+      PX1 = DM(9, I7);
+      R8 = PX;
+      PX2 = DM(10, I7);
+      PX1 = DM(11, I7);
+      R4 = PX;
+      PX2 = DM(12, I7);
+      PX1 = DM(13, I7);
+      B7 = DM(4, I7);
+      I7 = PM(5, I12);
+      I12  = PM(1, I12);
+#endif
 	
 	// There are a number of registers which are defined as scratch but which are not
 	// shadowed (i.e. don't have separate foreground/background instances). These registers
@@ -812,7 +831,7 @@ FUNC_NAME(xPortSFT31Handler):
         NOP;
         NOP;
         NOP;
-.xPortSFT31Handler.end:
+END_LABEL(xPortSFT31Handler):
 
 		
 .RestoreTaskContext:
@@ -1047,6 +1066,3 @@ FUNC_NAME(xPortSFT31Handler):
 
 	RTS						 ;
 .RestoreTaskContext.end:
-
-
-

@@ -1,5 +1,5 @@
 /*****************************************************************************
-    Copyright (C) 2016-2018 Analog Devices Inc. All Rights Reserved.
+    Copyright (C) 2016-2021 Analog Devices Inc. All Rights Reserved.
 *****************************************************************************/
 
 #include <stdio.h>
@@ -9,12 +9,22 @@
 #include <libio/device.h>
 #include <drivers/uart/adi_uart.h>
 #include <services/pwr/adi_pwr.h>
+
+#include "FreeRTOS.h"
 #include "semphr.h"
 
 #include "io_startup.h"
 
+#if defined(__ADSPSC594_FAMILY__)
+#define UART_MEM_SIZE                           (ADI_UART_BIDIR_MEMORY_SIZE)                                 /* Memory required from application to configure a UART */
+#define adi_uart_Write(x,y,z)                   (adi_uart_CoreWrite((x),(y),(z)))                            /* Wrapper for UART write API name change */
+#define adi_uart_Read(x,y,z)                    (adi_uart_CoreRead((x),(y),(z), ADI_OSAL_TIMEOUT_FOREVER))   /* Wrapper for UART read API name change */
+#else
+#define UART_MEM_SIZE                           (ADI_UART_BIDIR_INT_MEMORY_SIZE)                             /* Memory required from application to configure a UART */
+#endif
+
 static ADI_UART_HANDLE  deviceHandle;
-static uint8_t          interruptModeMemory[ADI_UART_BIDIR_INT_MEMORY_SIZE];
+static uint8_t          interruptModeMemory[UART_MEM_SIZE];
 
 static ADI_UART_RESULT uart_result;
 static SemaphoreHandle_t xSemaphore = NULL;
@@ -25,17 +35,35 @@ static SemaphoreHandle_t xSemaphore = NULL;
  */
 int adi_freertos_uart_init(struct DevEntry *d) {
 
+#if	defined(__ADSPSC594_FAMILY__)
+    /* Used to retrieve the current SCLK0 from PWR service */
+    uint32_t SysClk,SClk0,SClk1;
+    uint16_t Divisor;
+#endif
+
     ADI_PWR_RESULT pwr_result = adi_pwr_Init(0u, UART_ADI_FREERTOS_CLKIN);
     if (pwr_result != ADI_PWR_SUCCESS
         && pwr_result != ADI_PWR_DEVICE_IN_USE) return ADI_FREERTOS_UART_IO_ERR;
 
     uart_result = adi_uart_Open(ADI_FREERTOS_UART_DEV_ID,
-                           ADI_UART_DIR_BIDIRECTION,
-                           interruptModeMemory,
-                           ADI_UART_BIDIR_INT_MEMORY_SIZE,
-                           &deviceHandle);
+                                ADI_UART_DIR_BIDIRECTION,
+                                interruptModeMemory,
+                                UART_MEM_SIZE,
+                                &deviceHandle);
     if (uart_result != ADI_UART_SUCCESS) return ADI_FREERTOS_UART_IO_ERR;
 
+#if defined(__ADSPSC594_FAMILY__)
+    /* Get SCLK0 value from power service */
+    uart_result = adi_pwr_GetSystemFreq(ADI_PWR_CGU0, &SysClk, &SClk0, &SClk1);
+    if(uart_result != ADI_UART_SUCCESS) return ADI_FREERTOS_UART_IO_ERR;
+
+    /* Calculate divisor from SCLK0 and considering EDB0 as 1 */
+    Divisor = SClk0/(1u*(uint32_t)ADI_FREERTOS_UART_BAUD_RATE);
+
+    /* Set the baud rate */
+    uart_result = adi_uart_ConfigBaudRate(deviceHandle, 1u, Divisor);
+    if (uart_result != ADI_UART_SUCCESS) return ADI_FREERTOS_UART_IO_ERR;
+#else
     uart_result = adi_uart_SetMode(deviceHandle, ADI_UART_MODE_UART);
     if (uart_result != ADI_UART_SUCCESS) return ADI_FREERTOS_UART_IO_ERR;
 
@@ -50,6 +78,7 @@ int adi_freertos_uart_init(struct DevEntry *d) {
 
     uart_result = adi_uart_SetWordLen(deviceHandle, ADI_UART_WORDLEN_8BITS);
     if (uart_result != ADI_UART_SUCCESS) return ADI_FREERTOS_UART_IO_ERR;
+#endif
 
     xSemaphore = xSemaphoreCreateMutex();
     configASSERT( xSemaphore != NULL );

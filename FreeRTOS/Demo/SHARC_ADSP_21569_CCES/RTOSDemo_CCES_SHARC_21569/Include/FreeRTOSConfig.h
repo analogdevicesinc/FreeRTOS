@@ -80,7 +80,7 @@ uint8_t ucHeap[ configTOTAL_HEAP_SIZE ];
 */
 #define configAPPLICATION_ALLOCATED_HEAP		0
 #define configSUPPORT_STATIC_ALLOCATION         1
-#define configCPU_CLOCK_HZ						450000000
+#define configCPU_CLOCK_HZ						1000000000
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION	0
 #define configUSE_TICKLESS_IDLE					0
 #define configTICK_RATE_HZ						( ( TickType_t ) 1000 )

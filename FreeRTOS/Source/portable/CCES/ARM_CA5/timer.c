@@ -1,5 +1,5 @@
 /*****************************************************************************
-    Copyright (C) 2016-2018 Analog Devices Inc. All Rights Reserved.
+    Copyright (C) 2016-2020 Analog Devices Inc. All Rights Reserved.
 *****************************************************************************/
 
 
@@ -13,6 +13,7 @@
 #include <stdlib.h>
 
 #include "FreeRTOS.h"
+#include <adi_osal.h>
 
 /* FreeRTOS_Tick_Handler() is defined in the RTOS port layer */
 extern void FreeRTOS_Tick_Handler( void );
@@ -23,10 +24,14 @@ static void tickHandler(uint32_t id, void *param);
 
 /* The constant ADI_CFG_GP_TMR_NUM should probably be defined in FreeRTOSConfig.h */
 #ifndef ADI_CFG_GP_TMR_NUM
+#if defined (__ADSPSC589_FAMILY__) || defined (__ADSPSC573_FAMILY__)
 #define ADI_CFG_GP_TMR_NUM 7
+#elif defined(__ADSPSC594_FAMILY__)
+#define ADI_CFG_GP_TMR_NUM 0
+#endif
 #endif
 
-#if !defined (__ADSPSC589_FAMILY__) && !defined (__ADSPSC573_FAMILY__)
+#if !defined (__ADSPSC589_FAMILY__) && !defined (__ADSPSC573_FAMILY__) && !defined (__ADSPSC594_FAMILY__)
 #error "This processor family is not supported"
 #endif
 
@@ -40,7 +45,7 @@ static void tickHandler(uint32_t id, void *param);
 
 #ifndef configSCLK0_HZ
 /* SCLK0 is normally one quarter of the CPU clock */
-#define configSCLK0_HZ (configCPU_CLOCK_HZ / 4)
+#define configSCLK0_HZ (125000000)
 #endif
 
 /* Macros to construct the desired register name from the timer number. */
@@ -48,7 +53,11 @@ static void tickHandler(uint32_t id, void *param);
 #define  REG_NAME(RN, END)      REG_NAME_STR(RN, END)
 
 /* Macros to construct the desired interrupt name from the timer number. */
+#if defined (__ADSPSC589_FAMILY__) || defined (__ADSPSC573_FAMILY__)
 #define  INT_NAME_STR(RN)       INTR_TIMER0_TMR##RN
+#elif defined(__ADSPSC594_FAMILY__)
+#define  INT_NAME_STR(RN)       INTR_TIMER0_TMR0##RN
+#endif
 #define  INT_NAME(RN)           INT_NAME_STR(RN)
 
 #define TIMER_NUM (ADI_CFG_GP_TMR_NUM)
@@ -76,9 +85,9 @@ static void tickHandler(uint32_t id, void *param)
 /*
  * Set up a GP Timer as the RTOS tick interrupt source.
  *
- * This function configures a GP Timer to be used for uCOS-III timing services.
+ * This function configures a GP Timer to be used for timing services.
  * The GP Timer to be used is selected by a ADI_CFG_GP_TMR_NUM macro, which is
- * defined by the uCOS-III UI.  This function only modifies the registers, and
+ * defined by FreeRTOSConfig.h.  This function only modifies the registers, and
  * parts of registers, that apply to the given GP timer.
  */
 
@@ -111,9 +120,9 @@ void vConfigureTickInterrupt(void)
     *pREG_TIMER0_TRG_MSK         &=  CLR_TIMER_MSK_BIT;
     *pREG_TIMER0_TRG_IE          &=  CLR_TIMER_MSK_BIT;
 
-    adi_rtl_register_dispatched_handler(TIMERINT,   /* GP timer        */
-                                        tickHandler,  /* Timer handler   */
-                                        NULL);      /* No callback arg */
+    adi_osal_InstallHandler(TIMERINT,   /* GP timer        */
+                            tickHandler,  /* Timer handler   */
+                            NULL);      /* No callback arg */
 
     EnableGICTimerInt(TIMERINT);
 

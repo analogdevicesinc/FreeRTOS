@@ -35,16 +35,12 @@
 #include <sys/platform.h>
 #include <platform_include.h>
 #include <sys/anomaly_macros_rtl.h>
-#ifdef __ADSP2156x__
-#include <anomaly_macros_ADSP-2156x.h>
-#endif
 #include <interrupt.h>
 #include <builtins.h>
-#ifndef __ADSP2156x__
+#if (!defined(__ADSP2156x__) && !defined(__ADSPSC594_FAMILY__))
 #include <sys/def215xx_core.h>
 #endif
 #include <services/int/adi_sec.h> /* only needed for WA_20000081 */
-
 
 #include "portASM.h"
 
@@ -127,9 +123,6 @@ uint32_t _adi_OSRescheduleIntID;
 volatile uint32_t _adi_OSWaitingForSched;
 #endif /* WA_20000081 */
 
-/* Each task maintains its own interrupt status in the critical nesting
-variable. */
-static UBaseType_t uxCriticalNesting = 0xaaaaaaaa;
 
 /*
  * Setup the timer to generate the tick interrupts.  The implementation in this
@@ -153,6 +146,11 @@ EX_DISPATCHED_HANDLER_NESTED(_adi_SoftIntTaskSw, a, b, c);
  * Start first task is implemented in portASM.asm
  */
 extern void prvPortStartFirstTask( void );
+
+/*
+ * This is an entrypoint for the reschedule interrupt
+ */
+extern void xPortSFT31Handler( void );
 
 /*
  * Used to catch tasks that attempt to return from their implementing function.
@@ -245,8 +243,8 @@ static void prvTaskExitError( void )
 
 	Artificially force an assert() to be triggered if configASSERT() is
 	defined, then stop here so application writers can catch the error. */
-	configASSERT( uxCriticalNesting == ~0UL );
-	portDISABLE_INTERRUPTS(); /* calls ulPortSetInterruptMask() */
+	configASSERT( 0UL );
+	portDISABLE_INTERRUPTS(); 
 	for( ;; );
 }
 /*-----------------------------------------------------------*/
@@ -272,9 +270,6 @@ BaseType_t xPortStartScheduler( void )
      */
 
   /* Use SEC interrupts SOFT6 for SHARC0 (core 1) and SOFT7 for SHARC1 (core 2) */
-#if defined(__ADSP2156x__)
-	_adi_OSRescheduleIntID = INTR_SYS_SOFT6_INT;
-#else
   if (ADI_CORE_SHARC1 == adi_core_id())
     {
       _adi_OSRescheduleIntID = INTR_SYS_SOFT7_INT;
@@ -283,7 +278,6 @@ BaseType_t xPortStartScheduler( void )
     {
       _adi_OSRescheduleIntID = INTR_SYS_SOFT6_INT;
     }
-#endif
 
     adi_rtl_register_dispatched_handler (_adi_OSRescheduleIntID, _adi_SoftIntTaskSw, 0u);
     adi_sec_SetCoreID(_adi_OSRescheduleIntID, (ADI_SEC_CORE_ID)adi_core_id()); /* route the interrupt to this core */
@@ -291,15 +285,16 @@ BaseType_t xPortStartScheduler( void )
     adi_sec_EnableInterrupt(_adi_OSRescheduleIntID, true);                     /* enable the interrupt */
     adi_rtl_activate_dispatched_handler (_adi_OSRescheduleIntID);
 #else /* !WA_20000081 */
-	sysreg_bit_set(sysreg_IMASK, BITM_REGF_IMASK_SFT3I); /* enable the reschedule interrupt */
+    /* We do not need to use the iid or the argument for this interrupt. */
+    adi_rtl_register_dispatched_handler (OS_RESCHEDULE_CID,				 				 /* User software interrupt 3 */
+     									(adi_dispatched_handler_t) xPortSFT31Handler,	 /* OS IRQ handler  */
+ 										(adi_dispatched_callback_t) NULL);	             /* Without argument */
+    adi_rtl_activate_dispatched_handler (OS_RESCHEDULE_CID);							 /* Enable the Interrupt */
 #endif /* WA_20000081 */
 
 	/* Start the timer that generates the tick ISR.  Interrupts are disabled
 	here already. */
 	vPortSetupTimerInterrupt();
-
-	/* Initialise the critical nesting count ready for the first task. */
-	uxCriticalNesting = 0;
 
 	/* Start the first task. */
 	prvPortStartFirstTask();
@@ -319,7 +314,7 @@ void vPortEndScheduler( void )
 {
 	/* Not implemented in ports where there is nothing to return to.
 	Artificially force an assert. */
-	configASSERT( uxCriticalNesting == 1000UL );
+	configASSERT( 0UL );
 }
 /*-----------------------------------------------------------*/
 
@@ -327,57 +322,35 @@ static uint32_t s_SavedIntMask;
 
 void vPortEnterCritical( void )
 {
-	uint32_t mask = ulPortSetInterruptMask();
-
-	uxCriticalNesting++;
-
-	if( uxCriticalNesting == 1 )
-	{
-		s_SavedIntMask = mask;
-
-		/* This is not the interrupt safe version of the enter critical function so
-		assert() if it is being called from an interrupt context.  Only API
-		functions that end in "FromISR" can be used in an interrupt.  Only assert if
-		the critical nesting count is 1 to protect against recursive calls if the
-		assert function also uses a critical section. */
-	//	configASSERT( ( portNVIC_INT_CTRL_REG & portVECTACTIVE_MASK ) == 0 );
-	}
+	adi_rtl_disable_interrupts();
 }
 /*-----------------------------------------------------------*/
 
 void vPortExitCritical( void )
 {
-	configASSERT( uxCriticalNesting );
-	uxCriticalNesting--;
-	if( uxCriticalNesting == 0 )
-	{
-		vPortClearInterruptMask(s_SavedIntMask);
-	}
+	adi_rtl_reenable_interrupts();
 }
-
 /*-----------------------------------------------------------*/
 
 uint32_t ulPortSetInterruptMask( void )
 {
-	uint32_t state = sysreg_bit_tst(sysreg_MODE1, BITM_REGF_MODE1_IRPTEN );   \
+       uint32_t state = sysreg_bit_tst(sysreg_MODE1, BITM_REGF_MODE1_IRPTEN );   \
 
-	asm volatile("JUMP (PC, .SH_INT_DISABLED) (DB);  \n\
+       asm volatile("JUMP (PC, .SH_INT_DISABLED) (DB);  \n\
                                    BIT CLR MODE1 0x1000;     \n\
                                    NOP;                                      \n\
                                    .SH_INT_DISABLED: \n");
 
-	return state;
-}
-
-/*-----------------------------------------------------------*/
+       return state;
+ }
+ /*-----------------------------------------------------------*/
 
 void vPortClearInterruptMask( uint32_t ulNewMaskValue )
 {
-//	configASSERT(0 != ulNewMaskValue);
-	if (0u != ulNewMaskValue)
-	{
-		sysreg_bit_set(sysreg_MODE1, BITM_REGF_MODE1_IRPTEN);
-	}
+       if (0u != ulNewMaskValue)
+       {
+               sysreg_bit_set(sysreg_MODE1, BITM_REGF_MODE1_IRPTEN);
+       }
 }
 /*-----------------------------------------------------------*/
 
@@ -621,24 +594,3 @@ __attribute__(( weak )) void vPortSetupTimerInterrupt( void )
 	}
 
 #endif /* configASSERT_DEFINED */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

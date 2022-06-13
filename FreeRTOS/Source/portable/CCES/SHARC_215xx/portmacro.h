@@ -36,13 +36,10 @@
 #include <stdint.h>            /* for uint32_t */
 #include <sysreg.h>            /* for sysreg_IRPTL */
 #include <builtins.h>          /* for leftz() and sysreg_bit_set() */
-#ifndef __ADSP2156x__
+#if (!defined(__ADSP2156x__) && !defined(__ADSPSC594_FAMILY__))
 #include <sys/def215xx_core.h> /* for BITM_REGF_IMASK_SFT3I */
 #endif
 #include <sys/anomaly_macros_rtl.h>
-#ifdef __ADSP2156x__
-#include <anomaly_macros_ADSP-2156x.h>
-#endif
 #include <interrupt.h>         /* for ADI_CID_SFT3I */
 
 #if WA_20000081
@@ -116,10 +113,8 @@ extern volatile uint32_t _adi_OSWaitingForSched;
 /* Raise the reschedule interrupt and wait for it to be serviced *unless* interrupts are globally disabled */
 #define portYIELD_WITHIN_API() { _adi_OSWaitingForSched = 1u; *pREG_SEC0_RAISE = _adi_OSRescheduleIntID; if (__builtin_sysreg_bit_tst(sysreg_MODE1, 0x1000)) { while(_adi_OSWaitingForSched) {}; } }
 #else /* !WA_20000081 */
-#define OS_RESCHEDULE_INT (BITM_REGF_IMASK_SFT3I)
-#define OS_RESCHEDULE_CID (ADI_CID_SFT3I)
-#define portYIELD() sysreg_bit_set(sysreg_IRPTL, OS_RESCHEDULE_INT)
-#error portYield
+#define portYIELD() 			sysreg_bit_set(sysreg_IRPTL, OS_RESCHEDULE_INT)
+#define portYIELD_WITHIN_API()	sysreg_bit_set(sysreg_IRPTL, OS_RESCHEDULE_INT)
 #endif /* WA_20000081 */
 
 #define portEND_SWITCHING_ISR( xSwitchRequired ) if( xSwitchRequired != pdFALSE ) portYIELD()
@@ -142,7 +137,7 @@ extern void vPortClearInterruptMask( uint32_t ulNewMaskValue );
 
 #define portENTER_CRITICAL()		vPortEnterCritical();
 #define portEXIT_CRITICAL()			vPortExitCritical();
-#define portDISABLE_INTERRUPTS()	ulPortSetInterruptMask()
+#define portDISABLE_INTERRUPTS()	   ulPortSetInterruptMask()
 #define portENABLE_INTERRUPTS()		vPortClearInterruptMask( 0 )
 #define portSET_INTERRUPT_MASK_FROM_ISR()		ulPortSetInterruptMask()
 #define portCLEAR_INTERRUPT_MASK_FROM_ISR(x)	vPortClearInterruptMask(x)
