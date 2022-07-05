@@ -1,0 +1,7 @@
+-iC:/analog/dev/freertos/freertos/FreeRTOSv10.0.0/FreeRTOS/Demo/SHARC_ADSP_SC598_CCES/RTOSDemo_CCES_SHARC_SC598_Core1/../../../Source/portable/CCES/SHARC_215xx/osal
+-iC:/analog/dev/freertos/freertos/FreeRTOSv10.0.0/FreeRTOS/Demo/SHARC_ADSP_SC598_CCES/RTOSDemo_CCES_SHARC_SC598_Core1/../../../Source/portable/CCES/osal
+-iC:/analog/dev/freertos/freertos/FreeRTOSv10.0.0/FreeRTOS/Demo/SHARC_ADSP_SC598_CCES/RTOSDemo_CCES_SHARC_SC598_Core1/system
+-iC:/analog/dev/freertos/freertos/FreeRTOSv10.0.0/FreeRTOS/Demo/SHARC_ADSP_SC598_CCES/RTOSDemo_CCES_SHARC_SC598_Core1/Include
+-iC:/analog/dev/freertos/freertos/FreeRTOSv10.0.0/FreeRTOS/Demo/SHARC_ADSP_SC598_CCES/RTOSDemo_CCES_SHARC_SC598_Core1/../../../Source/include
+-iC:/analog/dev/freertos/freertos/FreeRTOSv10.0.0/FreeRTOS/Demo/SHARC_ADSP_SC598_CCES/RTOSDemo_CCES_SHARC_SC598_Core1/../../../Demo/Common/include
+-iC:/analog/dev/freertos/freertos/FreeRTOSv10.0.0/FreeRTOS/Demo/SHARC_ADSP_SC598_CCES/RTOSDemo_CCES_SHARC_SC598_Core1/../../../Source/portable/CCES/SHARC_215xx

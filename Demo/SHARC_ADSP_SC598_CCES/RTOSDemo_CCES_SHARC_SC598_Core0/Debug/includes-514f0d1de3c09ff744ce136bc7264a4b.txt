@@ -1,0 +1,1 @@
+-I"C:/analog/dev/freertos/freertos/FreeRTOSv10.0.0/FreeRTOS/Demo/SHARC_ADSP_SC598_CCES/RTOSDemo_CCES_SHARC_SC598_Core0/system"
