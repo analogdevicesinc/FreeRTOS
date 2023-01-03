@@ -93,8 +93,18 @@ does not have an FPU context, or any other value if the task does have an FPU
 context. */
 #define portNO_FLOATING_POINT_CONTEXT	( ( StackType_t ) 0 )
 
+/* Anomaly 36-10-0106: DMC_CPHY_CTL access may cause unexpected results
+ *
+ * There is no workaround for read access, so a read access to this register is not
+ * allowed. For write access to the DMC_CPHY_CTL register via SHARC core, the false
+ * data write error interrupt can cleared by writing the corresponding SEC_SSTAT.PND
+ * bit. For write access to the DMC_CPHY_CTL register via ARM core, keep the asynchronous
+ * abort exception masked all the time or write the DMC_CPHY_CTL register via SHARC core.
+ */
 /* Constants required to setup the initial task context. */
+#ifndef portINITIAL_SPSR  /* allow FreeRTOSConfig.h to override initial SPSR setting (Anomaly 36-10-0106) */
 #define portINITIAL_SPSR				( ( StackType_t ) 0x1f ) /* System mode, ARM mode, IRQ enabled FIQ enabled. */
+#endif
 #define portTHUMB_MODE_BIT				( ( StackType_t ) 0x20 )
 #define portINTERRUPT_ENABLE_BIT		( 0x80UL )
 #define portTHUMB_MODE_ADDRESS			( 0x01UL )
