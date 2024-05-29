@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+	<installedComponents>
+		<component id="com.analog.sourcegen.component.startup_ldf" name="Startup Code/LDF" version="1.0.0" visible="true">
+			<component-description><![CDATA[This component provides the ability to generate Startup Code and LDF source files. Startup code is a procedure that initializes and configures the processor when execution jumps to the "start" address on reset.
+It sets the machine into a known state, initializes selected features, and enables the standard runtime-model.
+A Linker Description File (LDF) defines the target memory map and the placement of program sections within processor memory.
+It provides information needed to link your code. It can be used to configure memory related options, such as the placement of the system heap, system stack, and external memory.]]></component-description>
+			<product name="Startup Code/LDF" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.sru.component" name="SRU Configuration" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides a simplified method of configuring the SHARC Signal Routing Unit (SRU).]]></component-description>
+			<product name="Analog Devices Signal Routing Unit" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.mcapi" name="Analog Devices' MCAPI" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of Multicore association's Multicore Communications API (MCAPI™) version 2.15]]></component-description>
+			<product name="Analog Devices implementation of Multicore Communications API (MCAPI™) v2.15" version="1.0.0"/>
+		</component>
+	</installedComponents>
+	<configurations>
+		<configuration id="com.analog.sourcegen.component.startup_ldf">
+			<startup_ldf-configuration>
+				<crt_and_ldf>
+					<propertygroup name="mandatory">
+						<property name="si_revision" value="any"/>
+						<property name="ivt_output" value="app_IVT.s"/>
+						<property name="processor" value="ADSP-SC594"/>
+						<property name="product_name" value="CrossCore(R) Embedded Studio"/>
+						<property name="crt_doj" value="app_startup.doj"/>
+						<property name="crt_output" value="app_startup.s"/>
+						<property name="ldf_output" value="app.ldf"/>
+					</propertygroup>
+					<propertygroup name="template_schemas" value="true">
+						<property name="ldf_schema" value="210.06"/>
+						<property name="startup_code_schema" value="212.01"/>
+					</propertygroup>
+					<crt>
+						<propertygroup name="cplb_init" value="true">
+							<property name="cplb_src_file" value="app_cplbtab.c"/>
+							<property name="cplb_ctrl" value="57"/>
+							<property name="cplb_obj_file" value="app_cplbtab.doj"/>
+							<property name="cplb_src_alt" value="false"/>
+						</propertygroup>
+						<propertygroup name="mem_init" value="false"/>
+						<propertygroup name="use_multicores" value="3">
+							<property name="use_core" value="2"/>
+						</propertygroup>
+						<property name="main_never_returns" value="false"/>
+						<property name="use_mt" value="false"/>
+						<property name="init_regs" value="false"/>
+						<property name="zero_return_regs" value="false"/>
+						<property name="using_cplusplus" value="true"/>
+						<property name="use_argv" value="false"/>
+						<property name="use_profiling" value="false"/>
+						<property name="use_default_handlers" value="false"/>
+						<property name="use_user_mod_crt" value="true"/>
+						<property name="use_custom_vector" value="false"/>
+						<property name="dcache_config" value="disable_dcache_and_enable_cplb"/>
+						<property name="detect_stackoverflow" value="false"/>
+						<property name="device_init" value="true"/>
+						<property name="icache_config" value="enable_icache"/>
+					</crt>
+					<ldf>
+						<propertygroup name="system_heap" value="L1">
+							<property name="size_units" value="kB"/>
+							<property name="min_size" value="2"/>
+							<property name="customized" value="false"/>
+						</propertygroup>
+						<propertygroup name="system_stack" value="L1">
+							<property name="size_units" value="kB"/>
+							<property name="customized" value="false"/>
+							<property name="min_size" value="2"/>
+						</propertygroup>
+						<propertygroup name="use_sdram" value="false">
+							<property name="partitioned" value="default"/>
+							<property name="size" value="256"/>
+							<property name="dmc_size_0" value="256"/>
+							<property name="size_units" value="MegaBytes"/>
+						</propertygroup>
+						<propertygroup name="running_from_internal_memory" value="true"/>
+						<propertygroup name="libraries" value="true">
+							<property name="heap_dbg_libs" value="false"/>
+							<property name="no_libdrv" value="false"/>
+							<property name="use_eh_enabled_libs" value="false"/>
+							<property name="use_fixed_point_io_libs" value="false"/>
+							<property name="use_fileio_libs" value="false"/>
+							<property name="use_alt_io_lib" value="false"/>
+						</propertygroup>
+						<property name="use_eh" value="true"/>
+						<property name="use_full_cpplib" value="false"/>
+						<property name="user_heap_src_file" value="app_heaptab.c"/>
+						<property name="use_software_modules" value="false"/>
+						<property name="use_user_mod_ldf" value="true"/>
+						<property name="use_pgo_hw" value="false"/>
+					</ldf>
+				</crt_and_ldf>
+				<sharc_caches>
+					<propertygroup name="icache" value="false">
+						<property name="disabled" value="true"/>
+						<property name="size_in_KB" value="16"/>
+					</propertygroup>
+					<propertygroup name="pmcache" value="false">
+						<property name="disabled" value="true"/>
+						<property name="size_in_KB" value="16"/>
+					</propertygroup>
+					<propertygroup name="dmcache" value="false">
+						<property name="disabled" value="true"/>
+						<property name="size_in_KB" value="16"/>
+					</propertygroup>
+					<propertygroup name="cache_ranges" value="false">
+						<property name="noncacheable_arm_sdram" value="true"/>
+					</propertygroup>
+				</sharc_caches>
+			</startup_ldf-configuration>
+		</configuration>
+		<configuration id="com.analog.crosscore.sru.component">
+			<sruConfiguration>
+				<sru-register-group>
+					<register name="pREG_DAI0_CLK2">0x3def7bde</register>
+					<register name="pREG_DAI0_CLK3">0x3def7bde</register>
+					<register name="pREG_DAI0_CLK4">0x3def7bde</register>
+					<register name="pREG_DAI0_CLK5">0x3def7bde</register>
+					<register name="pREG_DAI0_CLK0">0x252630c2</register>
+					<register name="pREG_DAI0_CLK1">0x3def7bde</register>
+					<register name="pREG_DAI0_DAT3">0x00000000</register>
+					<register name="pREG_DAI0_DAT4">0x00000000</register>
+					<register name="pREG_DAI0_DAT5">0x00000000</register>
+					<register name="pREG_DAI0_DAT6">0x00fbefbe</register>
+					<register name="pREG_DAI0_DAT0">0x08144040</register>
+					<register name="pREG_DAI0_DAT1">0x0f38b289</register>
+					<register name="pREG_DAI0_DAT2">0x00000450</register>
+					<register name="pREG_DAI0_FS0">0x2736b4e3</register>
+					<register name="pREG_DAI0_FS1">0x3def7bde</register>
+					<register name="pREG_DAI0_FS2">0x3def7bde</register>
+					<register name="pREG_DAI0_FS3">0x01ef7bde</register>
+					<register name="pREG_DAI0_FS4">0x000003de</register>
+					<register name="pREG_DAI0_PIN0">0x04c80a94</register>
+					<register name="pREG_DAI0_PIN3">0x03a714a3</register>
+					<register name="pREG_DAI0_PIN4">0x05694f9e</register>
+					<register name="pREG_DAI0_PIN1">0x04e84b96</register>
+					<register name="pREG_DAI0_PIN2">0x03668c98</register>
+					<register name="pREG_DAI0_MISC0">0x3def7bde</register>
+					<register name="pREG_DAI0_MISC1">0x3def7bde</register>
+					<register name="pREG_DAI0_PBEN1">0x1348d30f</register>
+					<register name="pREG_DAI0_PBEN2">0x1a5545d6</register>
+					<register name="pREG_DAI0_PBEN0">0x0e2482ca</register>
+					<register name="pREG_DAI0_PBEN3">0x1d71f79b</register>
+					<register name="pREG_DAI1_CLK0">0x252630c2</register>
+					<register name="pREG_DAI1_CLK1">0x3def7bde</register>
+					<register name="pREG_DAI1_CLK2">0x3def7bde</register>
+					<register name="pREG_DAI1_CLK3">0x3def7bde</register>
+					<register name="pREG_DAI1_CLK4">0x3def7bde</register>
+					<register name="pREG_DAI1_CLK5">0x3def7bde</register>
+					<register name="pREG_DAI1_DAT1">0x0f38b289</register>
+					<register name="pREG_DAI1_DAT0">0x08144040</register>
+					<register name="pREG_DAI1_DAT3">0x00000000</register>
+					<register name="pREG_DAI1_DAT2">0x00000450</register>
+					<register name="pREG_DAI1_DAT5">0x00000000</register>
+					<register name="pREG_DAI1_DAT4">0x00000000</register>
+					<register name="pREG_DAI1_DAT6">0x00fbefbe</register>
+					<register name="pREG_DAI1_FS3">0x01ef7bde</register>
+					<register name="pREG_DAI1_FS2">0x3def7bde</register>
+					<register name="pREG_DAI1_FS1">0x3def7bde</register>
+					<register name="pREG_DAI1_FS0">0x2736b4e3</register>
+					<register name="pREG_DAI1_FS4">0x000003de</register>
+					<register name="pREG_DAI1_PIN4">0x05694f9e</register>
+					<register name="pREG_DAI1_PIN2">0x03668c98</register>
+					<register name="pREG_DAI1_PIN3">0x03a714a3</register>
+					<register name="pREG_DAI1_PIN0">0x04c80a94</register>
+					<register name="pREG_DAI1_PIN1">0x04e84b96</register>
+					<register name="pREG_DAI1_MISC1">0x3def7bde</register>
+					<register name="pREG_DAI1_MISC0">0x3def7bde</register>
+					<register name="pREG_DAI1_PBEN3">0x1d71f79b</register>
+					<register name="pREG_DAI1_PBEN2">0x1a5545d6</register>
+					<register name="pREG_DAI1_PBEN1">0x1348d30f</register>
+					<register name="pREG_DAI1_PBEN0">0x0e2482ca</register>
+				</sru-register-group>
+				<comments/>
+			</sruConfiguration>
+		</configuration>
+		<configuration id="com.analog.crosscore.addins.mcapi">
+			<mcapi-configuration>
+				<schema>1.0</schema>
+				<mcapi-config-node-id>2</mcapi-config-node-id>
+				<mcapi-config-num-endpoints>24</mcapi-config-num-endpoints>
+				<mcapi-config-anon-endpoints>8</mcapi-config-anon-endpoints>
+				<mcapi-config-max-payload-size>256</mcapi-config-max-payload-size>
+				<mcapi-config-num-transmit-buffers>16</mcapi-config-num-transmit-buffers>
+				<mcapi-config-num-receive-buffers>1</mcapi-config-num-receive-buffers>
+				<mcapi-config-num-api-requests>31</mcapi-config-num-api-requests>
+				<mcapi-config-num-isr-requests>16</mcapi-config-num-isr-requests>
+			</mcapi-configuration>
+		</configuration>
+	</configurations>
+</root>
