@@ -13,6 +13,8 @@ The following releases from Analog devices are currently available in this repos
   Support for for ADSP-BF7xx and ADSP-SC5xx (Cortex-A and SHARC+) processors.
 #### 2.0.0 (based on FreeRTOS v10.4.x)
   Support for for ADSP-BF7xx and ADSP-SC5xx (Cortex-A and SHARC+) processors.
+#### 2.1.0 (based on FreeRTOS v10.5.x)
+  Support for for ADSP-BF7xx, ADSP-SC5xx (Cortex-A and SHARC+), and ADSP-SC8x3 (Cortex-M and SHARC-FX) processors.
 
 
 ## Getting Started
