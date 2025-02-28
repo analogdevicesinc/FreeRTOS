@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package schemaVersion="1.2" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd" Dvendor="Analog Devices:1" Dname="ADSP-SC8*">
+  <vendor>AnalogDevices</vendor>
+  <name>ADSP-SC83x_FreeRTOS-OSAL</name>
+  <description>
+    OS Abstraction Layer binding for FreeRTOS. 
+  </description>
+  <url>http://download.analog.com/tools/EZBoards/ADSP-SC83x/Releases/</url>
+  <supportContact>http://www.analog.com/en/support/technical-support.html</supportContact>
+
+  <license>license.txt</license>
+
+  <releases>
+    <release version="1.0.0"  date="2024-01-26">
+      - OSAL Binding for FreeRTOS on ADSP-SC83x.
+    </release>
+  </releases>
+
+  <requirements>
+    <packages>
+      <package name="ADSP-SC83x_DFP" vendor="AnalogDevices" version="1.10.0"/>
+    </packages>
+  </requirements>
+
+  <keywords>
+    <keyword>Analog Devices</keyword>
+    <keyword>OSAL</keyword>
+    <keyword>FreeRTOS</keyword>
+    <keyword>ADSP-SC83x</keyword>
+    <keyword>ADSP-SC834</keyword>
+    <keyword>ADSP-SC834W</keyword>
+    <keyword>ADSP-SC835</keyword>
+    <keyword>ADSP-SC835W</keyword>
+  </keywords>
+
+  <conditions>
+    <condition id="OSAL-FreeRTOS">
+      <description>OSAL (FreeRTOS) requirements</description>
+      <require condition="ADSP-SC83x"/>
+      <require Cclass="Device" Cgroup="Runtime" Csub="OSAL API"/>
+      <deny Cclass="Device" Cgroup="OSAL" Csub="NoOS"/>
+    </condition>
+  </conditions>
+
+  <components>
+
+
+    <component Cclass="Device" Cgroup="OSAL" Csub="FreeRTOS" Cversion="1.0.0" condition="OSAL-FreeRTOS">
+      <description>OS Abstraction Layer (FreeRTOS) for ADSP-SC83x</description>
+      <RTE_Components_h>#define RTE_OSAL_FreeRTOS_Runtime</RTE_Components_h>
+      <files>
+        <!-- additional include paths -->
+        <file category="include" name="Source/osal/"/>
+        <file category="include" name="Source/osal/cortex-m33/"/>
+
+        <!-- source files -->
+        <file category="source" name="Source/osal/adi_osal_freertos.c" version="1.0.0"/>
+        <file category="source" name="Source/osal/adi_osal_freertos_critical.c" version="1.0.0"/>
+        <file category="source" name="Source/osal/adi_osal_freertos_event.c" version="1.0.0"/>
+        <file category="source" name="Source/osal/adi_osal_freertos_init.c" version="1.0.0"/>
+        <file category="source" name="Source/osal/adi_osal_freertos_message.c" version="1.0.0"/>
+        <file category="source" name="Source/osal/adi_osal_freertos_mutex.c" version="1.0.0"/>
+        <file category="source" name="Source/osal/adi_osal_freertos_rtl_lock.c" version="1.0.0"/>
+        <file category="source" name="Source/osal/adi_osal_freertos_sem.c" version="1.0.0"/>
+        <file category="source" name="Source/osal/adi_osal_freertos_thread.c" version="1.0.0"/>
+        <file category="source" name="Source/osal/adi_osal_freertos_timing.c" version="1.0.0"/>
+        <file category="source" name="Source/osal/adi_osal_freertos_tls.c" version="1.0.0"/>
+        <file category="source" name="Source/osal/cortex-m33/adi_osal_arch_c.c" version="1.0.0"/>
+      </files>
+    </component>
+
+  </components>
+
+</package>

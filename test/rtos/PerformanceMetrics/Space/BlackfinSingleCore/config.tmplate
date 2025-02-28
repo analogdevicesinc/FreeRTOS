@@ -1,0 +1,92 @@
+PROCESSOR = PROCESSOR_TEMPLATE 
+
+
+START:
+     # Build the basic projects
+     <CMD, python ../CCESSpace.py  -d FreeRTOS_MIN_NOP -o 1>
+     <BUILDPROJECT, FreeRTOS_MIN_NOP, Release>
+      # I don't trust the headless builder to finish correctly before this process continues.
+     <SLEEP, 3>
+     <ASSERT_FILEEXISTS, FreeRTOS_MIN_NOP/Release/FreeRTOS_MIN_NOP.dxe>
+     <CMD, python ../CCESSpace.py -d FreeRTOS_MIN_NOP -p PROCESSOR_TEMPLATE  -t NONE>
+
+
+     # Messages
+     <CMD, python ../CCESSpace.py  -d FreeRTOS_MIN_MSG -o 1>
+     <BUILDPROJECT, FreeRTOS_MIN_MSG, Release>
+      # I don't trust the headless builder to finish correctly before this process continues.
+     <SLEEP, 3>
+     <ASSERT_FILEEXISTS, FreeRTOS_MIN_MSG/Release/FreeRTOS_MIN_MSG.dxe>
+     <CMD, python ../CCESSpace.py -d FreeRTOS_MIN_MSG -p PROCESSOR_TEMPLATE  -t MSG -n 1>
+     <CMD, python ../CCESSpace.py  -d FreeRTOS_MIN_MSG -o 2>
+     <BUILDPROJECT, FreeRTOS_MIN_MSG, Release>
+      # I don't trust the headless builder to finish correctly before this process continues.
+     <SLEEP, 3>
+     <ASSERT_FILEEXISTS, FreeRTOS_MIN_MSG/Release/FreeRTOS_MIN_MSG.dxe>
+     <CMD, python ../CCESSpace.py -d FreeRTOS_MIN_MSG -p PROCESSOR_TEMPLATE  -t MSG -n 2>
+
+     #Flags
+     <CMD, python ../CCESSpace.py  -d FreeRTOS_MIN_FLG -o 1>
+     <BUILDPROJECT, FreeRTOS_MIN_FLG, Release>
+      # I don't trust the headless builder to finish correctly before this process continues.
+     <SLEEP, 3>
+     <ASSERT_FILEEXISTS, FreeRTOS_MIN_FLG/Release/FreeRTOS_MIN_FLG.dxe>
+     <CMD, python ../CCESSpace.py -d FreeRTOS_MIN_FLG -p PROCESSOR_TEMPLATE  -t FLG -n 1>
+     <CMD, python ../CCESSpace.py  -d FreeRTOS_MIN_FLG -o 2>
+     <BUILDPROJECT, FreeRTOS_MIN_FLG, Release>
+      # I don't trust the headless builder to finish correctly before this process continues.
+     <SLEEP, 3>
+     <ASSERT_FILEEXISTS, FreeRTOS_MIN_FLG/Release/FreeRTOS_MIN_FLG.dxe>
+     <CMD, python ../CCESSpace.py -d FreeRTOS_MIN_FLG -p PROCESSOR_TEMPLATE  -t FLG -n 2>
+
+
+     #Mutexes
+     <CMD, python ../CCESSpace.py  -d FreeRTOS_MIN_MUT -o 1>
+     <BUILDPROJECT, FreeRTOS_MIN_MUT, Release>
+      # I don't trust the headless builder to finish correctly before this process continues.
+     <SLEEP, 3>
+     <ASSERT_FILEEXISTS, FreeRTOS_MIN_MUT/Release/FreeRTOS_MIN_MUT.dxe>
+     <CMD, python ../CCESSpace.py -d FreeRTOS_MIN_MUT -p PROCESSOR_TEMPLATE  -t MUT -n 1>
+     <CMD, python ../CCESSpace.py  -d FreeRTOS_MIN_MUT -o 2>
+     <BUILDPROJECT, FreeRTOS_MIN_MUT, Release>
+      # I don't trust the headless builder to finish correctly before this process continues.
+     <SLEEP, 3>
+     <ASSERT_FILEEXISTS, FreeRTOS_MIN_MUT/Release/FreeRTOS_MIN_MUT.dxe>
+     <CMD, python ../CCESSpace.py -d FreeRTOS_MIN_MUT -p PROCESSOR_TEMPLATE  -t MUT -n 2>
+
+
+     #Semaphores
+     <CMD, python ../CCESSpace.py  -d FreeRTOS_MIN_SEM -o 1>
+     <BUILDPROJECT, FreeRTOS_MIN_SEM, Release>
+      # I don't trust the headless builder to finish correctly before this process continues.
+     <SLEEP, 3>
+     <ASSERT_FILEEXISTS, FreeRTOS_MIN_SEM/Release/FreeRTOS_MIN_SEM.dxe>
+     <CMD, python ../CCESSpace.py -d FreeRTOS_MIN_SEM -p PROCESSOR_TEMPLATE  -t SEM -n 1>
+     <CMD, python ../CCESSpace.py  -d FreeRTOS_MIN_SEM -o 2>
+     <BUILDPROJECT, FreeRTOS_MIN_SEM, Release>
+      # I don't trust the headless builder to finish correctly before this process continues.
+     <SLEEP, 3>
+     <ASSERT_FILEEXISTS, FreeRTOS_MIN_SEM/Release/FreeRTOS_MIN_SEM.dxe>
+     <CMD, python ../CCESSpace.py -d FreeRTOS_MIN_SEM -p PROCESSOR_TEMPLATE  -t SEM -n 2>
+
+     #All
+     <CMD, python ../CCESSpace.py  -d FreeRTOS_MIN_ALL -o 1>
+     <BUILDPROJECT, FreeRTOS_MIN_ALL, Release>
+      # I don't trust the headless builder to finish correctly before this process continues.
+     <SLEEP, 3>
+     <ASSERT_FILEEXISTS, FreeRTOS_MIN_ALL/Release/FreeRTOS_MIN_ALL.dxe>
+     <CMD, python ../CCESSpace.py -d FreeRTOS_MIN_ALL -p PROCESSOR_TEMPLATE  -t ALL -n 1>
+     <CMD, python ../CCESSpace.py  -d FreeRTOS_MIN_ALL -o 2>
+     <BUILDPROJECT, FreeRTOS_MIN_ALL, Release>
+      # I don't trust the headless builder to finish correctly before this process continues.
+     <SLEEP, 3>
+     <ASSERT_FILEEXISTS, FreeRTOS_MIN_ALL/Release/FreeRTOS_MIN_ALL.dxe>
+     <CMD, python ../CCESSpace.py -d FreeRTOS_MIN_ALL -p PROCESSOR_TEMPLATE  -t ALL -n 2>
+
+     #Stats
+     #<BUILDPROJECT, FreeRTOS_MIN_STAT, Release>
+      # I don't trust the headless builder to finish correctly before this process continues.
+     #<SLEEP, 3>
+     #<ASSERT_FILEEXISTS, FreeRTOS_MIN_STAT/Release/FreeRTOS_MIN_STAT.dxe>
+     #<CMD, python ../CCESSpace.py -d FreeRTOS_MIN_STAT -p PROCESSOR_TEMPLATE  -t STAT>
+END:

@@ -1,0 +1,39 @@
+%rename lib orig_lib
+
+*lib:
+%{!nostdlib: \
+  %{!mno-adi-sys-libs: \
+    %{mproc=ADSP-SC570: apt-sc570.o%s} \
+    %{mproc=ADSP-SC571: apt-sc571.o%s} \
+    %{mproc=ADSP-SC572: apt-sc572.o%s} \
+    %{mproc=ADSP-SC573: apt-sc573.o%s} \
+    %{mproc=ADSP-SC582: apt-sc582.o%s} \
+    %{mproc=ADSP-SC583: apt-sc583.o%s} \
+    %{mproc=ADSP-SC584: apt-sc584.o%s} \
+    %{mproc=ADSP-SC587: apt-sc587.o%s} \
+    %{mproc=ADSP-SC589: apt-sc589.o%s} \
+    %{mproc=ADSP-SC594: apt-sc594.o%s} \
+    %{mproc=ADSP-SC58*: -lfftacc} \
+    %{mproc=ADSP*: -lssl -losal -lrtadi} \
+    %{mproc=AD*: -lm} \
+  } -lc \
+} \
+%{!T*: \
+  %{mproc=ADSP-SC570:-T adsp-sc570.ld%s} \
+  %{mproc=ADSP-SC571:-T adsp-sc571.ld%s} \
+  %{mproc=ADSP-SC572:-T adsp-sc572.ld%s} \
+  %{mproc=ADSP-SC573:-T adsp-sc573.ld%s} \
+  %{mproc=ADSP-SC582:-T adsp-sc582.ld%s} \
+  %{mproc=ADSP-SC583:-T adsp-sc583.ld%s} \
+  %{mproc=ADSP-SC584:-T adsp-sc584.ld%s} \
+  %{mproc=ADSP-SC587:-T adsp-sc587.ld%s} \
+  %{mproc=ADSP-SC589:-T adsp-sc589.ld%s} \
+  %{mproc=ADSP-SC594:-T adsp-sc594.ld%s} \
+  %{mproc=ADSP-GL*: -T adsp-sc57x-common.ld%s} \
+  %{mproc=ADSP-SC570: -T adsp-sc57x-common-l2.ld%s} \
+  %{mproc=ADSP-SC571: -T adsp-sc57x-common-l2.ld%s} \
+  %{mproc=ADSP-SC572: -T adsp-sc57x-common.ld%s} \
+  %{mproc=ADSP-SC573: -T adsp-sc57x-common.ld%s} \
+  %{mproc=ADSP-SC58*: -T adsp-sc58x-common.ld%s} \
+  %{mproc=ADSP-SC59*: -T adsp-sc59x-common.ld%s} \
+}

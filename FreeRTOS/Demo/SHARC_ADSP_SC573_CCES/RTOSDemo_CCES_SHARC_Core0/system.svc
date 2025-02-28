@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+	<installedComponents>
+		<component id="com.analog.crosscore.ssldd.pinmux.component" name="Pin Multiplexing" version="1.0.0" visible="true">
+			<component-description><![CDATA[Since some processors have more peripherals than physical pins on the chip, the user needs to configure which peripherals they want enabled and onto which set of pins.  Peripheral configuration requires an in-depth understanding of the hardware.  This component makes it easier to program the peripherals without worrying about the internal details.  The user simply selects the peripherals to enable and this component will generate the C code necessary to configure the peripherals.]]></component-description>
+			<product name="SSL DD Product" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.sru.component" name="SRU Configuration" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides a simplified method of configuring the SHARC Signal Routing Unit (SRU).]]></component-description>
+			<product name="Analog Devices Signal Routing Unit" version="1.0.0"/>
+		</component>
+	</installedComponents>
+	<configurations>
+		<configuration id="com.analog.crosscore.sru.component">
+			<sruConfiguration>
+				<sru-register-group>
+					<register name="pREG_DAI0_CLK2">0x3def7bde</register>
+					<register name="pREG_DAI0_CLK3">0x3def7bde</register>
+					<register name="pREG_DAI0_CLK4">0x3def7bde</register>
+					<register name="pREG_DAI0_CLK5">0x3def7bde</register>
+					<register name="pREG_DAI0_CLK0">0x252630c2</register>
+					<register name="pREG_DAI0_CLK1">0x3def7bde</register>
+					<register name="pREG_DAI0_DAT3">0x00000000</register>
+					<register name="pREG_DAI0_DAT4">0x00000000</register>
+					<register name="pREG_DAI0_DAT5">0x00000000</register>
+					<register name="pREG_DAI0_DAT6">0x00fbefbe</register>
+					<register name="pREG_DAI0_DAT0">0x08144040</register>
+					<register name="pREG_DAI0_DAT1">0x0f38b289</register>
+					<register name="pREG_DAI0_DAT2">0x00000450</register>
+					<register name="pREG_DAI0_FS0">0x2736b4e3</register>
+					<register name="pREG_DAI0_FS1">0x3def7bde</register>
+					<register name="pREG_DAI0_FS2">0x3def7bde</register>
+					<register name="pREG_DAI0_FS3">0x01ef7bde</register>
+					<register name="pREG_DAI0_FS4">0x000003de</register>
+					<register name="pREG_DAI0_PIN0">0x04c80a94</register>
+					<register name="pREG_DAI0_PIN3">0x03a714a3</register>
+					<register name="pREG_DAI0_PIN4">0x05694f9e</register>
+					<register name="pREG_DAI0_PIN1">0x04e84b96</register>
+					<register name="pREG_DAI0_PIN2">0x03668c98</register>
+					<register name="pREG_DAI0_MISC0">0x3def7bde</register>
+					<register name="pREG_DAI0_MISC1">0x3def7bde</register>
+					<register name="pREG_DAI0_PBEN1">0x1348d30f</register>
+					<register name="pREG_DAI0_PBEN2">0x1a5545d6</register>
+					<register name="pREG_DAI0_PBEN0">0x0e2482ca</register>
+					<register name="pREG_DAI0_PBEN3">0x1d71f79b</register>
+					<register name="pREG_DAI1_CLK0">0x252630c2</register>
+					<register name="pREG_DAI1_CLK1">0x3def7bde</register>
+					<register name="pREG_DAI1_CLK2">0x3def7bde</register>
+					<register name="pREG_DAI1_CLK3">0x3def7bde</register>
+					<register name="pREG_DAI1_CLK4">0x3def7bde</register>
+					<register name="pREG_DAI1_CLK5">0x3def7bde</register>
+					<register name="pREG_DAI1_DAT1">0x0f38b289</register>
+					<register name="pREG_DAI1_DAT0">0x08144040</register>
+					<register name="pREG_DAI1_DAT3">0x00000000</register>
+					<register name="pREG_DAI1_DAT2">0x00000450</register>
+					<register name="pREG_DAI1_DAT5">0x00000000</register>
+					<register name="pREG_DAI1_DAT4">0x00000000</register>
+					<register name="pREG_DAI1_DAT6">0x00fbefbe</register>
+					<register name="pREG_DAI1_FS3">0x01ef7bde</register>
+					<register name="pREG_DAI1_FS2">0x3def7bde</register>
+					<register name="pREG_DAI1_FS1">0x3def7bde</register>
+					<register name="pREG_DAI1_FS0">0x2736b4e3</register>
+					<register name="pREG_DAI1_FS4">0x000003de</register>
+					<register name="pREG_DAI1_PIN4">0x05694f9e</register>
+					<register name="pREG_DAI1_PIN2">0x03668c98</register>
+					<register name="pREG_DAI1_PIN3">0x03a714a3</register>
+					<register name="pREG_DAI1_PIN0">0x04c80a94</register>
+					<register name="pREG_DAI1_PIN1">0x04e84b96</register>
+					<register name="pREG_DAI1_MISC1">0x3def7bde</register>
+					<register name="pREG_DAI1_MISC0">0x3def7bde</register>
+					<register name="pREG_DAI1_PBEN3">0x1d71f79b</register>
+					<register name="pREG_DAI1_PBEN2">0x1a5545d6</register>
+					<register name="pREG_DAI1_PBEN1">0x1348d30f</register>
+					<register name="pREG_DAI1_PBEN0">0x0e2482ca</register>
+				</sru-register-group>
+				<comments/>
+			</sruConfiguration>
+		</configuration>
+		<configuration id="com.analog.crosscore.ssldd.pinmux.component">
+			<pinmux-configuration processor="ADSP-SC573" version="1.0"/>
+		</configuration>
+	</configurations>
+</root>

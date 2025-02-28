@@ -1,0 +1,156 @@
+// Customer ID=9849; Build=0x79363; Copyright (c) 2006-2015 Cadence Design Systems, Inc.
+// Portions Copyright (C) 2023 Analog Devices, Inc.
+// memmap.xmm source file generated on June 22, 2023 at 22:30:39.
+//
+// Permission is hereby granted, free of charge, to any person obtaining
+// a copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to
+// permit persons to whom the Software is furnished to do so, subject to
+// the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+// This file is generated automatically based upon the options selected
+// in the Startup Code/LSP Configuration Editor. Changes to the LSP
+// configuration should be made by changing the appropriate options rather
+// than editing this file. Any manual changes in this file are liable to be
+// overwritten. To access the Startup Code/LSP Configuration Editor,
+// double-click the system.svc file from a navigation view and select the
+// "Startup Code/LSP" tab.
+
+// I/O setting is "GDB I/O".
+
+// A memory map is a sequence of memory descriptions and
+// optional parameter assignments.
+//
+// Each memory description has the following format:
+//   BEGIN <name>
+//     <addr> [,<paddr>] : <mem-type> : <mem-name> : <size> [,<psize>]
+//                       : [writable] [,executable] [,device] ;
+//     <segment>*
+//   END <name>
+//
+// where each <segment> description has the following format:
+//     <seg-name> : F|C : <start-addr> - <end-addr> [ : STACK ] [ : HEAP ]
+//                : <section-name>* ;
+//
+// Each parameter assignment is a keyword/value pair in the following format:
+//   <keyword> = <value>                (no spaces in <value>)
+// or
+//   <keyword> = "<value>"              (spaces allowed in <value>)
+//
+// The following primitives are also defined:
+//   PLACE SECTIONS( <section-name>* ) { WITH_SECTION(<section-name>)
+//                                       | IN_SEGMENT(<seg-name>) }
+//
+//   NOLOAD <section-name1> [ <section-name2> ... ]
+//
+// Please refer to the Xtensa LSP Reference Manual for more details.
+
+ENTRY = _ResetHandler
+VECBASE = 0x2f800000
+
+PLACE SECTIONS(.clib.bss) WITH_SECTION(.bss)
+PLACE SECTIONS(.clib.data) WITH_SECTION(.data)
+PLACE SECTIONS(.clib.literal) WITH_SECTION(.literal)
+PLACE SECTIONS(.clib.percpu.bss) WITH_SECTION(.bss)
+PLACE SECTIONS(.clib.percpu.data) WITH_SECTION(.data)
+PLACE SECTIONS(.clib.rodata) WITH_SECTION(.rodata)
+PLACE SECTIONS(.clib.text) WITH_SECTION(.text)
+PLACE SECTIONS(.dram0.bss) WITH_SECTION(.L1.bss)
+PLACE SECTIONS(.dram0.data) WITH_SECTION(.L1.data)
+PLACE SECTIONS(.dram0.rodata) WITH_SECTION(.L1.rodata)
+PLACE SECTIONS(.fft_twiddles.rodata) WITH_SECTION(.rodata)
+PLACE SECTIONS(.iram0.literal) WITH_SECTION(.L1.literal)
+PLACE SECTIONS(.iram0.text) WITH_SECTION(.L1.text)
+PLACE SECTIONS(.rtos.bss) WITH_SECTION(.bss)
+PLACE SECTIONS(.rtos.data) WITH_SECTION(.data)
+PLACE SECTIONS(.rtos.literal) WITH_SECTION(.literal)
+PLACE SECTIONS(.rtos.percpu.bss) WITH_SECTION(.bss)
+PLACE SECTIONS(.rtos.percpu.data) WITH_SECTION(.data)
+PLACE SECTIONS(.rtos.rodata) WITH_SECTION(.rodata)
+PLACE SECTIONS(.rtos.text) WITH_SECTION(.text)
+PLACE SECTIONS(.sram0.bss) WITH_SECTION(.L2.bss)
+PLACE SECTIONS(.sram0.data) WITH_SECTION(.L2.data)
+PLACE SECTIONS(.sram0.literal) WITH_SECTION(.L2.literal)
+PLACE SECTIONS(.sram0.rodata) WITH_SECTION(.L2.rodata)
+PLACE SECTIONS(.sram0.text) WITH_SECTION(.L2.text)
+PLACE SECTIONS(__llvm_prf_names) WITH_SECTION(.data)
+
+BEGIN L2_sram
+0x20000000: sysram : L2_sram : 0x200000 : executable, writable ;
+ L2_ram_arm : C : 0x20000000 - 0x200fffff :;  AR=R MT=NC,SS,BUF ;
+ L2_ram_fx : C : 0x20100000 - 0x201fdfff : .L2.rodata .rodata .L2.literal .literal .L2.text .text .L2.data .data .L2.noload .noload .L2.bss .bss;  AR=RWX MT=WB,NS ;
+ L2_boot_noload : C : 0x201fe000 - 0x201fffff : .L2_boot.noload;  AR=RWX MT=WB,NS ;
+END L2_sram
+
+BEGIN L2_boot_rom
+0x20200000: sysrom : L2_boot_rom : 0x20000 : executable ;
+ L2_boot_code_0 : C : 0x20200000 - 0x2020ffff :;  AR=RX MT=WBNA,NS ;
+ L2_boot_code_1 : C : 0x20210000 - 0x2021ffff :;  AR=RX MT=WBNA,NS ;
+END L2_boot_rom
+
+BEGIN L1_dram_mp
+0x28240000: sysram : L1_dram_mp : 0x80000 : writable ;
+ L1_data_mp : C : 0x28240000 - 0x282bffff :;  AR=RW MT=NC,SS,BUF ;
+END L1_dram_mp
+
+BEGIN L1_iram_mp
+0x282c0000: sysram : L1_iram_mp : 0x10000 : executable, writable ;
+ L1_code_mp : C : 0x282c0000 - 0x282cffff :;  AR=RWX MT=NC,SS,BUF ;
+END L1_iram_mp
+
+BEGIN L2_boot_rom_arm
+0x28a40000: sysrom : L2_boot_rom_arm : 0x10000 :  ;
+ L2_boot_code_arm : C : 0x28a40000 - 0x28a4ffff :;  AR=N MT=NC,NS ;
+END L2_boot_rom_arm
+
+BEGIN L1_iram_arm
+0x28a80000: sysram : L1_iram_arm : 0x10000 : writable ;
+ L1_code_arm : C : 0x28a80000 - 0x28a8ffff :;  AR=N MT=NC,SS,BUF ;
+END L1_iram_arm
+
+BEGIN L1_dram_arm
+0x28ac0000: sysram : L1_dram_arm : 0x20000 : writable ;
+ L1_data_arm : C : 0x28ac0000 - 0x28adffff :;  AR=R MT=NC,SS,BUF ;
+END L1_dram_arm
+
+BEGIN L1_dram
+0x2f780000: dataRam : L1_dram : 0x80000 : writable ;
+ L1_data : C : 0x2f780000 - 0x2f7fffff : STACK : HEAP : .L1.rodata .L1.data .L1.noload .L1.bss;  AR=RW MT=NC,NS,BUF ;
+END L1_dram
+
+BEGIN L1_iram
+0x2f800000: instRam : L1_iram : 0x10000 : executable, writable ;
+ L1_code : C : 0x2f800000 - 0x2f80ffff : .DispatchVector.text .ResetHandler.literal .ResetHandler.text .DispatchHandler.literal .DispatchHandler.text .ResetVector.text .L1.literal .L1.text;  AR=RWX MT=NC,NS,BUF ;
+END L1_iram
+
+BEGIN Sys_mmr
+0x30000000: sysram : Sys_mmr : 0x10000000 : writable ;
+ System_mmr : C : 0x30000000 - 0x3fffffff :;  AR=RW MT=DEV ;
+END Sys_mmr
+
+BEGIN SPI
+0x60000000: sysram : SPI : 0x20000000 : executable, writable ;
+ SPI_data : C : 0x60000000 - 0x7fffffff :;  AR=RWX MT=WTWA,NS ;
+END SPI
+
+BEGIN L3_sdram
+0x80000000: sysram : L3_sdram : 0x40000000 : executable, writable ;
+ L3_ram_fx : C : 0x80000000 - 0x9fffffff : .L3.rodata .L3.literal .L3.text .L3.data .L3.noload .L3.bss;  AR=RWX MT=WB,NS ;
+ L3_ram_arm : C : 0xa0000000 - 0xbfffffff :;  AR=R MT=NC,SS,BUF ;
+END L3_sdram
+
+NOLOAD .L2.noload .noload .L2_boot.noload .L1.noload .L3.noload
+

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+	<installedComponents>
+		<component id="com.analog.sourcegen.component.heap_stack" name="Heap and Stack Configuration" version="1.0.0" visible="true">
+			<component-description><![CDATA[This component provides the ability to configure the heap and stack memories.]]></component-description>
+			<product name="Startup Code/LDF" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.linkerfiles" name="Linker Files" version="1.0.0" visible="true">
+			<component-description><![CDATA[This component adds a default Abstract Page Table configuration file and Linker LD script to your project. You can then modify these files if you wish to customize them.]]></component-description>
+			<product name="Analog Devices implementation of linker files" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.ssldd.pinmux.component" name="Pin Multiplexing" version="1.0.0" visible="true">
+			<component-description><![CDATA[Since some processors have more peripherals than physical pins on the chip, the user needs to configure which peripherals they want enabled and onto which set of pins.  Peripheral configuration requires an in-depth understanding of the hardware.  This component makes it easier to program the peripherals without worrying about the internal details.  The user simply selects the peripherals to enable and this component will generate the C code necessary to configure the peripherals.]]></component-description>
+			<product name="Pin Multiplexing Product" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.pdma.sc59x.cortexa55" name="PDMA Service for Cortex-A" version="1.0.0" visible="false">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the Peripheral DMA (PDMA) Service]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.uart.common.cortexa55" name="UART Driver for Cortex-A" version="1.0.0" visible="false">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the UART Interface driver]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.uart.sc59x.cortexa55" name="UART Driver for Cortex-A" version="1.0.1" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the UART Interface driver]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+	</installedComponents>
+	<configurations>
+		<configuration id="com.analog.sourcegen.component.heap_stack">
+			<heap_stack-configuration>
+				<crt_and_ldf>
+					<propertygroup name="mandatory">
+						<property name="si_revision" value="0.0"/>
+						<property name="processor" value="ADSP-SC598"/>
+						<property name="product_name" value="CrossCore(R) Embedded Studio"/>
+					</propertygroup>
+					<ldf>
+						<propertygroup name="system_heap" value="L3">
+							<property name="size_units" value="MB"/>
+							<property name="size" value="4"/>
+							<property name="customized" value="false"/>
+							<property name="align" value="4"/>
+						</propertygroup>
+						<propertygroup name="EL0_stack" value="L1">
+							<property name="size_units" value="kB"/>
+							<property name="align" value="64"/>
+							<property name="customized" value="false"/>
+							<property name="size" value="4"/>
+						</propertygroup>
+						<propertygroup name="EL3_stack" value="L1">
+							<property name="size_units" value="kB"/>
+							<property name="size" value="4"/>
+							<property name="customized" value="false"/>
+							<property name="align" value="64"/>
+						</propertygroup>
+						<property name="heap_stack_src_file" value="app_heap_stack.c"/>
+					</ldf>
+				</crt_and_ldf>
+			</heap_stack-configuration>
+		</configuration>
+		<configuration id="com.analog.crosscore.addins.linkerfiles">
+			<linker-configuration>
+				<schema>1.0</schema>
+				<linker-config-core-id>0</linker-config-core-id>
+				<linker-config-ld-file>L3</linker-config-ld-file>
+			</linker-configuration>
+		</configuration>
+		<configuration id="com.analog.crosscore.ssldd.pinmux.component">
+			<pinmux-configuration processor="ADSP-SC598" version="1.0">
+				<peripheral description="UART" name="UART0">
+					<signal bit="18" mux="1" name="CTS" pin="9" port="A"/>
+					<signal bit="16" mux="1" name="RTS" pin="8" port="A"/>
+					<signal bit="14" mux="1" name="RX" pin="7" port="A"/>
+					<signal bit="12" mux="1" name="TX" pin="6" port="A"/>
+				</peripheral>
+				<gpio name="Port A">
+					<signal bit="12" name="PA06" pin="6" port="A"/>
+					<signal bit="14" name="PA07" pin="7" port="A"/>
+					<signal bit="16" name="PA08" pin="8" port="A"/>
+					<signal bit="18" name="PA09" pin="9" port="A"/>
+				</gpio>
+			</pinmux-configuration>
+		</configuration>
+	</configurations>
+</root>

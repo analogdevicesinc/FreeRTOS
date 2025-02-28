@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>4</fileVersion>
+    <fileChecksum>3816622879</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_iccarm.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\FreeRTOS_CMSIS.out</file>
+            <file>$PROJ_DIR$\Debug\Obj\cmsis_os2.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main_cmsis.o</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\sys\cortex_m33_exception.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\cmsis_os2.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\tasks.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\main_cmsis.xcl</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\stack_macros.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\port.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\task.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\semphr.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\ADSP-SC839W_device.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\freertos_evr.o</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\heap_4.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.xcl</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\deprecated_definitions.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\event_groups.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\os_systick.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\sys\defSC83x_id_macros.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\ADSP-SC83x.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\startup_ADSP-SC83x.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\list.o</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\portable\IAR\ARM_CM33_NTZ\non_secure\portmacro.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\cmsis_os2.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\list.xcl</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\sys\ADSP-SC83xW_EHPC_typedefs.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\tasks.xcl</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS\5.9.0\CMSIS\RTOS2\Include\os_tick.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\FreeRTOS_CMSIS_import_lib.o</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\portable\IAR\ARM_CM33_NTZ\non_secure\portasm.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+            <file>$PROJ_DIR$\Debug\List\FreeRTOS_CMSIS.map</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\ADSP-SC83x_legacy.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\system_ADSP-SC83x.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stddef.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv8.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\freertos_evr.xcl</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\event_groups.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_stdlib.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\os_systick.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\event_groups.__cstat.et</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\defSC839W.h</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\portable.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\heap_4.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\system_ADSP-SC83x.__cstat.et</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\portable\IAR\ARM_CM33_NTZ\non_secure\portmacrocommon.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\mpu_wrappers.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm33.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS\5.9.0\CMSIS\RTOS2\Include\cmsis_os2.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\event_groups.h</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\timers.xcl</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\ADSP-SC83x_device.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\port.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\c\iccarm_builtin.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\system_ADSP-SC83x.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\system_ADSP-SC83x.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\portasm.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\startup_ADSP-SC83x.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\Include\freertos_os2.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Source\IAR\ADSP-SC83x-2MB.icf</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\timers.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\list.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\queue.__cstat.et</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\sys\ADSP-SC83xW_EHPC_cdef.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\timers.o</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\stream_buffer.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\port.o</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\list.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\sys\ADSP-SC83xW_EHPC_device.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\startup_ADSP-SC83x.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\queue.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\heap_4.o</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\sys\ADSP-SC83xW_EHPC.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\Include\freertos_mpool.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\ADSP-SC839W.h</file>
+            <file>$PROJ_DIR$\RTE\Device\ADSP-SC839W\ADSP-SC83x-2MB.icf</file>
+            <file>$PROJ_DIR$\RTE\Device\ADSP-SC839W\system_ADSP-SC83x.c</file>
+            <file>$PROJ_DIR$\RTE\Device\ADSP-SC839W\startup_ADSP-SC83x.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\timers.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\Source\os_systick.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\portable\MemMang\heap_4.c</file>
+            <file>$PROJ_DIR$\RTE\RTOS\FreeRTOSConfig.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\list.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\portable\IAR\ARM_CM33_NTZ\non_secure\port.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\Include\freertos_evr.h</file>
+            <file>$PROJ_DIR$\main_cmsis.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\cdefSC839W.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\projdefs.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\freertos_evr.__cstat.et</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\Source\freertos_evr.c</file>
+            <file>$PROJ_DIR$\RTE\Device\ADSP-SC839W\system_ADSP-SC83x.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\queue.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\os_systick.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\timers.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+            <file>$PROJ_DIR$\RTE\RTE_Components.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\queue.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\Source\cmsis_os2.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\portable\IAR\ARM_CM33_NTZ\non_secure\portasm.s</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\tasks.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\tasks.o</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\ADSP-SC839W_typedefs.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\AnalogDevices\ADSP-SC83x_DFP\1.9.7\Include\sys\platform.h</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\event_groups.c</file>
+            <file>$PROJ_DIR$\..\FreeRTOS\main.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\queue.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\FreeRTOS_CMSIS.pbd</file>
+        </outputs>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\FreeRTOS_CMSIS.out</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 40 37</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 77 2 50 18 89 29 3 24 84 71 88 87 69 118 82 55 48 73 64</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 1 40 37</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\RTE\Device\ADSP-SC839W\system_ADSP-SC83x.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 69</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 70</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 58</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 27 66 17 119 34 46 13 74 11 44 15 86 4 61 120 49 0 68 45 42 121 104 54 90 41 26 81</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\RTE\Device\ADSP-SC839W\startup_ADSP-SC83x.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 87</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 28</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 72</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 27 66 17 119 34 46 13 74 11 44 15 86 4 61 120 49 0 68 45 42 121 104 54 90 41 26 81</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\timers.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 82</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 65</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 111</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 32 13 74 11 44 15 75 51 19 43 46 99 113 92 27 66 17 119 34 86 4 61 120 49 0 68 45 42 102 112 25 105 56 22 30 59 60 14 85 114 78</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\Source\os_systick.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 52</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 110</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 36 46 13 74 11 44 15 113 92 27 66 17 119 34 86 4 61 120 49 0 68 45 42</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\portable\MemMang\heap_4.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 89</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 57</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 20</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 32 13 74 11 44 15 75 51 112 25 19 43 46 99 113 92 27 66 17 119 34 86 4 61 120 49 0 68 45 42 102 105 56 22 30 59 60 14 85</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\list.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 29</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 33</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 79</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 32 13 74 11 44 15 75 51 19 43 46 99 113 92 27 66 17 119 34 86 4 61 120 49 0 68 45 42 102 112 25 105 56 22 30 59 60 85</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\portable\IAR\ARM_CM33_NTZ\non_secure\port.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 84</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 67</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 12</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 19 43 13 74 11 44 15 75 46 99 113 92 27 66 17 119 34 86 4 61 120 49 0 68 45 42 102 112 25 105 56 22 30 59 60 14 85 38</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main_cmsis.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 3</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 8</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 13 74 11 44 15 75 32 51 19 43 46 99 113 92 27 66 17 119 34 86 4 61 120 49 0 68 45 42 102 112 25 105 56 22 30 59 60 14 85</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\Source\freertos_evr.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 18</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 47</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 106</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 19 43 13 74 11 44 15 75 46 99 113 92 27 66 17 119 34 86 4 61 120 49 0 68 45 42 102 112 25 105 56 22 30 59 60 14 85 16 114 63 78 83</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\queue.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 88</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 124</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 80</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 32 13 74 11 44 15 75 51 112 25 19 43 46 99 113 92 27 66 17 119 34 86 4 61 120 49 0 68 45 42 102 105 56 22 30 59 60 14 85 114</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\Source\cmsis_os2.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 2</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 31</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 5</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 112 13 74 11 44 15 75 25 62 46 43 49 0 68 36 19 99 113 92 27 66 17 119 34 86 4 61 120 45 42 102 105 56 22 30 59 60 14 85 63 78 16 114 91 76</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\portable\IAR\ARM_CM33_NTZ\non_secure\portasm.s</name>
+            <outputs>
+                <tool>
+                    <name>AARM</name>
+                    <file> 71</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>AARM</name>
+                    <file> 99</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\tasks.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 118</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 35</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 6</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 32 13 74 11 44 15 75 51 112 25 19 43 46 99 113 92 27 66 17 119 34 86 4 61 120 49 0 68 45 42 102 105 56 22 30 59 60 14 85 78 9</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\IAR-CMSIS-Packs\ARM\CMSIS-FreeRTOS\10.5.1\Source\event_groups.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 50</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 23</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 53</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 32 13 74 11 44 15 75 51 19 43 46 99 113 92 27 66 17 119 34 86 4 61 120 49 0 68 45 42 102 112 25 105 56 22 30 59 60 14 85 78 63</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\FreeRTOS\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 39</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 21</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 7</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 13 74 11 44 15 75 32 51 19 43 46 99 113 92 27 66 17 119 34 86 4 61 120 49 0 68 45 42 102 112 25 105 56 22 30 59 60 14 85</file>
+                </tool>
+            </inputs>
+        </file>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs />
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>ILINK</tool>
+        </forcedrebuild>
+    </configuration>
+</project>

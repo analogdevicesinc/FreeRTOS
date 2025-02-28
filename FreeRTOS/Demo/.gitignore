@@ -1,0 +1,6 @@
+**/.settings/
+**/system/
+**/Debug/
+**/Release/
+**/*~
+**/*.backup
