@@ -1,0 +1,79 @@
+/*
+ * FreeRTOS Kernel V10.4.3 LTS Patch 2
+ * Copyright (C) 2020 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ * the Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * https://www.FreeRTOS.org
+ * https://github.com/FreeRTOS
+ *
+ */
+
+#ifndef PORTASM_H
+#define PORTASM_H
+
+typedef unsigned int UINT32;
+typedef struct {
+	UINT32 _P0;
+	UINT32 _P1;
+	UINT32 _P2;
+	UINT32 _P3;
+	UINT32 _P4;
+	UINT32 _P5;
+	UINT32 _FP;
+	UINT32 _R0;
+	UINT32 _R1;
+	UINT32 _R2;
+	UINT32 _R3;
+	UINT32 _R4;
+	UINT32 _R5;
+	UINT32 _R6;
+	UINT32 _R7;
+	UINT32 _LC0;
+	UINT32 _LT0;
+	UINT32 _LB0;
+	UINT32 _LC1;
+	UINT32 _LT1;
+	UINT32 _LB1;
+	UINT32 _M0;
+	UINT32 _M1;
+	UINT32 _M2;
+	UINT32 _M3;
+	UINT32 _B0;
+	UINT32 _B1;
+	UINT32 _B2;
+	UINT32 _B3;
+	UINT32 _L0;
+	UINT32 _L1;
+	UINT32 _L2;
+	UINT32 _L3;
+	UINT32 _I0;
+	UINT32 _I1;
+	UINT32 _I2;
+	UINT32 _I3;
+	UINT32 _A0X;
+	UINT32 _A0W;
+	UINT32 _A1X;
+	UINT32 _A1W;
+	UINT32 _ASTAT;
+	UINT32 _RETS;
+        UINT32 _PC;
+} ContextRecord;
+
+
+#endif /* PORTASM_H */

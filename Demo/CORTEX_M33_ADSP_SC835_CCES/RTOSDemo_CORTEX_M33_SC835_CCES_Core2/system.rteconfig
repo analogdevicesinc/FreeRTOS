@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
+<packages/>
+<device Dclock="400000000" Dcore="Cortex-M33" DcoreVersion="r1p0" Ddsp="DSP" Dendian="Little-endian" Dfamily="ADSP-SC83x Series" Dfpu="SP_FPU" Dmpu="MPU" Dname="ADSP-SC835" Dtz="TZ" Dvendor="Analog Devices:1" Pname="">
+<url>http://www.keil.com/dd2/analogdevices/adsp_sc835</url>
+<package name="ADSP-SC83x_DFP" url="http://download.analog.com/tools/EZBoards/ADSP-SC83x/Releases/" vendor="AnalogDevices" version="1.10.1"/>
+</device>
+<toolchain Tcompiler="GCC" Toutput="exe"/>
+<components>
+<component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.6.0">
+<package name="CMSIS" url="http://www.keil.com/pack/" vendor="ARM" version="5.9.0"/>
+<file category="doc" name="CMSIS/Documentation/Core/html/index.html"/>
+<file category="include" name="CMSIS/Core/Include/"/>
+<file category="header" condition="TrustZone" name="CMSIS/Core/Include/tz_context.h"/>
+<file attr="template" category="sourceC" condition="TZ Secure" name="CMSIS/Core/Template/ARMv8-M/main_s.c" select="Secure mode 'main' module for ARMv8-M" version="1.1.1"/>
+<file attr="template" category="sourceC" condition="TZ Secure" name="CMSIS/Core/Template/ARMv8-M/tz_context.c" select="RTOS Context Management (TrustZone for ARMv8-M)" version="1.1.1"/>
+</component>
+<component Cclass="Device" Cgroup="OSAL" Csub="FreeRTOS" Cvendor="AnalogDevices" Cversion="1.0.0" deviceDependent="1">
+<package name="ADSP-SC83x_FreeRTOS-OSAL" url="http://download.analog.com/tools/EZBoards/ADSP-SC83x/Releases/" vendor="AnalogDevices" version="1.0.0"/>
+<file category="include" deviceDependent="1" name="Source/osal/"/>
+<file category="include" deviceDependent="1" name="Source/osal/cortex-m33/"/>
+<file category="source" deviceDependent="1" name="Source/osal/adi_osal_freertos.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/osal/adi_osal_freertos_critical.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/osal/adi_osal_freertos_event.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/osal/adi_osal_freertos_init.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/osal/adi_osal_freertos_message.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/osal/adi_osal_freertos_mutex.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/osal/adi_osal_freertos_rtl_lock.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/osal/adi_osal_freertos_sem.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/osal/adi_osal_freertos_thread.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/osal/adi_osal_freertos_timing.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/osal/adi_osal_freertos_tls.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/osal/cortex-m33/adi_osal_arch_c.c" version="1.0.0"/>
+</component>
+<component Cclass="Device" Cgroup="Runtime" Csub="Interrupts" Cvendor="AnalogDevices" Cversion="1.0.0" deviceDependent="1">
+<package name="ADSP-SC8xx_SSDD" url="http://download.analog.com/tools/EZBoards/ADSP-SC83x/Releases/" vendor="AnalogDevices" version="1.0.0"/>
+<file category="include" deviceDependent="1" name="Include/"/>
+<file category="include" deviceDependent="1" name="Source/runtime/int/"/>
+<file category="source" deviceDependent="1" name="Source/runtime/int/adi_no_dispatched_handler.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/runtime/int/adi_rtl_activate_dispatched_handler.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/runtime/int/adi_rtl_deactivate_dispatched_handler.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/runtime/int/adi_rtl_disable_interrupts.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/runtime/int/adi_rtl_dispatched_handler_table.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/runtime/int/adi_rtl_register_dispatched_handler.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/runtime/int/adi_rtl_unregister_dispatched_handler.c" version="1.0.0"/>
+</component>
+<component Cclass="Device" Cgroup="Runtime" Csub="OSAL API" Cvendor="AnalogDevices" Cversion="1.0.0" deviceDependent="1">
+<package name="ADSP-SC8xx_SSDD" url="http://download.analog.com/tools/EZBoards/ADSP-SC83x/Releases/" vendor="AnalogDevices" version="1.0.0"/>
+<file category="include" deviceDependent="1" name="Include/"/>
+<file category="include" deviceDependent="1" name="Include/runtime/osal/"/>
+</component>
+<component Cclass="Device" Cgroup="Services" Csub="GPIO" Cvendor="AnalogDevices" Cversion="1.0.0" deviceDependent="1">
+<package name="ADSP-SC8xx_SSDD" url="http://download.analog.com/tools/EZBoards/ADSP-SC83x/Releases/" vendor="AnalogDevices" version="1.0.0"/>
+<file category="include" deviceDependent="1" name="Include/"/>
+<file category="include" deviceDependent="1" name="Source/services/gpio/"/>
+<file category="source" deviceDependent="1" name="Source/services/gpio/adi_gpio.c" version="1.0.0"/>
+</component>
+<component Cclass="Device" Cgroup="Services" Csub="Interrupts" Cvendor="AnalogDevices" Cversion="1.0.0" deviceDependent="1">
+<package name="ADSP-SC8xx_SSDD" url="http://download.analog.com/tools/EZBoards/ADSP-SC83x/Releases/" vendor="AnalogDevices" version="1.0.0"/>
+<file category="include" deviceDependent="1" name="Include/"/>
+<file category="include" deviceDependent="1" name="Source/services/int/"/>
+<file category="source" deviceDependent="1" name="Source/services/int/adi_int.c" version="1.0.0"/>
+<file category="source" deviceDependent="1" name="Source/services/int/adi_nvic_v1.c" version="1.0.0"/>
+</component>
+<component Cclass="Device" Cgroup="Services" Csub="PWR" Cvendor="AnalogDevices" Cversion="2.0.0" deviceDependent="1">
+<package name="ADSP-SC8xx_SSDD" url="http://download.analog.com/tools/EZBoards/ADSP-SC83x/Releases/" vendor="AnalogDevices" version="1.0.0"/>
+<file category="include" deviceDependent="1" name="Include/"/>
+<file category="include" deviceDependent="1" name="Source/services/pwr/"/>
+<file category="source" deviceDependent="1" name="Source/services/pwr/adi_pwr.c" version="1.0.0"/>
+</component>
+<component Cclass="Device" Cgroup="Startup" Cvendor="AnalogDevices" Cversion="1.0.0" deviceDependent="1">
+<package name="ADSP-SC83x_DFP" url="http://download.analog.com/tools/EZBoards/ADSP-SC83x/Releases/" vendor="AnalogDevices" version="1.10.1"/>
+<file category="include" deviceDependent="1" name="Include/"/>
+<file attr="config" category="source" deviceDependent="1" name="Source/startup_ADSP-SC83x.c" version="1.0.0"/>
+<file attr="config" category="header" deviceDependent="1" name="Include/system_ADSP-SC83x.h" version="1.0.0"/>
+<file attr="config" category="source" deviceDependent="1" name="Source/system_ADSP-SC83x.c" version="1.0.0"/>
+<file attr="config" category="linkerScript" condition="ADSP-SC835_GCC" deviceDependent="1" name="Source/GCC/ADSP-SC83x-2MB.ld" version="0.0.0"/>
+</component>
+</components>
+<apis/>
+</configuration>

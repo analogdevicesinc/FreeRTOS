@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+	<installedComponents>
+		<component id="com.analog.crosscore.addins.mcapi" name="Analog Devices' MCAPI" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of Multicore association's Multicore Communications API (MCAPI™) version 2.15]]></component-description>
+			<product name="Analog Devices implementation of Multicore Communications API (MCAPI™) v2.15" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.gpio.cortexa5" name="GPIO Driver for Cortex-A" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the General-Purpose input/output Port Driver (GPIO)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.uart.sc59x.cortexa5" name="UART Driver for Cortex-A" version="2.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the UART Interface driver]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.uart.common.cortexa5" name="UART Driver for Cortex-A" version="1.0.0" visible="false">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the UART Interface driver]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.pdma.sc59x.cortexa5" name="PDMA Service for Cortex-A" version="1.0.0" visible="false">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the Peripheral DMA (PDMA) Service]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.twi.common.cortexa5" name="TWI Driver for Cortex-A" version="1.0.0" visible="false">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the Two Wire Interface Driver (TWI)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.twi.sc59x.cortexa5" name="TWI Driver for Cortex-A" version="2.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the Two Wire Interface Driver (TWI)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.pwr.sc59x.cortexa5" name="PWR Sevice for Cortex-A" version="2.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the Power Service (PWR)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.pwr.common.cortexa5" name="PWR Sevice for Cortex-A" version="1.0.0" visible="false">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the Power Service (PWR)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.tmr.common.cortexa5" name="TMR Service for Cortex-A" version="1.0.0" visible="false">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the General Purpose Timer Service (TMR)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.tmr.sc59x.cortexa5" name="TMR Service for Cortex-A" version="2.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the General Purpose Timer Service (TMR)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.stdio.cortexa5" name="STDIO Service for Cortex-A" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the STDIO Service]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.ssldd.pinmux.component" name="Pin Multiplexing" version="1.0.0" visible="true">
+			<component-description><![CDATA[Since some processors have more peripherals than physical pins on the chip, the user needs to configure which peripherals they want enabled and onto which set of pins.  Peripheral configuration requires an in-depth understanding of the hardware.  This component makes it easier to program the peripherals without worrying about the internal details.  The user simply selects the peripherals to enable and this component will generate the C code necessary to configure the peripherals.]]></component-description>
+			<product name="Pin Multiplexing Product" version="1.0.0"/>
+		</component>
+	</installedComponents>
+	<configurations>
+		<configuration id="com.analog.crosscore.addins.mcapi">
+			<mcapi-configuration>
+				<schema>1.0</schema>
+				<mcapi-config-node-id>0</mcapi-config-node-id>
+				<mcapi-config-num-endpoints>24</mcapi-config-num-endpoints>
+				<mcapi-config-anon-endpoints>8</mcapi-config-anon-endpoints>
+				<mcapi-config-max-payload-size>256</mcapi-config-max-payload-size>
+				<mcapi-config-num-transmit-buffers>16</mcapi-config-num-transmit-buffers>
+				<mcapi-config-num-receive-buffers>1</mcapi-config-num-receive-buffers>
+				<mcapi-config-num-api-requests>31</mcapi-config-num-api-requests>
+				<mcapi-config-num-isr-requests>16</mcapi-config-num-isr-requests>
+			</mcapi-configuration>
+		</configuration>
+		<configuration id="com.analog.crosscore.ssldd.pinmux.component">
+			<pinmux-configuration processor="ADSP-SC594" version="1.0">
+				<peripheral description="UART" name="UART0">
+					<signal bit="18" mux="1" name="CTS" pin="9" port="A"/>
+					<signal bit="12" mux="0" name="CTS" pin="6" port="D"/>
+					<signal bit="16" mux="1" name="RTS" pin="8" port="A"/>
+					<signal bit="14" mux="0" name="RTS" pin="7" port="D"/>
+					<signal bit="14" mux="1" name="RX" pin="7" port="A"/>
+					<signal bit="16" mux="0" name="RX" pin="8" port="D"/>
+					<signal bit="12" mux="1" name="TX" pin="6" port="A"/>
+					<signal bit="18" mux="0" name="TX" pin="9" port="D"/>
+				</peripheral>
+				<gpio name="Port A">
+					<signal bit="12" name="PA06" pin="6" port="A"/>
+					<signal bit="14" name="PA07" pin="7" port="A"/>
+					<signal bit="16" name="PA08" pin="8" port="A"/>
+					<signal bit="18" name="PA09" pin="9" port="A"/>
+				</gpio>
+				<gpio name="Port D">
+					<signal bit="12" name="PD06" pin="6" port="D"/>
+					<signal bit="14" name="PD07" pin="7" port="D"/>
+					<signal bit="16" name="PD08" pin="8" port="D"/>
+					<signal bit="18" name="PD09" pin="9" port="D"/>
+				</gpio>
+			</pinmux-configuration>
+		</configuration>
+	</configurations>
+</root>

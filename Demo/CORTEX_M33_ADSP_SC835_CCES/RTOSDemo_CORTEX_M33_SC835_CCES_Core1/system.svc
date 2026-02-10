@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+	<installedComponents>
+		<component id="com.analog.crosscore.ssldd.pinmux.component" name="Pin Multiplexing" version="1.0.0" visible="true">
+			<component-description><![CDATA[Since some processors have more peripherals than physical pins on the chip, the user needs to configure which peripherals they want enabled and onto which set of pins.  Peripheral configuration requires an in-depth understanding of the hardware.  This component makes it easier to program the peripherals without worrying about the internal details.  The user simply selects the peripherals to enable and this component will generate the C code necessary to configure the peripherals.]]></component-description>
+			<product name="Pin Multiplexing Product" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.sru.component" name="SRU Configuration" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides a simplified method of configuring the SHARC and SHARC-FX Signal Routing Unit (SRU).]]></component-description>
+			<product name="Analog Devices Signal Routing Unit" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.lsp.component.startup_lsp" name="Startup Code/LSP" version="1.0.0" visible="true">
+			<component-description><![CDATA[This component provides the ability to generate Startup Code and Linker Support Package (LSP) files. Startup code is a procedure that initializes and configures the processor when execution jumps to the "start" address on reset.
+It sets the machine into a known state, initializes selected features, and enables the standard run-time model.
+A Linker Support Package defines the target memory map and the placement of program sections within processor memory.
+It provides information needed to link your code. It can be used to configure memory-related options, such as the placement of the system heap, system stack, and memory segments.]]></component-description>
+			<product name="Startup Code/LSP" version="1.0.0"/>
+		</component>
+	</installedComponents>
+	<configurations>
+		<configuration id="com.analog.crosscore.ssldd.pinmux.component">
+			<pinmux-configuration processor="ADSP-SC835" version="1.0"/>
+		</configuration>
+		<configuration id="com.analog.crosscore.sru.component">
+			<sruConfiguration>
+				<sru-register-group>
+					<register name="pREG_DAI0_CLK6">0x3def7bde</register>
+					<register name="pREG_DAI0_EXTD_CLK6">0x00000000</register>
+					<register name="pREG_DAI0_CLK7">0x000003de</register>
+					<register name="pREG_DAI0_EXTD_CLK7">0x00000000</register>
+					<register name="pREG_DAI0_CLK2">0x3def7bde</register>
+					<register name="pREG_DAI0_CLK3">0x3def7bde</register>
+					<register name="pREG_DAI0_CLK4">0x3def7bde</register>
+					<register name="pREG_DAI0_CLK5">0x3def7bde</register>
+					<register name="pREG_DAI0_CLK0">0x252630c2</register>
+					<register name="pREG_DAI0_EXTD_CLK0">0x00000000</register>
+					<register name="pREG_DAI0_CLK1">0x3def7bde</register>
+					<register name="pREG_DAI0_EXTD_CLK1">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_CLK2">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_CLK3">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_CLK4">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_CLK5">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_DAT0">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_DAT1">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_DAT2">0x00000000</register>
+					<register name="pREG_DAI0_DAT3">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_DAT3">0x00000000</register>
+					<register name="pREG_DAI0_DAT4">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_DAT4">0x00000000</register>
+					<register name="pREG_DAI0_DAT5">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_DAT5">0x00000000</register>
+					<register name="pREG_DAI0_DAT6">0x00fbefbe</register>
+					<register name="pREG_DAI0_EXTD_DAT6">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_DAT7">0x00000000</register>
+					<register name="pREG_DAI0_DAT0">0x08144040</register>
+					<register name="pREG_DAI0_EXTD_DAT8">0x00000000</register>
+					<register name="pREG_DAI0_DAT1">0x0f38b289</register>
+					<register name="pREG_DAI0_DAT2">0x00000450</register>
+					<register name="pREG_DAI0_DAT7">0x00000000</register>
+					<register name="pREG_DAI0_DAT8">0x00000000</register>
+					<register name="pREG_DAI0_FS5">0x3def7bde</register>
+					<register name="pREG_DAI0_EXTD_FS0">0x00000000</register>
+					<register name="pREG_DAI0_FS6">0x000003de</register>
+					<register name="pREG_DAI0_EXTD_FS5">0x00000000</register>
+					<register name="pREG_DAI0_FS0">0x2736b4e3</register>
+					<register name="pREG_DAI0_EXTD_FS6">0x00000000</register>
+					<register name="pREG_DAI0_FS1">0x3def7bde</register>
+					<register name="pREG_DAI0_FS2">0x3def7bde</register>
+					<register name="pREG_DAI0_EXTD_FS4">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_FS1">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_FS2">0x00000000</register>
+					<register name="pREG_DAI0_FS4">0x000f7bde</register>
+					<register name="pREG_DAI0_PIN0">0x04c80a94</register>
+					<register name="pREG_DAI0_EXTD_PIN0">0x00000000</register>
+					<register name="pREG_DAI0_PIN3">0x03a714a3</register>
+					<register name="pREG_DAI0_PIN4">0x05694f9e</register>
+					<register name="pREG_DAI0_PIN1">0x04e84b96</register>
+					<register name="pREG_DAI0_PIN2">0x03668c98</register>
+					<register name="pREG_DAI0_PIN5">0x06891120</register>
+					<register name="pREG_DAI0_EXTD_PIN3">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_PIN4">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_PIN1">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_PIN2">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_MISC2">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_MISC1">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_MISC0">0x00000000</register>
+					<register name="pREG_DAI0_MISC0">0x3def7bde</register>
+					<register name="pREG_DAI0_MISC1">0x3def7bde</register>
+					<register name="pREG_DAI0_MISC2">0x000f7bde</register>
+					<register name="pREG_DAI0_PBEN1">0x1348d30f</register>
+					<register name="pREG_DAI0_PBEN2">0x1a5545d6</register>
+					<register name="pREG_DAI0_PBEN0">0x0e2482ca</register>
+					<register name="pREG_DAI0_EXTD_PBEN1">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_PBEN2">0x00000000</register>
+					<register name="pREG_DAI0_PBEN3">0x1d71f79b</register>
+					<register name="pREG_DAI0_EXTD_PBEN0">0x00000000</register>
+					<register name="pREG_DAI0_EXTD_PBEN3">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_CLK6">0x00000000</register>
+					<register name="pREG_DAI1_CLK0">0x252630c2</register>
+					<register name="pREG_DAI1_EXTD_CLK5">0x00000000</register>
+					<register name="pREG_DAI1_CLK1">0x3def7bde</register>
+					<register name="pREG_DAI1_CLK2">0x3def7bde</register>
+					<register name="pREG_DAI1_EXTD_CLK7">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_CLK2">0x00000000</register>
+					<register name="pREG_DAI1_CLK3">0x3def7bde</register>
+					<register name="pREG_DAI1_EXTD_CLK1">0x00000000</register>
+					<register name="pREG_DAI1_CLK4">0x3def7bde</register>
+					<register name="pREG_DAI1_EXTD_CLK4">0x00000000</register>
+					<register name="pREG_DAI1_CLK5">0x3def7bde</register>
+					<register name="pREG_DAI1_EXTD_CLK3">0x00000000</register>
+					<register name="pREG_DAI1_CLK6">0x3def7bde</register>
+					<register name="pREG_DAI1_CLK7">0x000003de</register>
+					<register name="pREG_DAI1_EXTD_CLK0">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_DAT1">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_DAT0">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_DAT7">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_DAT6">0x00000000</register>
+					<register name="pREG_DAI1_DAT8">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_DAT8">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_DAT3">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_DAT2">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_DAT5">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_DAT4">0x00000000</register>
+					<register name="pREG_DAI1_DAT1">0x0f38b289</register>
+					<register name="pREG_DAI1_DAT0">0x08144040</register>
+					<register name="pREG_DAI1_DAT3">0x00000000</register>
+					<register name="pREG_DAI1_DAT2">0x00000450</register>
+					<register name="pREG_DAI1_DAT5">0x00000000</register>
+					<register name="pREG_DAI1_DAT4">0x00000000</register>
+					<register name="pREG_DAI1_DAT7">0x00000000</register>
+					<register name="pREG_DAI1_DAT6">0x00fbefbe</register>
+					<register name="pREG_DAI1_FS2">0x3def7bde</register>
+					<register name="pREG_DAI1_FS1">0x3def7bde</register>
+					<register name="pREG_DAI1_FS0">0x2736b4e3</register>
+					<register name="pREG_DAI1_EXTD_FS6">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_FS5">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_FS4">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_FS2">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_FS1">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_FS0">0x00000000</register>
+					<register name="pREG_DAI1_FS6">0x000003de</register>
+					<register name="pREG_DAI1_FS5">0x3def7bde</register>
+					<register name="pREG_DAI1_FS4">0x000f7bde</register>
+					<register name="pREG_DAI1_EXTD_PIN3">0x00000000</register>
+					<register name="pREG_DAI1_PIN4">0x05694f9e</register>
+					<register name="pREG_DAI1_EXTD_PIN2">0x00000000</register>
+					<register name="pREG_DAI1_PIN5">0x06891120</register>
+					<register name="pREG_DAI1_EXTD_PIN1">0x00000000</register>
+					<register name="pREG_DAI1_PIN2">0x03668c98</register>
+					<register name="pREG_DAI1_EXTD_PIN0">0x00000000</register>
+					<register name="pREG_DAI1_PIN3">0x03a714a3</register>
+					<register name="pREG_DAI1_PIN0">0x04c80a94</register>
+					<register name="pREG_DAI1_PIN1">0x04e84b96</register>
+					<register name="pREG_DAI1_EXTD_PIN4">0x00000000</register>
+					<register name="pREG_DAI1_MISC1">0x3def7bde</register>
+					<register name="pREG_DAI1_EXTD_MISC2">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_MISC1">0x00000000</register>
+					<register name="pREG_DAI1_MISC2">0x000f7bde</register>
+					<register name="pREG_DAI1_MISC0">0x3def7bde</register>
+					<register name="pREG_DAI1_EXTD_MISC0">0x00000000</register>
+					<register name="pREG_DAI1_PBEN3">0x1d71f79b</register>
+					<register name="pREG_DAI1_PBEN2">0x1a5545d6</register>
+					<register name="pREG_DAI1_EXTD_PBEN0">0x00000000</register>
+					<register name="pREG_DAI1_EXTD_PBEN1">0x00000000</register>
+					<register name="pREG_DAI1_PBEN1">0x1348d30f</register>
+					<register name="pREG_DAI1_EXTD_PBEN2">0x00000000</register>
+					<register name="pREG_DAI1_PBEN0">0x0e2482ca</register>
+					<register name="pREG_DAI1_EXTD_PBEN3">0x00000000</register>
+				</sru-register-group>
+				<comments/>
+			</sruConfiguration>
+		</configuration>
+		<configuration id="com.analog.crosscore.addins.lsp.component.startup_lsp">
+			<startup-lsp-configuration>
+				<io>GDB I/O</io>
+				<gdbio>
+					<start-file-objects>
+						<object>crt1-boards%O%s</object>
+						<object>crti%O%s</object>
+						<object>crtbegin%O%s</object>
+						<object>_sharedvectors%O%s</object>
+						<object>_vectors%O%s</object>
+					</start-file-objects>
+					<end-file-objects>
+						<object>crtend%O%s</object>
+						<object>crtn%O%s</object>
+					</end-file-objects>
+					<default-placed-sections>
+						<default-placed-section>
+							<placed-section>.clib.bss</placed-section>
+							<mapped-with-section>.bss</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.clib.data</placed-section>
+							<mapped-with-section>.data</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.clib.literal</placed-section>
+							<mapped-with-section>.literal</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.clib.percpu.bss</placed-section>
+							<mapped-with-section>.bss</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.clib.percpu.data</placed-section>
+							<mapped-with-section>.data</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.clib.rodata</placed-section>
+							<mapped-with-section>.rodata</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.clib.text</placed-section>
+							<mapped-with-section>.text</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.dram0.bss</placed-section>
+							<mapped-with-section>.L1.bss</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.dram0.data</placed-section>
+							<mapped-with-section>.L1.data</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.dram0.rodata</placed-section>
+							<mapped-with-section>.L1.rodata</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.fft_twiddles.rodata</placed-section>
+							<mapped-with-section>.rodata</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.iram0.literal</placed-section>
+							<mapped-with-section>.L1.literal</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.iram0.text</placed-section>
+							<mapped-with-section>.L1.text</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.rtos.bss</placed-section>
+							<mapped-with-section>.bss</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.rtos.data</placed-section>
+							<mapped-with-section>.data</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.rtos.literal</placed-section>
+							<mapped-with-section>.literal</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.rtos.percpu.bss</placed-section>
+							<mapped-with-section>.bss</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.rtos.percpu.data</placed-section>
+							<mapped-with-section>.data</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.rtos.rodata</placed-section>
+							<mapped-with-section>.rodata</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.rtos.text</placed-section>
+							<mapped-with-section>.text</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.sram0.bss</placed-section>
+							<mapped-with-section>.L2.bss</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.sram0.data</placed-section>
+							<mapped-with-section>.L2.data</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.sram0.literal</placed-section>
+							<mapped-with-section>.L2.literal</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.sram0.rodata</placed-section>
+							<mapped-with-section>.L2.rodata</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>.sram0.text</placed-section>
+							<mapped-with-section>.L2.text</mapped-with-section>
+						</default-placed-section>
+						<default-placed-section>
+							<placed-section>__llvm_prf_names</placed-section>
+							<mapped-with-section>.data</mapped-with-section>
+						</default-placed-section>
+					</default-placed-sections>
+					<memory-segments>
+						<memory-segment>
+							<name>L2_ram_arm</name>
+							<start-address>0x20000000</start-address>
+							<end-address>0x2001ffff</end-address>
+							<location>L2_sram</location>
+							<access-kernel-mode>R</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>NC</caching-properties>
+							<sharing>SS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>1</bufferable>
+							<memory-sections/>
+						</memory-segment>
+						<memory-segment>
+							<name>L2_ram_fx</name>
+							<start-address>0x20020000</start-address>
+							<end-address>0x201fdfff</end-address>
+							<location>L2_sram</location>
+							<access-kernel-mode>RWX</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>WB</caching-properties>
+							<sharing>NS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>0</bufferable>
+							<memory-sections>
+								<memory-section>.icc.data</memory-section>
+								<memory-section>.L2.rodata</memory-section>
+								<memory-section>.rodata</memory-section>
+								<memory-section>.L2.literal</memory-section>
+								<memory-section>.literal</memory-section>
+								<memory-section>.L2.text</memory-section>
+								<memory-section>.text</memory-section>
+								<memory-section>.L2.data</memory-section>
+								<memory-section>.data</memory-section>
+								<memory-section>.L2.noload</memory-section>
+								<memory-section>.noload</memory-section>
+								<memory-section>.L2.bss</memory-section>
+								<memory-section>.bss</memory-section>
+							</memory-sections>
+						</memory-segment>
+						<memory-segment>
+							<name>L2_boot_noload</name>
+							<start-address>0x201fe000</start-address>
+							<end-address>0x201fffff</end-address>
+							<location>L2_sram</location>
+							<access-kernel-mode>RWX</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>WB</caching-properties>
+							<sharing>NS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>0</bufferable>
+							<memory-sections>
+								<memory-section>.L2_boot.noload</memory-section>
+							</memory-sections>
+						</memory-segment>
+						<memory-segment>
+							<name>L2_boot_code_0</name>
+							<start-address>0x20200000</start-address>
+							<end-address>0x2020ffff</end-address>
+							<location>L2_boot_rom</location>
+							<access-kernel-mode>RX</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>WBNA</caching-properties>
+							<sharing>NS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>0</bufferable>
+							<memory-sections/>
+						</memory-segment>
+						<memory-segment>
+							<name>L2_boot_code_1</name>
+							<start-address>0x20210000</start-address>
+							<end-address>0x2021ffff</end-address>
+							<location>L2_boot_rom</location>
+							<access-kernel-mode>RX</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>WBNA</caching-properties>
+							<sharing>NS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>0</bufferable>
+							<memory-sections/>
+						</memory-segment>
+						<memory-segment>
+							<name>OTP_data</name>
+							<start-address>0x24000000</start-address>
+							<end-address>0x24001fff</end-address>
+							<location>OTP</location>
+							<access-kernel-mode>RW</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>DEV</caching-properties>
+							<sharing>SS</sharing>
+							<interruptible>0</interruptible>
+							<bufferable>0</bufferable>
+							<memory-sections/>
+						</memory-segment>
+						<memory-segment>
+							<name>L1_data_mp</name>
+							<start-address>0x28240000</start-address>
+							<end-address>0x282bffff</end-address>
+							<location>L1_dram_mp</location>
+							<access-kernel-mode>RW</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>NC</caching-properties>
+							<sharing>SS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>1</bufferable>
+							<memory-sections/>
+						</memory-segment>
+						<memory-segment>
+							<name>L1_code_mp</name>
+							<start-address>0x282c0000</start-address>
+							<end-address>0x282cffff</end-address>
+							<location>L1_iram_mp</location>
+							<access-kernel-mode>RWX</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>NC</caching-properties>
+							<sharing>SS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>1</bufferable>
+							<memory-sections/>
+						</memory-segment>
+						<memory-segment>
+							<name>L2_boot_code_arm</name>
+							<start-address>0x28a40000</start-address>
+							<end-address>0x28a4ffff</end-address>
+							<location>L2_boot_rom_arm</location>
+							<access-kernel-mode/>
+							<access-user-mode/>
+							<caching-properties>NC</caching-properties>
+							<sharing>NS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>0</bufferable>
+							<memory-sections/>
+						</memory-segment>
+						<memory-segment>
+							<name>L1_code_arm</name>
+							<start-address>0x28a80000</start-address>
+							<end-address>0x28a8ffff</end-address>
+							<location>L1_iram_arm</location>
+							<access-kernel-mode/>
+							<access-user-mode/>
+							<caching-properties>NC</caching-properties>
+							<sharing>SS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>1</bufferable>
+							<memory-sections/>
+						</memory-segment>
+						<memory-segment>
+							<name>L1_data_arm</name>
+							<start-address>0x28ac0000</start-address>
+							<end-address>0x28adffff</end-address>
+							<location>L1_dram_arm</location>
+							<access-kernel-mode>R</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>NC</caching-properties>
+							<sharing>SS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>1</bufferable>
+							<memory-sections/>
+						</memory-segment>
+						<memory-segment>
+							<name>L1_data</name>
+							<start-address>0x2f780000</start-address>
+							<end-address>0x2f7fffff</end-address>
+							<location>L1_dram</location>
+							<access-kernel-mode>RW</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>NC</caching-properties>
+							<sharing>NS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>1</bufferable>
+							<memory-sections>
+								<memory-section>.L1.rodata</memory-section>
+								<memory-section>.L1.data</memory-section>
+								<memory-section>.L1.noload</memory-section>
+								<memory-section>.L1.bss</memory-section>
+							</memory-sections>
+						</memory-segment>
+						<memory-segment>
+							<name>L1_code</name>
+							<start-address>0x2f800000</start-address>
+							<end-address>0x2f80ffff</end-address>
+							<location>L1_iram</location>
+							<access-kernel-mode>RWX</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>NC</caching-properties>
+							<sharing>NS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>1</bufferable>
+							<memory-sections>
+								<memory-section>.DispatchVector.text</memory-section>
+								<memory-section>.ResetHandler.literal</memory-section>
+								<memory-section>.ResetHandler.text</memory-section>
+								<memory-section>.DispatchHandler.literal</memory-section>
+								<memory-section>.DispatchHandler.text</memory-section>
+								<memory-section>.ResetVector.text</memory-section>
+								<memory-section>.L1.literal</memory-section>
+								<memory-section>.L1.text</memory-section>
+							</memory-sections>
+						</memory-segment>
+						<memory-segment>
+							<name>System_mmr</name>
+							<start-address>0x30000000</start-address>
+							<end-address>0x3fffffff</end-address>
+							<location>Sys_mmr</location>
+							<access-kernel-mode>RW</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>DEV</caching-properties>
+							<sharing>SS</sharing>
+							<interruptible>0</interruptible>
+							<bufferable>0</bufferable>
+							<memory-sections/>
+						</memory-segment>
+						<memory-segment>
+							<name>SPI_data</name>
+							<start-address>0x60000000</start-address>
+							<end-address>0x7fffffff</end-address>
+							<location>SPI</location>
+							<access-kernel-mode>RWX</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>WTWA</caching-properties>
+							<sharing>NS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>0</bufferable>
+							<memory-sections/>
+						</memory-segment>
+						<memory-segment>
+							<name>L3_ram_fx</name>
+							<start-address>0x80000000</start-address>
+							<end-address>0x8fffffff</end-address>
+							<location>L3_sdram</location>
+							<access-kernel-mode>RWX</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>WB</caching-properties>
+							<sharing>NS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>0</bufferable>
+							<memory-sections>
+								<memory-section>.L3.rodata</memory-section>
+								<memory-section>.L3.literal</memory-section>
+								<memory-section>.L3.text</memory-section>
+								<memory-section>.L3.data</memory-section>
+								<memory-section>.L3.noload</memory-section>
+								<memory-section>.L3.bss</memory-section>
+							</memory-sections>
+						</memory-segment>
+						<memory-segment>
+							<name>L3_ram_arm</name>
+							<start-address>0x90000000</start-address>
+							<end-address>0x9fffffff</end-address>
+							<location>L3_sdram</location>
+							<access-kernel-mode>R</access-kernel-mode>
+							<access-user-mode/>
+							<caching-properties>NC</caching-properties>
+							<sharing>SS</sharing>
+							<interruptible>1</interruptible>
+							<bufferable>1</bufferable>
+							<memory-sections/>
+						</memory-segment>
+					</memory-segments>
+					<memory-locations>
+						<memory-location>
+							<name>L2_sram</name>
+							<start-address>0x20000000</start-address>
+							<end-address>0x201fffff</end-address>
+							<size>0x200000</size>
+							<type>sysram</type>
+							<attributes>executable, writable</attributes>
+						</memory-location>
+						<memory-location>
+							<name>L2_boot_rom</name>
+							<start-address>0x20200000</start-address>
+							<end-address>0x2021ffff</end-address>
+							<size>0x20000</size>
+							<type>sysrom</type>
+							<attributes>executable</attributes>
+						</memory-location>
+						<memory-location>
+							<name>OTP</name>
+							<start-address>0x24000000</start-address>
+							<end-address>0x24001fff</end-address>
+							<size>0x2000</size>
+							<type>sysram</type>
+							<attributes>writable</attributes>
+						</memory-location>
+						<memory-location>
+							<name>L1_dram_mp</name>
+							<start-address>0x28240000</start-address>
+							<end-address>0x282bffff</end-address>
+							<size>0x80000</size>
+							<type>sysram</type>
+							<attributes>writable</attributes>
+						</memory-location>
+						<memory-location>
+							<name>L1_iram_mp</name>
+							<start-address>0x282c0000</start-address>
+							<end-address>0x282cffff</end-address>
+							<size>0x10000</size>
+							<type>sysram</type>
+							<attributes>executable, writable</attributes>
+						</memory-location>
+						<memory-location>
+							<name>L2_boot_rom_arm</name>
+							<start-address>0x28a40000</start-address>
+							<end-address>0x28a4ffff</end-address>
+							<size>0x10000</size>
+							<type>sysrom</type>
+							<attributes/>
+						</memory-location>
+						<memory-location>
+							<name>L1_iram_arm</name>
+							<start-address>0x28a80000</start-address>
+							<end-address>0x28a8ffff</end-address>
+							<size>0x10000</size>
+							<type>sysram</type>
+							<attributes>writable</attributes>
+						</memory-location>
+						<memory-location>
+							<name>L1_dram_arm</name>
+							<start-address>0x28ac0000</start-address>
+							<end-address>0x28adffff</end-address>
+							<size>0x20000</size>
+							<type>sysram</type>
+							<attributes>writable</attributes>
+						</memory-location>
+						<memory-location>
+							<name>L1_dram</name>
+							<start-address>0x2f780000</start-address>
+							<end-address>0x2f7fffff</end-address>
+							<size>0x80000</size>
+							<type>dataRam</type>
+							<attributes>writable</attributes>
+						</memory-location>
+						<memory-location>
+							<name>L1_iram</name>
+							<start-address>0x2f800000</start-address>
+							<end-address>0x2f80ffff</end-address>
+							<size>0x10000</size>
+							<type>instRam</type>
+							<attributes>executable, writable</attributes>
+						</memory-location>
+						<memory-location>
+							<name>Sys_mmr</name>
+							<start-address>0x30000000</start-address>
+							<end-address>0x3fffffff</end-address>
+							<size>0x10000000</size>
+							<type>sysram</type>
+							<attributes>writable</attributes>
+						</memory-location>
+						<memory-location>
+							<name>SPI</name>
+							<start-address>0x60000000</start-address>
+							<end-address>0x7fffffff</end-address>
+							<size>0x20000000</size>
+							<type>sysram</type>
+							<attributes>executable, writable</attributes>
+						</memory-location>
+						<memory-location>
+							<name>L3_sdram</name>
+							<start-address>0x80000000</start-address>
+							<end-address>0xbfffffff</end-address>
+							<size>0x40000000</size>
+							<type>sysram</type>
+							<attributes>executable, writable</attributes>
+						</memory-location>
+					</memory-locations>
+					<program-entry>_ResetHandler</program-entry>
+					<runtime-init-storage-segment>Disabled</runtime-init-storage-segment>
+					<stack-segment>L1_data</stack-segment>
+					<heap-segment>L1_data</heap-segment>
+					<libraries>
+						<library>dsp</library>
+						<library>drv</library>
+						<library>ssl</library>
+						<library>osal_noos</library>
+						<library>rtadi</library>
+						<library>m</library>
+						<library>c</library>
+						<library>gdbio</library>
+						<library>c</library>
+						<library>handler-reset</library>
+						<library>handlers-board</library>
+						<library>gdbio</library>
+						<library>hal</library>
+						<library>c</library>
+					</libraries>
+					<noload-memory-sections>.noload .L1.noload .L2.noload .L2_boot.noload .L3.noload</noload-memory-sections>
+					<out-of-range-accesses>Out-of-Range Accesses are not Protected</out-of-range-accesses>
+				</gdbio>
+			</startup-lsp-configuration>
+		</configuration>
+	</configurations>
+</root>
