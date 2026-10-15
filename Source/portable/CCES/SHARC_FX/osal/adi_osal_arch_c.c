@@ -31,6 +31,8 @@
 #include "adi_osal_arch_internal.h"
 #include "osal_common.h"
 #include "dispatched_interrupts.h"
+#include <xtensa/tie/xt_core.h>
+#include <xtensa/tie/xt_pdxn_scalarfp.h>
 
 /*=============  D E F I N E S  =============*/
 

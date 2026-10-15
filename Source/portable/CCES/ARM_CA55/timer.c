@@ -44,7 +44,7 @@ static void tickHandler(uint32_t id, void *param);
 #define ADI_CFG_GP_TMR_NUM 0
 #endif
 
-#if !defined (__ADSPSC598_FAMILY__)
+#if !defined (__ADSPSC598_FAMILY__) && !defined (__ADSPSC846_FAMILY__)
 #error "This processor family is not supported"
 #endif
 

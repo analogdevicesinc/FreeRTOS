@@ -28,6 +28,9 @@
 #include "adi_osal_arch_internal.h"
 #include "dispatched_interrupts.h"
 #include "services/int/adi_sec.h"
+#include "xtensa_api.h"
+#include <xtensa/tie/xt_core.h>
+#include <xtensa/tie/xt_pdxn_scalarfp.h>
 
 /*=============  D E F I N E S  =============*/
 
